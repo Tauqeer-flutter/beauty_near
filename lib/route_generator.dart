@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'screens/about_us_screen.dart';
+import 'screens/account_settings_screen.dart';
 import 'screens/bot_nav_bar_page.dart';
-import 'screens/card_details_screen.dart';
 import 'screens/chat_screen.dart';
-import 'screens/gender_service_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/languages_screen.dart';
 import 'screens/location_screen.dart';
 import 'screens/login_screen.dart';
-import 'screens/my_booking_detail_screen.dart';
 import 'screens/my_booking_details_screen.dart';
 import 'screens/my_booking_screen.dart';
 import 'screens/notification_screen.dart';
-import 'screens/otp_screen.dart';
-import 'screens/payment_method_screen.dart';
 import 'screens/personal_information_screen.dart';
 import 'screens/privacy_policy_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/support_screen.dart';
-import 'screens/terms_and_condition_screen.dart';
-import 'screens/upload_image_screen.dart';
+import 'screens/terms_and_conditions_screen.dart';
 
 const String splashScreen = '/splash_screen';
 const String homeScreen = '/home_screen';
