@@ -27,21 +27,30 @@ class BotNavPage extends StatelessWidget {
             bottom: context.bottomNotch > 0
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
-            child: Center(
-              child: Transform.rotate(
-                angle: pi / 4,
-                child: Container(
-                  width: 60.h,
-                  height: 60.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColors.kPrimaryColor,
-                      width: 1.h,
+            child: ListenableBuilder(
+              listenable: viewModel.focusNode,
+              builder: (context, child) {
+                if (viewModel.focusNode.hasFocus) {
+                  return SizedBox.shrink();
+                }
+                return child!;
+              },
+              child: Center(
+                child: Transform.rotate(
+                  angle: pi / 4,
+                  child: Container(
+                    width: 60.h,
+                    height: 60.h,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.kPrimaryColor,
+                        width: 1.h,
+                      ),
+                      gradient: AppColors.primaryGradient,
+                      borderRadius: BorderRadius.circular(14.r),
                     ),
-                    gradient: AppColors.primaryGradient,
-                    borderRadius: BorderRadius.circular(14.r),
+                    child: Icon(Icons.close, color: Colors.white, size: 24.sp),
                   ),
-                  child: Icon(Icons.close, color: Colors.white, size: 24.sp),
                 ),
               ),
             ),

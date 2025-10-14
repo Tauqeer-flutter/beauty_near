@@ -69,25 +69,47 @@ class AppTheme {
           ),
         ),
       ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 13.h),
+          textStyle: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              color: AppColors.kPrimaryColor,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          side: BorderSide(
+            color: AppColors.kPrimaryColor,
+            width: 1.sp,
+          ),
+          foregroundColor: AppColors.kPrimaryColor,
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(48.r),
+          ),
+        ),
+      ),
       inputDecorationTheme: InputDecorationTheme(
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         filled: true,
         fillColor: Colors.white,
         errorStyle: TextStyle(fontSize: 11.sp, overflow: TextOverflow.visible),
         errorMaxLines: 2,
-
         hintStyle: TextStyle(fontSize: 14.sp, color: AppColors.greyColor),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(38.r),
-          borderSide: BorderSide(color: AppColors.strokeColor),
+          borderSide: BorderSide(color: AppColors.strokeColor, width: 1),
         ),
+        prefixIconColor: AppColors.iconColor,
+        suffixIconColor: AppColors.iconColor,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(38.r),
-          borderSide: BorderSide(color: AppColors.strokeColor),
+          borderSide: BorderSide(color: AppColors.strokeColor, width: 1),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(38.r),
-          borderSide: BorderSide(color: AppColors.strokeColor),
+          borderSide: BorderSide(color: AppColors.strokeColor, width: 1),
         ),
       ),
     );
@@ -163,7 +185,8 @@ class AppTheme {
         fillColor: Colors.white,
         errorStyle: TextStyle(fontSize: 11.sp, overflow: TextOverflow.visible),
         errorMaxLines: 2,
-
+        prefixIconColor: AppColors.iconColor,
+        suffixIconColor: AppColors.iconColor,
         hintStyle: TextStyle(fontSize: 14.sp, color: AppColors.greyColor),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(38.r),

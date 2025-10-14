@@ -1,3 +1,4 @@
+import 'package:beauty_near/view_models/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,6 +21,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
         ChangeNotifierProvider(create: (context) => BotNavViewModel()),
+        ChangeNotifierProvider(create: (context) => HomeViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),
