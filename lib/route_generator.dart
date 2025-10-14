@@ -18,9 +18,9 @@ import 'screens/splash_screen.dart';
 import 'screens/support_screen.dart';
 import 'screens/terms_and_conditions_screen.dart';
 
-const String splashScreen = '/splash_screen';
+const String splashScreen = '/';
 const String homeScreen = '/home_screen';
-const String loginScreen = '/';
+const String loginScreen = '/login';
 const String signupScreen = '/signup_screen';
 const String locationScreen = '/location';
 const String botNavBar = '/bot_nav_bar';
