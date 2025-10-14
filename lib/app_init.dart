@@ -1,3 +1,4 @@
+import 'package:beauty_near/screens/barbar_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +15,9 @@ class AppInit extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Beauty Points',
-      initialRoute: loginScreen,
-      onGenerateRoute: RouteGenerator.generateRoute,
+      home: BarbarDetailScreen(),
+      // initialRoute: loginScreen,
+      // onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

@@ -1,3 +1,6 @@
+import 'package:beauty_near/screens/barbar_detail_screen.dart';
+import 'package:beauty_near/screens/create_booking_form_screen.dart';
+import 'package:beauty_near/screens/create_booking_gender_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/about_us_screen.dart';
@@ -35,6 +38,9 @@ const String privacyPolicy = '/privacy_policy';
 const String aboutUs = '/about_us';
 const String support = '/support';
 const String notification = '/notification';
+const String createBookingGender = '/create_booking';
+const String createBookingFormScreen = '/create_booking_form_screen';
+const String barbarDetailScreen = '/barbar_detail_screen';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -126,6 +132,21 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: chatScreen),
           builder: (_) => ChatScreen(),
+        );
+      case createBookingGender:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: createBookingGender),
+          builder: (_) => CreateBookingGenderScreen(),
+        );
+      case createBookingFormScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: createBookingGender),
+          builder: (_) => CreateBookingFormScreen(),
+        );
+      case barbarDetailScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: barbarDetailScreen),
+          builder: (_) => BarbarDetailScreen(),
         );
       default:
         return _errorRoute();

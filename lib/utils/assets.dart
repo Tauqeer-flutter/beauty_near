@@ -6,6 +6,7 @@ class PngAssets {
   static const String map = '${_assets}map.png';
   static const String person = '${_assets}person.png';
   static const String personEdit = '${_assets}person_edit.png';
+  static const String bookingImage = '${_assets}booking_image.png';
 }
 
 class SvgAssets {
