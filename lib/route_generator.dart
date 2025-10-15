@@ -6,6 +6,7 @@ import 'package:beauty_near/screens/pay_in_cash.dart';
 import 'package:beauty_near/screens/payment_method.dart';
 import 'package:beauty_near/screens/select_services_order_summary.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/about_us_screen.dart';
 import 'screens/account_settings_screen.dart';
@@ -24,6 +25,7 @@ import 'screens/signup_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/support_screen.dart';
 import 'screens/terms_and_conditions_screen.dart';
+import 'view_models/bot_nav_view_model.dart';
 
 const String splashScreen = '/';
 const String homeScreen = '/home_screen';
@@ -63,7 +65,10 @@ class RouteGenerator {
       case BotNavPage.routeName:
         return MaterialPageRoute(
           settings: RouteSettings(name: BotNavPage.routeName),
-          builder: (_) => BotNavPage(),
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => BotNavViewModel(),
+            child: BotNavPage(),
+          ),
         );
       case homeScreen:
         return MaterialPageRoute(

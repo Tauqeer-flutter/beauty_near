@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 
 import 'app_init.dart';
 import 'utils/screen_size.dart';
-import 'view_models/bot_nav_view_model.dart';
 import 'view_models/theme_view_model.dart';
 
 Future<void> main() async {
@@ -16,12 +15,10 @@ Future<void> main() async {
   await GoogleFonts.pendingFonts([GoogleFonts.montserratTextTheme()]);
   await ScreenUtil.ensureScreenSize();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
-        ChangeNotifierProvider(create: (context) => BotNavViewModel()),
         ChangeNotifierProvider(create: (context) => HomeViewModel()),
         ChangeNotifierProvider(create: (context) => CreateBookingViewModel()),
       ],
