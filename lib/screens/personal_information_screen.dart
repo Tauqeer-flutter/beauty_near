@@ -61,8 +61,6 @@ class PersonalInformationScreen extends StatelessWidget {
                       decoration: BoxDecoration(shape: BoxShape.circle),
                       child: CircleAvatar(
                         radius: 38.r,
-                        backgroundColor: Colors.pink,
-                        // You can replace with actual image:
                         backgroundImage: AssetImage(PngAssets.person),
                       ),
                     ),

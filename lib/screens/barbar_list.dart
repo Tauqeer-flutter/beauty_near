@@ -1,14 +1,13 @@
-import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
-import 'package:beauty_near/view_models/home_view_model.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:beauty_near/widgets/detailed_service_provider_card.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
+
+import '../widgets/custom_search_bar.dart';
 
 class BarbarList extends StatelessWidget {
   const BarbarList({super.key});
@@ -23,13 +22,7 @@ class BarbarList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 30.h),
-            TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.search_normal),
-                hintText: "Search",
-                suffixIcon: Icon(Iconsax.sort),
-              ),
-            ),
+            CustomSearchBar(),
             SizedBox(height: 20.h),
             _buildServiceFilter(),
             SizedBox(height: 30.h),
@@ -44,7 +37,10 @@ class BarbarList extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return DetailedServiceProviderCard();
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 15.h),
+                    child: DetailedServiceProviderCard(),
+                  );
                 },
               ),
             ),

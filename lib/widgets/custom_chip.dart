@@ -24,6 +24,7 @@ class CustomChip extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
+          height: 0,
           color: foregroundColor ?? AppColors.kPrimaryColor,
           fontSize: 10.sp,
           fontWeight: FontWeight.w400,

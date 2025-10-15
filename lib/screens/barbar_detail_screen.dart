@@ -2,16 +2,17 @@ import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/screen_size.dart';
+import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/widgets/bottom%20sheet/review_bottom_sheet.dart';
 import 'package:beauty_near/widgets/reviews_card.dart';
 import 'package:beauty_near/widgets/service_card.dart';
-import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
-import '../utils/color_constant.dart';
 import 'package:provider/provider.dart';
+
+import '../utils/color_constant.dart';
 
 class BarbarDetailScreen extends StatelessWidget {
   BarbarDetailScreen({super.key});
@@ -174,7 +175,7 @@ class BarbarDetailScreen extends StatelessWidget {
                               SizedBox(height: 20.h),
                               Container(
                                 padding: EdgeInsets.all(16),
-                                height: 68.h,
+                                // height: 68.h,
                                 decoration: BoxDecoration(
                                   color: AppColors.greenColor.withValues(
                                     alpha: 0.1,
@@ -321,7 +322,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                 // Reviews Tab - Rating Summary and List View
                                 Container(
                                   padding: EdgeInsets.all(10),
-                                  height: 146.h,
+                                  // height: 146.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(8.r),
