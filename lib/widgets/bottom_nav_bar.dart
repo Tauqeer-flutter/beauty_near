@@ -47,11 +47,11 @@ class BottomNavBar extends StatelessWidget {
                   label: 'Bookings',
                   index: 1,
                 ),
-                SizedBox(width: 60.h),
+                SizedBox(width: 50.h),
                 _buildNavItem(
-                  icon: Iconsax.wallet_2,
-                  activeIcon: Iconsax.wallet_25,
-                  label: 'E-Wallet',
+                  icon: Iconsax.notification_bing,
+                  activeIcon: Iconsax.notification_bing5,
+                  label: 'Notification',
                   index: 2,
                 ),
                 _buildNavItem(
@@ -75,44 +75,48 @@ class BottomNavBar extends StatelessWidget {
     required int index,
   }) {
     final isSelected = currentIndex == index;
-    return GestureDetector(
-      onTap: () => onTap(index),
-      behavior: HitTestBehavior.opaque,
-      child: AnimatedContainer(
-        height: 80.h,
-        width: 65.w,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                left: index == 2 && isSelected ? 25.w : 0,
-                right: index == 3 && isSelected ? 25.w : 0,
-              ),
-              child: Icon(
-                isSelected ? activeIcon : icon,
-                color: isSelected
-                    ? AppColors.kPrimaryColor
-                    : AppColors.greyColor,
-                size: 24.h,
-              ),
-            ),
-            if (isSelected) ...{
-              SizedBox(height: 2.h),
-              Text(
-                label,
-                style: TextStyle(
-                  // height: 1.6.h,
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.kPrimaryColor,
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => onTap(index),
+        behavior: HitTestBehavior.opaque,
+        child: AnimatedContainer(
+          height: 80.h,
+          // width: 65.w,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  // left: index == 2 && isSelected ? 25.w : 0,
+                  right: index == 3 && isSelected ? 20.w : 0,
+                ),
+                child: Icon(
+                  isSelected ? activeIcon : icon,
+                  color: isSelected
+                      ? AppColors.kPrimaryColor
+                      : AppColors.greyColor,
+                  size: 24.h,
                 ),
               ),
-            },
-          ],
+              if (isSelected) ...{
+                SizedBox(height: 2.h),
+                Text(
+                  label,
+                  overflow: TextOverflow.clip,
+                  style: TextStyle(
+                    // height: 1.6.h,
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.kPrimaryColor,
+                  ),
+                ),
+              },
+            ],
+          ),
         ),
       ),
     );

@@ -3,13 +3,12 @@ import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
-import '../view_models/bot_nav_view_model.dart';
 import '../view_models/home_view_model.dart';
+import '../widgets/custom_search_bar.dart';
 import '../widgets/detailed_service_provider_card.dart';
 import '../widgets/home_carousel_widget.dart';
 import '../widgets/link_text.dart';
@@ -66,7 +65,10 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 27.h),
-          _buildSearchBar(context),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: CustomSearchBar(),
+          ),
           SizedBox(height: 30.h),
           HomeCarouselWidget(),
           SizedBox(height: 30.h),
@@ -151,35 +153,6 @@ class HomeScreen extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-
-  Widget _buildSearchBar(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: TextFormField(
-        focusNode: Provider.of<BotNavViewModel>(context).focusNode,
-        decoration: InputDecoration(
-          prefixIcon: Icon(Iconsax.search_normal),
-          hintText: 'Search',
-          hintStyle: TextStyle(color: AppColors.iconColor, fontSize: 16.sp),
-          suffixIcon: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                height: 24.h,
-                width: 2.w,
-                child: VerticalDivider(
-                  thickness: 1.w,
-                  color: AppColors.iconColor,
-                ),
-              ),
-              IconButton(onPressed: () {}, icon: Icon(Iconsax.sort)),
-              SizedBox(width: 5.w),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
