@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:provider/provider.dart';
 
 import '../utils/color_constant.dart';
-import '../view_models/bot_nav_view_model.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key});
@@ -12,7 +10,6 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      focusNode: Provider.of<BotNavViewModel>(context).focusNode,
       decoration: InputDecoration(
         prefixIcon: Icon(Iconsax.search_normal),
         hintText: 'Search',
