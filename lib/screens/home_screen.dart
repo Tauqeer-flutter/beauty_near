@@ -1,3 +1,4 @@
+import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
@@ -75,7 +76,9 @@ class HomeScreen extends StatelessWidget {
           _buildSectionHeading(
             title: 'Top Rated Barbers',
             link: 'See All',
-            onLinkTap: () {},
+            onLinkTap: () {
+              Navigator.pushNamed(context, barbarList);
+            },
           ),
           SizedBox(height: 15.h),
           SizedBox(
