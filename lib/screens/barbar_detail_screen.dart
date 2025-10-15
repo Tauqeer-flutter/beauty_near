@@ -1,6 +1,5 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/assets.dart';
-import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/screen_size.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/widgets/reviews_card.dart';
@@ -12,6 +11,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/color_constant.dart';
+import '../widgets/bottom sheet/review_bottom_sheet.dart';
 
 class BarbarDetailScreen extends StatelessWidget {
   BarbarDetailScreen({super.key});
@@ -143,11 +143,16 @@ class BarbarDetailScreen extends StatelessWidget {
                                       color: Color(0XffDBA300),
                                     ),
                                     SizedBox(width: 5.h),
-                                    Text(
-                                      "4.8 (145 Reviews)",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
+                                    GestureDetector(
+                                      onTap: () {
+                                        showReviewBottomSheet(context);
+                                      },
+                                      child: Text(
+                                        "4.8 (145 Reviews)",
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -225,7 +230,8 @@ class BarbarDetailScreen extends StatelessWidget {
                                                 ? AppColors.kPrimaryGradient
                                                 : null,
 
-                                            color: viewModel.selectedTabIndex == 0
+                                            color:
+                                                viewModel.selectedTabIndex == 0
                                                 ? null
                                                 : Colors.white,
                                             borderRadius: BorderRadius.circular(
@@ -239,10 +245,12 @@ class BarbarDetailScreen extends StatelessWidget {
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.w400,
                                                 color:
-                                                    viewModel.selectedTabIndex ==
+                                                    viewModel
+                                                            .selectedTabIndex ==
                                                         0
                                                     ? Colors.white
-                                                    : AppColors.textPrimaryColor,
+                                                    : AppColors
+                                                          .textPrimaryColor,
                                               ),
                                             ),
                                           ),
@@ -263,7 +271,8 @@ class BarbarDetailScreen extends StatelessWidget {
                                                 ? AppColors.kPrimaryGradient
                                                 : null,
 
-                                            color: viewModel.selectedTabIndex == 1
+                                            color:
+                                                viewModel.selectedTabIndex == 1
                                                 ? null
                                                 : Colors.white,
                                             borderRadius: BorderRadius.circular(
@@ -275,10 +284,12 @@ class BarbarDetailScreen extends StatelessWidget {
                                               "Reviews",
                                               style: TextStyle(
                                                 color:
-                                                    viewModel.selectedTabIndex ==
+                                                    viewModel
+                                                            .selectedTabIndex ==
                                                         1
                                                     ? Colors.white
-                                                    : AppColors.textPrimaryColor,
+                                                    : AppColors
+                                                          .textPrimaryColor,
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.w400,
                                               ),
@@ -292,34 +303,25 @@ class BarbarDetailScreen extends StatelessWidget {
                                 SizedBox(height: 20.h),
                                 // Conditional content based on selected tab
                                 if (viewModel.selectedTabIndex == 0) ...[
-                                  // Services Tab - Grid View
-                                  GridView.builder(
-                                    shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    padding: EdgeInsetsGeometry.only(top: 20.h),
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount:
-                                              screenSize == ScreenSize.large ||
-                                                  screenSize == ScreenSize.medium
-                                              ? 3
-                                              : 2,
-                                          crossAxisSpacing: 15.w,
-                                          mainAxisSpacing: 15.h,
-                                        ),
-                                    itemCount: viewModel.services.length,
-                                    itemBuilder: (context, index) {
-                                      final service = viewModel.services[index];
-                                      return ServiceCard(
-                                        service: service,
-                                        isSelected: viewModel.isServiceSelected(
-                                          service,
-                                        ),
-                                        onTap: () => viewModel
-                                            .toggleServiceSelection(service),
-                                      );
-                                    },
+                                  SingleChildScrollView(
+                                    child: Wrap(
+                                      spacing: 10.0, // Horizontal spacing
+                                      runSpacing: 10.0, // Vertical spacing
+                                      children: List.generate(8, (index) {
+                                        final service =
+                                            viewModel.services[index];
+                                        return ServiceCard(
+                                          service: service,
+                                          isSelected: viewModel
+                                              .isServiceSelected(service),
+                                          onTap: () => viewModel
+                                              .toggleServiceSelection(service),
+                                        );
+                                      }),
+                                    ),
                                   ),
+
+                                  // Services Tab - Grid View
                                   SizedBox(height: 30.h),
 
                                   // Selected Services Section - Only visible on Services tab
@@ -413,7 +415,9 @@ class BarbarDetailScreen extends StatelessWidget {
                           ),
                           viewModel.selectedTabIndex == 0
                               ? Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 20.w,
+                                  ),
                                   color: Colors.white,
                                   child: Column(
                                     children: [
@@ -472,13 +476,13 @@ class BarbarDetailScreen extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               gradient:
                                                   AppColors.kPrimaryGradient,
-                                              borderRadius: BorderRadius.circular(
-                                                8.r,
-                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.r),
                                             ),
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                   "Total",

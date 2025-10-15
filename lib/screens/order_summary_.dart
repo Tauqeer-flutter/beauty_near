@@ -1,16 +1,18 @@
 import 'package:beauty_near/route_generator.dart';
+import 'package:beauty_near/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
+import 'package:beauty_near/widgets/dialog%20box/success_dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SelectServicesOrderSummary extends StatelessWidget {
-  const SelectServicesOrderSummary({super.key});
+class OrderSummary extends StatelessWidget {
+  const OrderSummary({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Select Services"),
+      appBar: CustomAppBar(title: "Order Summary"),
       body: Padding(
         padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
         child: Column(
@@ -26,16 +28,15 @@ class SelectServicesOrderSummary extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Order Summary",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(height: 25.h),
                   orderSummaryRow(serviceName: "Haircut", price: "\$20"),
                   SizedBox(height: 20.h),
                   orderSummaryRow(serviceName: "Shaving", price: "\$20"),
                   SizedBox(height: 20.h),
                   orderSummaryRow(serviceName: "Massage", price: "\$20"),
+                  SizedBox(height: 20.h),
+                  orderSummaryRow(serviceName: "Platform Fees", price: "\$20"),
+                  SizedBox(height: 20.h),
+                  orderSummaryRow(serviceName: "Taxes", price: "\$20"),
                   SizedBox(height: 20.h),
                   Divider(color: AppColors.greyColor),
                   SizedBox(height: 10.h),
@@ -78,6 +79,7 @@ class SelectServicesOrderSummary extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
+
                         Spacer(),
                         Text(
                           "60 Minutes",
@@ -93,14 +95,41 @@ class SelectServicesOrderSummary extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 20.h),
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.r),
+                color: Color(0xffFFDEDE),
+                border: Border.all(color: AppColors.kPrimaryColor, width: 1),
+              ),
+              child: Text(
+                "If you cancel the booking less than 1 hour before the service timing, Your payment will not be refunded.",
+                style: TextStyle(
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.kPrimaryColor,
+                ),
+              ),
+            ),
             Spacer(),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, paymentMethod);
+                  showSuccessDialog(
+                    screenContext: context,
+                    desc: 'Your booking placed\nsuccessfully!',
+                    onSuccess: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        BotNavPage.routeName,
+                        (route) => false,
+                      );
+                    },
+                  );
                 },
-                child: Text("Book Now"),
+                child: Text("Pay Now"),
               ),
             ),
             SizedBox(height: 20.h),

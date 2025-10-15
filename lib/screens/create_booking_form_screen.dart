@@ -234,7 +234,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, createBarbarList);
+                  Navigator.pushNamed(context, barbarList);
                 },
                 child: Text("Apply"),
               ),

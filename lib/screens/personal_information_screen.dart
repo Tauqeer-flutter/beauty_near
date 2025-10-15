@@ -135,167 +135,21 @@ class PersonalInformationScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30.h),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Edit Profile"),
-                ),
-              ),
-              SizedBox(height: 40.h),
-              Text(
-                "Bank Details",
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 30.h),
-
-              Text(
-                'Card Holder Name',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'John Doe',
-                  suffixIcon: Icon(
-                    Iconsax.user,
-                    size: 18.sp,
-                    color: AppColors.greyColor,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                'Card Number',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: '1234 5678 9012 3456',
-                  suffixIcon: Icon(
-                    Iconsax.card,
-                    size: 18.sp,
-                    color: AppColors.greyColor,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20.h),
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Expiry Date',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: AppColors.textPrimaryColor,
-                          ),
-                        ),
-                        SizedBox(height: 8.h),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'MM/DD/YYYY',
-                            suffixIcon: Icon(
-                              Iconsax.calendar_1,
-                              size: 18.sp,
-                              color: AppColors.greyColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 10.w),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'CVV',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: AppColors.textPrimaryColor,
-                          ),
-                        ),
-                        SizedBox(height: 8.h),
-                        TextFormField(
-                          decoration: InputDecoration(hintText: 'CVC'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                'Zip Code',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Zip Code',
-                  suffixIcon: Icon(
-                    Iconsax.arrow_down_1,
-                    size: 18.sp,
-                    color: AppColors.greyColor,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                'Country / Region',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Select',
-                  suffixIcon: Icon(
-                    Iconsax.arrow_down_1,
-                    size: 18.sp,
-                    color: AppColors.greyColor,
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 20.h),
-
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Edit Bank Details"),
-                ),
-              ),
-              SizedBox(height: context.notchAwareBottomPadding),
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 25.h),
+          child: SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Edit Profile"),
+            ),
           ),
         ),
       ),

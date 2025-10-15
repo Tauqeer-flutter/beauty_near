@@ -30,7 +30,7 @@ class PaymentMethod extends StatelessWidget {
               icon: SvgAssets.men,
               isSelected: false,
               onTap: () {
-                  Navigator.pushNamed(context, payInCash);
+                Navigator.pushNamed(context, payInCash);
               },
             ),
             SizedBox(height: 15.h),
@@ -39,7 +39,7 @@ class PaymentMethod extends StatelessWidget {
               icon: SvgAssets.women,
               isSelected: false,
               onTap: () {
-                 Navigator.pushNamed(context,payInCash );
+                Navigator.pushNamed(context, payOnline);
               },
             ),
             SizedBox(height: 15.h),

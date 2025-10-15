@@ -1,4 +1,6 @@
 import 'package:beauty_near/route_generator.dart';
+import 'package:flutter/material.dart';
+
 import 'package:beauty_near/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
@@ -13,13 +15,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
-class PayInCash extends StatelessWidget {
-  const PayInCash({super.key});
+class PayOnline extends StatelessWidget {
+  const PayOnline({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Pay In Cash"),
+      appBar: CustomAppBar(title: "Pay Online"),
       backgroundColor: AppColors.kScaffoldColor,
       body: SingleChildScrollView(
         child: Padding(
@@ -283,7 +285,7 @@ class PayInCash extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, orderSummary);
             },
-            child: Text('Pay Now'),
+            child: Text('Add Card & Proceed'),
           ),
         ),
       ),

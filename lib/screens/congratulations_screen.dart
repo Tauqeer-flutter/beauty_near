@@ -1,4 +1,4 @@
-
+import 'package:beauty_near/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,13 @@ class CongratulationsScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    BotNavPage.routeName,
+                    (_) => false,
+                  );
+                },
                 child: Text("Proceed to the App"),
               ),
             ),

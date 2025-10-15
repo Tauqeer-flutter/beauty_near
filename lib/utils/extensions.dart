@@ -15,6 +15,7 @@ extension ContextUtils on BuildContext {
 
   double get notchAwareBottomPadding {
     if (bottomNotch > 0) {
+
       return 25.h + bottomNotch;
     } else {
       return 150.h;

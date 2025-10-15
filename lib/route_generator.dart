@@ -1,8 +1,11 @@
 import 'package:beauty_near/screens/barbar_detail_screen.dart';
 import 'package:beauty_near/screens/barbar_list.dart';
+import 'package:beauty_near/screens/congratulations_screen.dart';
 import 'package:beauty_near/screens/create_booking_form_screen.dart';
 import 'package:beauty_near/screens/create_booking_gender_screen.dart';
+import 'package:beauty_near/screens/order_summary_.dart';
 import 'package:beauty_near/screens/pay_in_cash.dart';
+import 'package:beauty_near/screens/pay_online_screen.dart';
 import 'package:beauty_near/screens/payment_method.dart';
 import 'package:beauty_near/screens/select_services_order_summary.dart';
 import 'package:flutter/material.dart';
@@ -47,10 +50,13 @@ const String notification = '/notification';
 const String createBookingGender = '/create_booking';
 const String createBookingFormScreen = '/create_booking_form_screen';
 const String barbarDetailScreen = '/barbar_detail_screen';
-const String createBarbarList = '/create_barbar_list';
+const String barbarList = '/create_barbar_list';
 const String selectServicesOrderSummary = '/select_services_order_summary';
 const String paymentMethod = '/payment_method';
 const String payInCash = '/pay_in_cash';
+const String payOnline = '/pay_online';
+const String orderSummary = '/order_summary';
+const String congratulationsScreen = '/congratulations_screen';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -162,9 +168,9 @@ class RouteGenerator {
           settings: RouteSettings(name: barbarDetailScreen),
           builder: (_) => BarbarDetailScreen(),
         );
-      case createBarbarList:
+      case barbarList:
         return MaterialPageRoute(
-          settings: RouteSettings(name: createBarbarList),
+          settings: RouteSettings(name: barbarList),
           builder: (_) => BarbarList(),
         );
       case selectServicesOrderSummary:
@@ -181,6 +187,21 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: payInCash),
           builder: (_) => PayInCash(),
+        );
+      case payOnline:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: payOnline),
+          builder: (_) => PayOnline(),
+        );
+      case orderSummary:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: orderSummary),
+          builder: (_) => OrderSummary(),
+        );
+      case congratulationsScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: congratulationsScreen),
+          builder: (_) => CongratulationsScreen(),
         );
       default:
         return _errorRoute();
