@@ -1,3 +1,4 @@
+import 'package:beauty_near/route_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -105,7 +106,9 @@ class DetailedServiceProviderCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, barbarDetailScreen);
+                    },
                     child: Text('View Profile'),
                   ),
                 ),

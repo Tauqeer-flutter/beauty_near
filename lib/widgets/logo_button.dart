@@ -26,7 +26,8 @@ class LogoButton extends StatelessWidget {
         height: 40.h,
         width: 125.w,
         decoration: BoxDecoration(
-          color: enabled ? AppColors.kPrimaryColor : Colors.white,
+          gradient: enabled ? AppColors.kPrimaryGradient : null,
+          color: enabled ? null : Colors.white,
           borderRadius: BorderRadius.circular(70.r),
         ),
         padding: EdgeInsets.all(5.w),
@@ -36,14 +37,13 @@ class LogoButton extends StatelessWidget {
               height: 30.h,
               width: 30.h,
               decoration: BoxDecoration(
-                color: enabled ? Colors.white : AppColors.kPrimaryColor,
+                color: enabled
+                    ? Colors.white
+                    : AppColors.kPrimaryColor.withValues(alpha: 0.2),
                 shape: BoxShape.circle,
               ),
               padding: EdgeInsets.all(5.r),
-              child: SvgPicture.asset(
-                asset,
-                color: enabled ? AppColors.kPrimaryColor : Colors.white,
-              ),
+              child: SvgPicture.asset(asset, color: AppColors.kPrimaryColor),
             ),
             SizedBox(width: 8.w),
             Text(

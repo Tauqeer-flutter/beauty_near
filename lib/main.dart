@@ -1,3 +1,4 @@
+import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/view_models/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
         ChangeNotifierProvider(create: (context) => BotNavViewModel()),
         ChangeNotifierProvider(create: (context) => HomeViewModel()),
+        ChangeNotifierProvider(create: (context) => CreateBookingViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),

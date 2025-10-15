@@ -1,350 +1,582 @@
+import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/assets.dart';
-import 'package:beauty_near/widgets/circular_image_widget.dart';
+import 'package:beauty_near/utils/enums.dart';
+import 'package:beauty_near/utils/screen_size.dart';
 import 'package:beauty_near/widgets/reviews_card.dart';
+import 'package:beauty_near/widgets/service_card.dart';
+import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import '../utils/color_constant.dart';
+import 'package:provider/provider.dart';
 
-class BarbarDetailScreen extends StatefulWidget {
-  const BarbarDetailScreen({super.key});
-
-  @override
-  State<BarbarDetailScreen> createState() => _BarbarDetailScreenState();
-}
-
-class _BarbarDetailScreenState extends State<BarbarDetailScreen> {
-  List<String> selectedServices = [];
-  String? selectedTimeSlot;
-
-  final List<String> services = [
-    'Hair Cut',
-    'Beard Trim',
-    'Hair Wash',
-    'Hair Styling',
-  ];
-
-  final List<String> timeSlots = [
-    '9:00 AM',
-    '10:00 AM',
-    '11:00 AM',
-    '2:00 PM',
-    '3:00 PM',
-    '4:00 PM',
-  ];
+class BarbarDetailScreen extends StatelessWidget {
+  BarbarDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.kScaffoldColor,
-      body: Column(
-        children: [
-          // Hero Image Section
-          Container(
-            height: 251.h,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                // Barber Image
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(PngAssets.bookingImage),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                // Gradient Overlay
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.black.withOpacity(0.7),
-                      ],
-                    ),
-                  ),
-                ),
-                // Back Button
-                Positioned(
-                  top: 50.h,
-                  left: 20.w,
-                  child: Container(
-                    width: 36.w,
-                    height: 36.h,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.chevron_left,
-                        color: AppColors.textPrimaryColor,
-                        size: 18.sp,
+    final screenSize = screenNotifier.value;
+    return Consumer<CreateBookingViewModel>(
+      builder: (context, viewModel, child) {
+        return Scaffold(
+          backgroundColor: AppColors.kScaffoldColor,
+          body: Column(
+            children: [
+              // Hero Image Section
+              Container(
+                height: 251.h,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    // Barber Image
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(PngAssets.bookingImage),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          // Content Section
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.kScaffoldColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.r),
-                  topRight: Radius.circular(20.r),
+                    // Gradient Overlay
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.7),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Back Button
+                    Positioned(
+                      top: 50.h,
+                      left: 20.w,
+                      child: Container(
+                        width: 36.w,
+                        height: 36.h,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.chevron_left,
+                            color: AppColors.textPrimaryColor,
+                            size: 18.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
 
-                  children: [
-                    SizedBox(height: 15.h),
-                    Text(
-                      "Barber Name Here",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+              // Content Section
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.kScaffoldColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
                     ),
-                    SizedBox(height: 8.h),
-                    Row(
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
-                        Icon(
-                          Iconsax.location5,
-                          color: AppColors.kPrimaryColor,
-                          size: 18.sp,
-                        ),
-                        SizedBox(width: 5.h),
-                        Text(
-                          "10 km",
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
+                        SizedBox(height: 15.h),
+                        Padding(
+                          padding: EdgeInsetsGeometry.symmetric(
+                            horizontal: 20.w,
                           ),
-                        ),
-                        SizedBox(width: 5.h),
-                        Text(
-                          '•',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        SizedBox(width: 5.h),
-                        Icon(
-                          Iconsax.star1,
-                          size: 16.sp,
-                          color: Color(0XffDBA300),
-                        ),
-                        SizedBox(width: 5.h),
-                        Text(
-                          "4.8 (145 Reviews)",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.h),
-                    Text(
-                      "About Barber",
-                      style: TextStyle(
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(height: 6.h),
-                    Text(
-                      "With 12 years perfecting the art of precision cutting, Marcus brings unmatched expertise to every appointment. Passionate about creating looks that reflect each client's unique style. M...Readmore",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SizedBox(height: 20.h),
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      height: 68.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.greenColor.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Iconsax.clock,
-                            color: AppColors.greenColor,
-                            size: 24.sp,
-                          ),
-                          SizedBox(width: 8.w),
-                          Column(
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Available Today",
+                                "Barber Name Here",
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
+                              SizedBox(height: 8.h),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Iconsax.location5,
+                                    color: AppColors.kPrimaryColor,
+                                    size: 18.sp,
+                                  ),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    "10 km",
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    '•',
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5.h),
+                                  Icon(
+                                    Iconsax.star1,
+                                    size: 16.sp,
+                                    color: Color(0XffDBA300),
+                                  ),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    "4.8 (145 Reviews)",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 20.h),
                               Text(
-                                "Book now for same-day service",
+                                "About Barber",
+                                style: TextStyle(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 6.h),
+                              Text(
+                                "With 12 years perfecting the art of precision cutting, Marcus brings unmatched expertise to every appointment. Passionate about creating looks that reflect each client's unique style. M...Readmore",
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 30.h),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 31.h,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(70.r),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Services",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
+                              SizedBox(height: 20.h),
+                              Container(
+                                padding: EdgeInsets.all(16),
+                                height: 68.h,
+                                decoration: BoxDecoration(
+                                  color: AppColors.greenColor.withValues(
+                                    alpha: 0.1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Iconsax.clock,
+                                      color: AppColors.greenColor,
+                                      size: 24.sp,
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Available Today",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Text(
+                                          "Book now for same-day service",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 10.w),
-                        Expanded(
-                          child: Container(
-                            height: 31.h,
-                            decoration: BoxDecoration(
-                              gradient: AppColors.kPrimaryGradient,
-                              borderRadius: BorderRadius.circular(70.r),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Services",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                              SizedBox(height: 30.h),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        viewModel.setSelectedTab(0);
+                                      },
+                                      child: Container(
+                                        height: 31.h,
+                                        decoration: BoxDecoration(
+                                          gradient:
+                                              viewModel.selectedTabIndex == 0
+                                              ? AppColors.kPrimaryGradient
+                                              : null,
+
+                                          color: viewModel.selectedTabIndex == 0
+                                              ? null
+                                              : Colors.white,
+                                          borderRadius: BorderRadius.circular(
+                                            70.r,
+                                          ),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "Services",
+                                            style: TextStyle(
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.w400,
+                                              color:
+                                                  viewModel.selectedTabIndex ==
+                                                      0
+                                                  ? Colors.white
+                                                  : AppColors.textPrimaryColor,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 10.w),
+                                  Expanded(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        viewModel.setSelectedTab(1);
+                                      },
+                                      child: Container(
+                                        height: 31.h,
+                                        decoration: BoxDecoration(
+                                          gradient:
+                                              viewModel.selectedTabIndex == 1
+                                              ? AppColors.kPrimaryGradient
+                                              : null,
+
+                                          color: viewModel.selectedTabIndex == 1
+                                              ? null
+                                              : Colors.white,
+                                          borderRadius: BorderRadius.circular(
+                                            70.r,
+                                          ),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "Reviews",
+                                            style: TextStyle(
+                                              color:
+                                                  viewModel.selectedTabIndex ==
+                                                      1
+                                                  ? Colors.white
+                                                  : AppColors.textPrimaryColor,
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.h),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      height: 146.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                customRatingRow(
-                                  ratingNumber: "5",
-                                  barLenght: 100,
+                              SizedBox(height: 20.h),
+                              // Conditional content based on selected tab
+                              if (viewModel.selectedTabIndex == 0) ...[
+                                // Services Tab - Grid View
+                                GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  padding: EdgeInsetsGeometry.only(top: 20.h),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount:
+                                            screenSize == ScreenSize.large ||
+                                                screenSize == ScreenSize.medium
+                                            ? 3
+                                            : 2,
+                                        crossAxisSpacing: 15.w,
+                                        mainAxisSpacing: 15.h,
+                                      ),
+                                  itemCount: viewModel.services.length,
+                                  itemBuilder: (context, index) {
+                                    final service = viewModel.services[index];
+                                    return ServiceCard(
+                                      service: service,
+                                      isSelected: viewModel.isServiceSelected(
+                                        service,
+                                      ),
+                                      onTap: () => viewModel
+                                          .toggleServiceSelection(service),
+                                    );
+                                  },
                                 ),
-                                SizedBox(height: 8.h),
-                                customRatingRow(
-                                  ratingNumber: "4",
-                                  barLenght: 75,
-                                ),
-                                SizedBox(height: 8.h),
+                                SizedBox(height: 30.h),
 
-                                customRatingRow(
-                                  ratingNumber: "3",
-                                  barLenght: 50,
-                                ),
-                                SizedBox(height: 8.h),
+                                // Selected Services Section - Only visible on Services tab
+                              ] else ...[
+                                // Reviews Tab - Rating Summary and List View
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  height: 146.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8.r),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            customRatingRow(
+                                              ratingNumber: "5",
+                                              barLenght: 100,
+                                            ),
+                                            SizedBox(height: 8.h),
+                                            customRatingRow(
+                                              ratingNumber: "4",
+                                              barLenght: 75,
+                                            ),
+                                            SizedBox(height: 8.h),
 
-                                customRatingRow(
-                                  ratingNumber: "2",
-                                  barLenght: 25,
-                                ),
-                                SizedBox(height: 8.h),
+                                            customRatingRow(
+                                              ratingNumber: "3",
+                                              barLenght: 50,
+                                            ),
+                                            SizedBox(height: 8.h),
 
-                                customRatingRow(
-                                  ratingNumber: "1",
-                                  barLenght: 10,
+                                            customRatingRow(
+                                              ratingNumber: "2",
+                                              barLenght: 25,
+                                            ),
+                                            SizedBox(height: 8.h),
+
+                                            customRatingRow(
+                                              ratingNumber: "1",
+                                              barLenght: 10,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 51.w),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+
+                                        children: [
+                                          Text(
+                                            "4.0",
+                                            style: TextStyle(
+                                              fontSize: 40,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                          SizedBox(height: 8.h),
+                                          fiveStarRow(),
+                                          SizedBox(height: 8.h),
+                                          Text(
+                                            "52 Reviews",
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: 15.h),
+                                // Reviews List
+                                ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount: 6,
+                                  itemBuilder: (context, index) {
+                                    return ReviewsCard();
+                                  },
                                 ),
                               ],
-                            ),
-                          ),
-                          SizedBox(width: 51.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-
-                            children: [
-                              Text(
-                                "4.0",
-                                style: TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8.h),
-                              fiveStarRow(),
-                              SizedBox(height: 8.h),
-                              Text(
-                                "52 Reviews",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                        viewModel.selectedTabIndex == 0
+                            ? Container(
+                                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                color: Colors.white,
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 10.h),
+                                    Center(
+                                      child: Container(
+                                        width: 60.w,
+                                        height: 5.h,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            10.r,
+                                          ),
+                                          color: Color(0xff4a4a4a),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 15.h),
+                                    Text(
+                                      "Selected Services",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    SizedBox(height: 20.h),
+                                    // Dynamic selected services
+                                    if (viewModel
+                                        .selectedServices
+                                        .isNotEmpty) ...[
+                                      ...viewModel.selectedServices
+                                          .map(
+                                            (service) => Padding(
+                                              padding: EdgeInsets.only(
+                                                bottom: 10.h,
+                                              ),
+                                              child: selectedServices(
+                                                serviceName: service.name,
+                                                duration: service.duration,
+                                                price: service.price,
+                                                icon: service.icon,
+                                              ),
+                                            ),
+                                          )
+                                          .toList(),
+                                      SizedBox(height: 20.h),
+                                      // Total price bar
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                            context,
+                                            selectServicesOrderSummary,
+                                          );
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(15),
+                                          decoration: BoxDecoration(
+                                            gradient:
+                                                AppColors.kPrimaryGradient,
+                                            borderRadius: BorderRadius.circular(
+                                              8.r,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "Total",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16.sp,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              Text(
+                                                "\$${viewModel.getTotalPrice().toStringAsFixed(0)}",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18.sp,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ] else ...[
+                                      Text(
+                                        "No services selected",
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.darkGreyColor,
+                                        ),
+                                      ),
+                                    ],
+                                    SizedBox(height: 25.h),
+                                  ],
+                                ),
+                              )
+                            : SizedBox(),
+                      ],
                     ),
-                    SizedBox(height: 15.h),
-                    ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 6,
-                      itemBuilder: (context, index) {
-                        return ReviewsCard();
-                      },
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+            ],
+          ),
+
+          // Book Appointment Button
+        );
+      },
+    );
+  }
+
+  selectedServices({
+    required final String serviceName,
+    required String duration,
+    required String price,
+    required String icon,
+  }) {
+    return Container(
+      height: 65.h,
+      padding: EdgeInsets.all(10.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.r),
+        color: Colors.white,
+
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5,
+            color: Colors.grey.shade200,
+            spreadRadius: 5,
           ),
         ],
       ),
 
-      // Book Appointment Button
+      child: Row(
+        children: [
+          SvgPicture.asset(icon, height: 45.h, width: 45.w),
+          SizedBox(width: 7.w),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                serviceName,
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(height: 3.h),
+              Text(
+                duration,
+                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          Spacer(),
+          Text(
+            price,
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w500,
+              color: AppColors.kPrimaryColor,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

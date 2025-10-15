@@ -1,3 +1,4 @@
+import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -191,7 +192,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
               child: AbsorbPointer(
                 child: TextFormField(
                   controller: TextEditingController(
-                    text: selectedDate != null 
+                    text: selectedDate != null
                         ? '${selectedDate!.day.toString().padLeft(2, '0')}/${selectedDate!.month.toString().padLeft(2, '0')}/${selectedDate!.year}'
                         : '',
                   ),
@@ -231,7 +232,12 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             SizedBox(height: 50.h),
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(onPressed: () {}, child: Text("Apply")),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, createBarbarList);
+                },
+                child: Text("Apply"),
+              ),
             ),
           ],
         ),
