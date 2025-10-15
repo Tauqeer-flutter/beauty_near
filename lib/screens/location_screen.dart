@@ -78,7 +78,8 @@ class LocationScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
-        child: Expanded(
+        child: SizedBox(
+          width: double.infinity,
           child: ElevatedButton(
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(
