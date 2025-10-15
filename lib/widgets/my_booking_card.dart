@@ -150,7 +150,7 @@ class MyBookingCard extends StatelessWidget {
               // View Details button
               Expanded(
                 child: InkWell(
-                  onTap: () {},
+                  onTap: onViewDetails,
                   child: Container(
                     height: 40.h,
                     decoration: BoxDecoration(

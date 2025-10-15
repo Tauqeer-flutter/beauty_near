@@ -58,7 +58,7 @@ const String congratulationsScreen = '/congratulations_screen';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as Map<String, dynamic>?;
 
     switch (settings.name) {
       case splashScreen:
@@ -99,7 +99,8 @@ class RouteGenerator {
       case myBookingDetailsScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: myBookingDetailsScreen),
-          builder: (_) => MyBookingDetailScreen(),
+          builder: (_) =>
+              MyBookingDetailScreen(isCompleted: args?['isCompleted'] ?? false),
         );
       case personalInformationScreen:
         return MaterialPageRoute(
