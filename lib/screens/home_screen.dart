@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 15.h),
           Container(
             color: Colors.yellow,
-            height: 212.h,
+            height: 217.h,
             child: PageView.builder(
               controller: context
                   .read<HomeViewModel>()
@@ -129,7 +129,7 @@ class HomeScreen extends StatelessWidget {
           //     );
           //   },
           // ),
-          SizedBox(height: 30.h),
+          SizedBox(height: 25.h),
           Text(
             'Barber you need',
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
