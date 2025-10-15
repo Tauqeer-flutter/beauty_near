@@ -31,9 +31,8 @@ class AppTheme {
         // centerTitle: true,
       ),
       textTheme: GoogleFonts.montserratTextTheme(),
-      // Text Selection Theme for cursor color
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: AppColors.kPrimaryColor, // Cursor color
+        cursorColor: AppColors.kPrimaryColor,
       ),
 
       iconTheme: const IconThemeData(color: Colors.black54),
@@ -79,10 +78,7 @@ class AppTheme {
               fontWeight: FontWeight.w500,
             ),
           ),
-          side: BorderSide(
-            color: AppColors.kPrimaryColor,
-            width: 1.sp,
-          ),
+          side: BorderSide(color: AppColors.kPrimaryColor, width: 1.sp),
           foregroundColor: AppColors.kPrimaryColor,
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(

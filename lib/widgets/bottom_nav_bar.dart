@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -23,7 +22,7 @@ class BottomNavBar extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.15.h),
         child: BottomAppBar(
           height: 80.h,
-          color: kDebugMode ? Colors.lightGreen : Colors.white,
+          color: Colors.white,
           padding: EdgeInsets.zero,
           elevation: 0,
           surfaceTintColor: Colors.transparent,
@@ -82,7 +81,6 @@ class BottomNavBar extends StatelessWidget {
       child: AnimatedContainer(
         height: 80.h,
         width: 65.w,
-        color: kDebugMode ? Colors.yellow : null,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
         child: Column(

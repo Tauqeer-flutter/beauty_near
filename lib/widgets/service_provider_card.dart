@@ -12,70 +12,73 @@ class ServiceProviderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 212.h,
       child: Card(
         margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAlias,
         color: Colors.white,
-        child: InkWell(
-          onTap: onTap,
-          child: Container(
-            width: double.infinity,
-            padding:  EdgeInsets.symmetric(horizontal: 8.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              spacing: 12.h,
-              children: [
-                Container(
-                 // height: 90.r,
-                   width: 90.w,
-                  color: Colors.yellow,
-                  child: ClipOval(child: Image.asset(PngAssets.person)),
-                ),
-               // SizedBox(height: 12.h),
-                Text(
-                  'John Smith',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 15.h),
+          child: InkWell(
+            onTap: onTap,
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                spacing: 12.h,
+                children: [
+                  SizedBox(
+                    width: 90.w,
+                    child: ClipOval(child: Image.asset(PngAssets.person)),
                   ),
-                ),
-               // SizedBox(height: 12.h),
-                CustomChip(label: 'Hair Spa'),
-               // SizedBox(height: 12.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Iconsax.location5,
-                      color: AppColors.kPrimaryColor,
-                      size: 16.sp,
+                  Text(
+                    'John Smith',
+                    style: TextStyle(
+                      height: 0,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
                     ),
-                    SizedBox(width: 4.w),
-                    Text(
-                      'New York, NY',
-                      style: TextStyle(
-                        color: AppColors.greyColor,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
+                  ),
+                  // SizedBox(height: 12.h),
+                  CustomChip(label: 'Hair Spa'),
+                  // SizedBox(height: 12.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Iconsax.location5,
+                        color: AppColors.kPrimaryColor,
+                        size: 16.sp,
                       ),
-                    ),
-                    Spacer(),
-                    Icon(Iconsax.star1, color: AppColors.gold, size: 14.sp),
-                    SizedBox(width: 4.w),
-                    Text(
-                      '4.9',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.greyColor,
+                      SizedBox(width: 4.w),
+                      Text(
+                        'New York, NY',
+                        style: TextStyle(
+                          height: 0,
+                          color: AppColors.greyColor,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Spacer(),
+                      Icon(Iconsax.star1, color: AppColors.gold, size: 14.sp),
+                      SizedBox(width: 4.w),
+                      Text(
+                        '4.9',
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          height: 0,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.greyColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

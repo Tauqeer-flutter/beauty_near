@@ -20,13 +20,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: _buildBody(context),
-      ),
-    );
+    return Scaffold(appBar: _buildAppBar(), body: _buildBody(context));
   }
 
   AppBar _buildAppBar() {
@@ -76,73 +70,62 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 30.h),
           HomeCarouselWidget(),
           SizedBox(height: 30.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Top Rated Barbers',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
-              ),
-              LinkText(text: 'See All'),
-            ],
+          _buildSectionHeading(
+            title: 'Top Rated Barbers',
+            link: 'See All',
+            onLinkTap: () {},
           ),
           SizedBox(height: 15.h),
-          Container(
-            color: Colors.yellow,
+          SizedBox(
             height: 217.h,
-            child: PageView.builder(
-              controller: context
-                  .read<HomeViewModel>()
-                  .pageController,
+            child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               scrollDirection: Axis.horizontal,
-              itemCount: 3,
-              itemBuilder: (context, index) =>
-                  SizedBox(
-                    width: MediaQuery
-                        .sizeOf(context)
-                        .width - 40.w,
-                    child: Row(
-                      children: [
-                        Expanded(child: ServiceProviderCard()),
-                        SizedBox(width: 12.w),
-                        if (index != 2) ...{
-                          Expanded(child: ServiceProviderCard()),
-                          SizedBox(width: 12.w),
-                        } else
-                          Spacer(),
-                      ],
-                    ),
-                  ),
+              itemCount: 5,
+              itemBuilder: (context, index) => Center(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 12.w),
+                  child: SizedBox(width: 168.w, child: ServiceProviderCard()),
+                ),
+              ),
             ),
           ),
-          // SizedBox(height: 15.h),
-          // ListenableBuilder(
-          //   listenable: context.read<HomeViewModel>().pageController,
-          //   builder: (context, child) {
-          //     final current =
-          //         context.read<HomeViewModel>().pageController.page ?? 0;
-          //     return PageDotIndicator(
-          //       length: (5 / 2).ceil(),
-          //       current: current.round(),
-          //       onDotTap: (index) {},
-          //     );
-          //   },
-          // ),
           SizedBox(height: 25.h),
-          Text(
-            'Barber you need',
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
-          ),
+          _buildSectionHeading(title: 'Barber you need'),
           SizedBox(height: 15.h),
           _buildServiceFilter(),
           SizedBox(height: 20.h),
           for (int i = 0; i < 4; i++)
             Padding(
-              padding: EdgeInsets.only(bottom: 12.h),
+              padding: EdgeInsets.only(bottom: 12.h, left: 20.w, right: 20.w),
               child: DetailedServiceProviderCard(),
             ),
           SizedBox(height: context.notchAwareBottomPadding),
+        ],
+      ),
+    );
+  }
+
+  Padding _buildSectionHeading({
+    required String title,
+    String? link,
+    VoidCallback? onLinkTap,
+  }) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+          ),
+          if (link != null)
+            GestureDetector(
+              onTap: onLinkTap,
+              child: LinkText(text: link),
+            ),
         ],
       ),
     );
@@ -153,6 +136,7 @@ class HomeScreen extends StatelessWidget {
       builder: (context, viewModel, child) {
         final selectedService = viewModel.selectedService;
         return SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           scrollDirection: Axis.horizontal,
           child: Row(
             spacing: 10.w,
@@ -171,28 +155,29 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildSearchBar(BuildContext context) {
-    return TextFormField(
-      focusNode: Provider
-          .of<BotNavViewModel>(context)
-          .focusNode,
-      decoration: InputDecoration(
-        prefixIcon: Icon(Iconsax.search_normal),
-        hintText: 'Search',
-        hintStyle: TextStyle(color: AppColors.iconColor, fontSize: 16.sp),
-        suffixIcon: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              height: 24.h,
-              width: 2.w,
-              child: VerticalDivider(
-                thickness: 1.w,
-                color: AppColors.iconColor,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: TextFormField(
+        focusNode: Provider.of<BotNavViewModel>(context).focusNode,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Iconsax.search_normal),
+          hintText: 'Search',
+          hintStyle: TextStyle(color: AppColors.iconColor, fontSize: 16.sp),
+          suffixIcon: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: 24.h,
+                width: 2.w,
+                child: VerticalDivider(
+                  thickness: 1.w,
+                  color: AppColors.iconColor,
+                ),
               ),
-            ),
-            IconButton(onPressed: () {}, icon: Icon(Iconsax.sort)),
-            SizedBox(width: 5.w),
-          ],
+              IconButton(onPressed: () {}, icon: Icon(Iconsax.sort)),
+              SizedBox(width: 5.w),
+            ],
+          ),
         ),
       ),
     );

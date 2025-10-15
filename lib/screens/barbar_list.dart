@@ -1,7 +1,5 @@
-import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
-import 'package:beauty_near/view_models/home_view_model.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:beauty_near/widgets/detailed_service_provider_card.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
@@ -44,7 +42,10 @@ class BarbarList extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return DetailedServiceProviderCard();
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 15.h),
+                    child: DetailedServiceProviderCard(),
+                  );
                 },
               ),
             ),
