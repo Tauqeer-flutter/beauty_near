@@ -106,7 +106,11 @@ class SignupScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, homeScreen);
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      locationScreen,
+                      (_) => false,
+                    );
                   },
                   child: Text('Next'),
                 ),

@@ -1,3 +1,6 @@
+import 'package:beauty_near/route_generator.dart';
+import 'package:beauty_near/screens/bot_nav_bar_page.dart';
+import 'package:beauty_near/screens/congratulations_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -75,22 +78,17 @@ class LocationScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
-        child: Row(
-          children: [
-            CustomBackButton(),
-
-            SizedBox(width: 10.w),
-
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  // TODO: PushReplacement to congrats screen.
-                  // Navigator.pushNamed(context, uploadImageScreen);
-                },
-                child: Text('Next'),
-              ),
-            ),
-          ],
+        child: Expanded(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                congratulationsScreen,
+                (_) => false,
+              );
+            },
+            child: Text('Next'),
+          ),
         ),
       ),
     );

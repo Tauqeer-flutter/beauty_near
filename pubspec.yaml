@@ -41,6 +41,7 @@ dependencies:
   iconsax: ^0.0.8
   flutter_svg: ^2.2.1
   carousel_slider: ^5.1.1
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:

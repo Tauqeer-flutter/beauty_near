@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                       context,
-                      BotNavPage.routeName,
+                      locationScreen,
                       (_) => false,
                     );
                   },

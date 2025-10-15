@@ -2,6 +2,7 @@ import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/screen_size.dart';
+import 'package:beauty_near/widgets/bottom%20sheet/review_bottom_sheet.dart';
 import 'package:beauty_near/widgets/reviews_card.dart';
 import 'package:beauty_near/widgets/service_card.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
@@ -140,11 +141,16 @@ class BarbarDetailScreen extends StatelessWidget {
                                     color: Color(0XffDBA300),
                                   ),
                                   SizedBox(width: 5.h),
-                                  Text(
-                                    "4.8 (145 Reviews)",
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
+                                  GestureDetector(
+                                    onTap: () {
+                                      showReviewBottomSheet(context);
+                                    },
+                                    child: Text(
+                                      "4.8 (145 Reviews)",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
                                 ],

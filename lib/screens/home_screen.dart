@@ -1,3 +1,5 @@
+import 'package:beauty_near/route_generator.dart';
+import 'package:beauty_near/screens/barbar_list.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
@@ -84,7 +86,12 @@ class HomeScreen extends StatelessWidget {
                 'Top Rated Barbers',
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              LinkText(text: 'See All'),
+              LinkText(
+                text: 'See All',
+                onTap: () {
+                  Navigator.pushNamed(context, barbarList);
+                },
+              ),
             ],
           ),
           SizedBox(height: 15.h),
