@@ -92,23 +92,28 @@ class HomeScreen extends StatelessWidget {
             color: Colors.yellow,
             height: 212.h,
             child: PageView.builder(
-              controller: context.read<HomeViewModel>().pageController,
+              controller: context
+                  .read<HomeViewModel>()
+                  .pageController,
               scrollDirection: Axis.horizontal,
               itemCount: 3,
-              itemBuilder: (context, index) => SizedBox(
-                width: MediaQuery.sizeOf(context).width - 40.w,
-                child: Row(
-                  children: [
-                    Expanded(child: ServiceProviderCard()),
-                    SizedBox(width: 12.w),
-                    if (index != 2) ...{
-                      Expanded(child: ServiceProviderCard()),
-                      SizedBox(width: 12.w),
-                    } else
-                      Spacer(),
-                  ],
-                ),
-              ),
+              itemBuilder: (context, index) =>
+                  SizedBox(
+                    width: MediaQuery
+                        .sizeOf(context)
+                        .width - 40.w,
+                    child: Row(
+                      children: [
+                        Expanded(child: ServiceProviderCard()),
+                        SizedBox(width: 12.w),
+                        if (index != 2) ...{
+                          Expanded(child: ServiceProviderCard()),
+                          SizedBox(width: 12.w),
+                        } else
+                          Spacer(),
+                      ],
+                    ),
+                  ),
             ),
           ),
           // SizedBox(height: 15.h),
@@ -167,7 +172,9 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildSearchBar(BuildContext context) {
     return TextFormField(
-      focusNode: Provider.of<BotNavViewModel>(context).focusNode,
+      focusNode: Provider
+          .of<BotNavViewModel>(context)
+          .focusNode,
       decoration: InputDecoration(
         prefixIcon: Icon(Iconsax.search_normal),
         hintText: 'Search',
