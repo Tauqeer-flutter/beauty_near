@@ -295,34 +295,25 @@ class BarbarDetailScreen extends StatelessWidget {
                               SizedBox(height: 20.h),
                               // Conditional content based on selected tab
                               if (viewModel.selectedTabIndex == 0) ...[
-                                // Services Tab - Grid View
-                                GridView.builder(
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  padding: EdgeInsetsGeometry.only(top: 20.h),
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount:
-                                            screenSize == ScreenSize.large ||
-                                                screenSize == ScreenSize.medium
-                                            ? 3
-                                            : 2,
-                                        crossAxisSpacing: 15.w,
-                                        mainAxisSpacing: 15.h,
-                                      ),
-                                  itemCount: viewModel.services.length,
-                                  itemBuilder: (context, index) {
-                                    final service = viewModel.services[index];
-                                    return ServiceCard(
-                                      service: service,
-                                      isSelected: viewModel.isServiceSelected(
-                                        service,
-                                      ),
-                                      onTap: () => viewModel
-                                          .toggleServiceSelection(service),
-                                    );
-                                  },
+                                SingleChildScrollView(
+                                  child: Wrap(
+                                    spacing: 10.0, // Horizontal spacing
+                                    runSpacing: 10.0, // Vertical spacing
+                                    children: List.generate(8, (index) {
+                                      final service = viewModel.services[index];
+                                      return ServiceCard(
+                                        service: service,
+                                        isSelected: viewModel.isServiceSelected(
+                                          service,
+                                        ),
+                                        onTap: () => viewModel
+                                            .toggleServiceSelection(service),
+                                      );
+                                    }),
+                                  ),
                                 ),
+
+                                // Services Tab - Grid View
                                 SizedBox(height: 30.h),
 
                                 // Selected Services Section - Only visible on Services tab
