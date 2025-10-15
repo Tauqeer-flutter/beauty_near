@@ -11,3 +11,12 @@ enum ServiceType {
 
   const ServiceType(this.label, this.asset);
 }
+enum  BarbarServiceType {
+  hair('Haircut', SvgAssets.allServices),
+  shaving('Shaving', SvgAssets.shavingWithout),
+  massage('Massage', SvgAssets.shavingWithout);
+
+  final String label, asset;
+
+  const BarbarServiceType(this.label, this.asset);
+}

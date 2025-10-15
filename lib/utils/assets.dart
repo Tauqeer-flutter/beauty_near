@@ -8,6 +8,7 @@ class PngAssets {
   static const String personEdit = '${_assets}person_edit.png';
   static const String carouselBackground = '${_assets}carousel_background.png';
   static const String serviceProvider = '${_assets}service_provider.png';
+  static const String bookingImage = '${_assets}booking_image.png';
 }
 
 class SvgAssets {

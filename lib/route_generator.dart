@@ -1,3 +1,10 @@
+import 'package:beauty_near/screens/barbar_detail_screen.dart';
+import 'package:beauty_near/screens/barbar_list.dart';
+import 'package:beauty_near/screens/create_booking_form_screen.dart';
+import 'package:beauty_near/screens/create_booking_gender_screen.dart';
+import 'package:beauty_near/screens/pay_in_cash.dart';
+import 'package:beauty_near/screens/payment_method.dart';
+import 'package:beauty_near/screens/select_services_order_summary.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/about_us_screen.dart';
@@ -35,10 +42,17 @@ const String privacyPolicy = '/privacy_policy';
 const String aboutUs = '/about_us';
 const String support = '/support';
 const String notification = '/notification';
+const String createBookingGender = '/create_booking';
+const String createBookingFormScreen = '/create_booking_form_screen';
+const String barbarDetailScreen = '/barbar_detail_screen';
+const String createBarbarList = '/create_barbar_list';
+const String selectServicesOrderSummary = '/select_services_order_summary';
+const String paymentMethod = '/payment_method';
+const String payInCash = '/pay_in_cash';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as Map<String, dynamic>?;
 
     switch (settings.name) {
       case splashScreen:
@@ -79,7 +93,8 @@ class RouteGenerator {
       case myBookingDetailsScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: myBookingDetailsScreen),
-          builder: (_) => MyBookingDetailScreen(),
+          builder: (_) =>
+              MyBookingDetailScreen(isCompleted: args?['isCompleted'] ?? false),
         );
       case personalInformationScreen:
         return MaterialPageRoute(
@@ -126,6 +141,41 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: chatScreen),
           builder: (_) => ChatScreen(),
+        );
+      case createBookingGender:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: createBookingGender),
+          builder: (_) => CreateBookingGenderScreen(),
+        );
+      case createBookingFormScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: createBookingGender),
+          builder: (_) => CreateBookingFormScreen(),
+        );
+      case barbarDetailScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: barbarDetailScreen),
+          builder: (_) => BarbarDetailScreen(),
+        );
+      case createBarbarList:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: createBarbarList),
+          builder: (_) => BarbarList(),
+        );
+      case selectServicesOrderSummary:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: selectServicesOrderSummary),
+          builder: (_) => SelectServicesOrderSummary(),
+        );
+      case paymentMethod:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: paymentMethod),
+          builder: (_) => PaymentMethod(),
+        );
+      case payInCash:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: payInCash),
+          builder: (_) => PayInCash(),
         );
       default:
         return _errorRoute();

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,20 +37,29 @@ class BotNavPage extends StatelessWidget {
                 return child!;
               },
               child: Center(
-                child: Transform.rotate(
-                  angle: pi / 4,
-                  child: Container(
-                    width: 60.h,
-                    height: 60.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.kPrimaryColor,
-                        width: 1.h,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, createBookingGender);
+                  },
+                  child: Transform.rotate(
+                    angle: pi / 4,
+                    child: Container(
+                      width: 60.h,
+                      height: 60.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: AppColors.kPrimaryColor,
+                          width: 1.h,
+                        ),
+                        gradient: AppColors.primaryGradient,
+                        borderRadius: BorderRadius.circular(14.r),
                       ),
-                      gradient: AppColors.primaryGradient,
-                      borderRadius: BorderRadius.circular(14.r),
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 24.sp,
+                      ),
                     ),
-                    child: Icon(Icons.close, color: Colors.white, size: 24.sp),
                   ),
                 ),
               ),

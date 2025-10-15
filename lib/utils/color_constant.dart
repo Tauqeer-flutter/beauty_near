@@ -14,6 +14,8 @@ class AppColors {
   static const Color gold = Color(0xFFDBA300);
   static const Color green = Color(0xFF00A12B);
   static const Color greenAccent = Color(0xFFE6F6EA);
+  static const Color greenColor = Color(0xff00A12B);
+  static const Color textGreyColor = Color(0xffAAAAAA);
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [kPrimaryColor, Color(0xffDE6C75)],
     begin: Alignment.centerLeft,
