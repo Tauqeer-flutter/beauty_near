@@ -1,6 +1,6 @@
-import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:beauty_near/widgets/dialog%20box/success_dialog_box.dart';
 import 'package:flutter/material.dart';
@@ -132,7 +132,7 @@ class OrderSummary extends StatelessWidget {
                 child: Text("Pay Now"),
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: context.notchAwareBottomPadding),
           ],
         ),
       ),

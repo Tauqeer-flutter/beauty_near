@@ -1,9 +1,12 @@
-
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void showSuccessDialog({required BuildContext screenContext, required String desc, required Function onSuccess}) {
+void showSuccessDialog({
+  required BuildContext screenContext,
+  required String desc,
+  required Function onSuccess,
+}) {
   showDialog(
     context: screenContext,
     barrierDismissible: true,
@@ -12,7 +15,7 @@ void showSuccessDialog({required BuildContext screenContext, required String des
       Future.delayed(Duration(seconds: 2), () {
         if (Navigator.canPop(context)) {
           Navigator.pop(context);
-        onSuccess();
+          onSuccess();
         }
       });
 

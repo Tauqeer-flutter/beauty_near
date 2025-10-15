@@ -1,5 +1,6 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -103,7 +104,7 @@ class SelectServicesOrderSummary extends StatelessWidget {
                 child: Text("Book Now"),
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: context.notchAwareBottomPadding),
           ],
         ),
       ),

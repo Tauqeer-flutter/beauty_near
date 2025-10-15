@@ -1,12 +1,10 @@
 import 'package:beauty_near/route_generator.dart';
-import 'package:beauty_near/screens/bot_nav_bar_page.dart';
-import 'package:beauty_near/screens/congratulations_screen.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
-import '../widgets/custom_back_button.dart';
 
 class LocationScreen extends StatelessWidget {
   const LocationScreen({super.key});
@@ -77,7 +75,11 @@ class LocationScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
+        padding: EdgeInsets.only(
+          bottom: context.notchAwareBottomPadding,
+          left: 20.w,
+          right: 20.w,
+        ),
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(

@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -59,6 +60,9 @@ class NotificationScreen extends StatelessWidget {
             SizedBox(height: 20.h),
             Expanded(
               child: ListView.builder(
+                padding: EdgeInsets.only(
+                  bottom: context.notchAwareBottomPadding,
+                ),
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return NotificationTile(
