@@ -20,7 +20,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: _buildBody(context));
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: _buildAppBar(),
+      body: _buildBody(context),
+    );
   }
 
   AppBar _buildAppBar() {

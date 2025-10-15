@@ -7,7 +7,6 @@ import '../screens/my_booking_screen.dart';
 
 class BotNavViewModel extends ChangeNotifier {
   int _currentPage = 0;
-  final focusNode = FocusNode();
 
   final List<Widget> _children = [
     HomeScreen(),

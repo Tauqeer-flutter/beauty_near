@@ -19,6 +19,7 @@ class BotNavPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final BotNavViewModel viewModel = context.watch<BotNavViewModel>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           viewModel.currentChild,
@@ -28,38 +29,25 @@ class BotNavPage extends StatelessWidget {
             bottom: context.bottomNotch > 0
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
-            child: ListenableBuilder(
-              listenable: viewModel.focusNode,
-              builder: (context, child) {
-                if (viewModel.focusNode.hasFocus) {
-                  return SizedBox.shrink();
-                }
-                return child!;
-              },
-              child: Center(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, createBookingGender);
-                  },
-                  child: Transform.rotate(
-                    angle: pi / 4,
-                    child: Container(
-                      width: 60.h,
-                      height: 60.h,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: AppColors.kPrimaryColor,
-                          width: 1.h,
-                        ),
-                        gradient: AppColors.primaryGradient,
-                        borderRadius: BorderRadius.circular(14.r),
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, createBookingGender);
+                },
+                child: Transform.rotate(
+                  angle: pi / 4,
+                  child: Container(
+                    width: 60.h,
+                    height: 60.h,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.kPrimaryColor,
+                        width: 1.h,
                       ),
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 24.sp,
-                      ),
+                      gradient: AppColors.primaryGradient,
+                      borderRadius: BorderRadius.circular(14.r),
                     ),
+                    child: Icon(Icons.close, color: Colors.white, size: 24.sp),
                   ),
                 ),
               ),
