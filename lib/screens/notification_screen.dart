@@ -16,7 +16,7 @@ class NotificationScreen extends StatelessWidget {
         forceMaterialTransparency: true,
         centerTitle: true,
         title: Text(
-          "Notifications",
+          "Alerts",
           style: TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
         ),
       ),

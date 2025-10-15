@@ -51,7 +51,7 @@ class BottomNavBar extends StatelessWidget {
                 _buildNavItem(
                   icon: Iconsax.notification_bing,
                   activeIcon: Iconsax.notification_bing5,
-                  label: 'Notification',
+                  label: 'Alerts',
                   index: 2,
                 ),
                 _buildNavItem(

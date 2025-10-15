@@ -4,6 +4,7 @@ import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/assets.dart';
@@ -43,24 +44,41 @@ class HomeScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Hello Kelly',
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
-              color: AppColors.textPrimaryColor,
-            ),
-          ),
-          SizedBox(height: 8.h),
-          Text(
-            'Good Morning!',
+            'Hello,',
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 18.sp,
+              height: 0,
+              color: AppColors.textPrimaryColor,
+            ),
+          ),
+          Text(
+            'Kelly Shephard',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18.sp,
+              height: 0,
+              color: AppColors.textPrimaryColor,
+            ),
+          ),
+          Text(
+            'Montreal, Canada',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 14.sp,
+              height: 0,
               color: AppColors.textPrimaryColor,
             ),
           ),
         ],
       ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          iconSize: 30.sp,
+          icon: Icon(Iconsax.location5, color: AppColors.kPrimaryColor),
+        ),
+      ],
     );
   }
 
