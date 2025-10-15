@@ -1,3 +1,4 @@
+import 'package:beauty_near/screens/barbar_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

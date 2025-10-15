@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,7 +9,8 @@ import '../utils/color_constant.dart';
 import '../widgets/custom_app_bar.dart';
 
 class MyBookingDetailScreen extends StatelessWidget {
-  const MyBookingDetailScreen({super.key});
+  final bool isCompleted;
+  const MyBookingDetailScreen({super.key, required this.isCompleted});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class MyBookingDetailScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 30.h),
               Container(
@@ -147,7 +149,7 @@ class MyBookingDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.h),
               Text(
-                "Booking Details",
+                'Booking Details',
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
@@ -360,51 +362,58 @@ class MyBookingDetailScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12.h),
-                      decoration: BoxDecoration(
-                        color: Color(0xff00A12B).withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(38.r),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Accept",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff00A12B),
+              if (isCompleted)
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('Cancel'),
+                )
+              else
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
+                        decoration: BoxDecoration(
+                          color: Color(0xff00A12B).withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(38.r),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Accept",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff00A12B),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10.w),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                    SizedBox(width: 10.w),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
 
-                      decoration: BoxDecoration(
-                        color: AppColors.kPrimaryColor.withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(38.r),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Reject",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.kPrimaryColor,
+                        decoration: BoxDecoration(
+                          color: AppColors.kPrimaryColor.withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(38.r),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Reject",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.kPrimaryColor,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 25.h),
+                  ],
+                ),
+
+              SizedBox(height: context.notchAwareBottomPadding),
             ],
           ),
         ),

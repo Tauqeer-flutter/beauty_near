@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -60,8 +61,6 @@ class PersonalInformationScreen extends StatelessWidget {
                       decoration: BoxDecoration(shape: BoxShape.circle),
                       child: CircleAvatar(
                         radius: 38.r,
-                        backgroundColor: Colors.pink,
-                        // You can replace with actual image:
                         backgroundImage: AssetImage(PngAssets.person),
                       ),
                     ),
@@ -295,7 +294,7 @@ class PersonalInformationScreen extends StatelessWidget {
                   child: Text("Edit Bank Details"),
                 ),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: context.notchAwareBottomPadding),
             ],
           ),
         ),
