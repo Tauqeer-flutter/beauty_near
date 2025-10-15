@@ -23,12 +23,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(context),
       body: _buildBody(context),
     );
   }
 
-  AppBar _buildAppBar() {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       forceMaterialTransparency: true,
       elevation: 0,
@@ -74,7 +74,13 @@ class HomeScreen extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              locationScreen,
+              arguments: {'onSuccess': () => Navigator.pop(context)},
+            );
+          },
           iconSize: 30.sp,
           icon: Icon(Iconsax.location5, color: AppColors.kPrimaryColor),
         ),

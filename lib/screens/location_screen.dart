@@ -1,4 +1,3 @@
-import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +6,8 @@ import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 
 class LocationScreen extends StatelessWidget {
-  const LocationScreen({super.key});
+  final VoidCallback onSuccess;
+  const LocationScreen({super.key, required this.onSuccess});
 
   @override
   Widget build(BuildContext context) {
@@ -82,16 +82,7 @@ class LocationScreen extends StatelessWidget {
         ),
         child: SizedBox(
           width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                congratulationsScreen,
-                (_) => false,
-              );
-            },
-            child: Text('Next'),
-          ),
+          child: ElevatedButton(onPressed: onSuccess, child: Text('Next')),
         ),
       ),
     );

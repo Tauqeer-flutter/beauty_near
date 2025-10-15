@@ -109,6 +109,13 @@ class SignupScreen extends StatelessWidget {
                     Navigator.pushNamedAndRemoveUntil(
                       context,
                       locationScreen,
+                      arguments: {
+                        'onSuccess': () => Navigator.pushNamedAndRemoveUntil(
+                          navigatorKey.currentContext!,
+                          congratulationsScreen,
+                          (_) => false,
+                        ),
+                      },
                       (_) => false,
                     );
                   },

@@ -57,6 +57,8 @@ const String payOnline = '/pay_online';
 const String orderSummary = '/order_summary';
 const String congratulationsScreen = '/congratulations_screen';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments as Map<String, dynamic>?;
@@ -93,7 +95,7 @@ class RouteGenerator {
       case locationScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: locationScreen),
-          builder: (_) => LocationScreen(),
+          builder: (_) => LocationScreen(onSuccess: args!['onSuccess']),
         );
       case myBookingScreen:
         return MaterialPageRoute(
