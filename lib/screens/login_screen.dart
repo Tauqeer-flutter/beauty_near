@@ -95,29 +95,31 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 24.h),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Don\'t have an account ?',
-              style: TextStyle(fontSize: 14.sp, color: AppColors.darkGreyColor),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, signupScreen);
-              },
-              child: Text(
-                ' Sign Up',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.kPrimaryColor,
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 24.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Don\'t have an account ?',
+                style: TextStyle(fontSize: 14.sp, color: AppColors.darkGreyColor),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, signupScreen);
+                },
+                child: Text(
+                  ' Sign Up',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.kPrimaryColor,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
