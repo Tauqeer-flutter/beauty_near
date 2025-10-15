@@ -1,3 +1,4 @@
+import 'package:beauty_near/screens/bot_nav_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
-import 'bot_nav_bar_page.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                       context,
-                      locationScreen,
+                      BotNavPage.routeName,
                       (_) => false,
                     );
                   },
@@ -103,7 +103,10 @@ class LoginScreen extends StatelessWidget {
             children: [
               Text(
                 'Don\'t have an account ?',
-                style: TextStyle(fontSize: 14.sp, color: AppColors.darkGreyColor),
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.darkGreyColor,
+                ),
               ),
               GestureDetector(
                 onTap: () {

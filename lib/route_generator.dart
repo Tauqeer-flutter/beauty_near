@@ -35,7 +35,6 @@ const String homeScreen = '/home_screen';
 const String loginScreen = '/login';
 const String signupScreen = '/signup_screen';
 const String locationScreen = '/location';
-const String botNavBar = '/bot_nav_bar';
 const String accountSettingsScreen = '/account_settings';
 const String languagesScreen = '/languages';
 const String chatScreen = '/chat';
