@@ -28,11 +28,15 @@ class BotNavPage extends StatelessWidget {
             bottom: context.bottomNotch > 0
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
-            child: Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, createBookingGender);
-                },
+            child: ListenableBuilder(
+              listenable: viewModel.focusNode,
+              builder: (context, child) {
+                if (viewModel.focusNode.hasFocus) {
+                  return SizedBox.shrink();
+                }
+                return child!;
+              },
+              child: Center(
                 child: Transform.rotate(
                   angle: pi / 4,
                   child: Container(

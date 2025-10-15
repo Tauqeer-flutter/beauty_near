@@ -6,6 +6,8 @@ class PngAssets {
   static const String map = '${_assets}map.png';
   static const String person = '${_assets}person.png';
   static const String personEdit = '${_assets}person_edit.png';
+  static const String carouselBackground = '${_assets}carousel_background.png';
+  static const String serviceProvider = '${_assets}service_provider.png';
   static const String bookingImage = '${_assets}booking_image.png';
 }
 
@@ -40,6 +42,9 @@ class SvgAssets {
   static const String person = '${_assets}person.svg';
   static const String paperClip = '${_assets}paperclip.svg';
   static const String sendButton = '${_assets}send_button.svg';
+  static const String allServices = '${_assets}all_services.svg';
+  static const String shavingWithout =
+      '${_assets}shaving_without_background.svg';
 }
 
 class LottieAssets {

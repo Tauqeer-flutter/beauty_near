@@ -14,13 +14,12 @@ class AppInit extends StatelessWidget {
     final ThemeMode themeMode = context.watch<ThemeViewModel>().themeMode;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Beauty Points',
-      home: BarbarDetailScreen(),
-      // initialRoute: loginScreen,
-      // onGenerateRoute: RouteGenerator.generateRoute,
+      title: 'BeautyNear',
+      initialRoute: loginScreen,
+      onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      darkTheme: AppTheme.lightTheme,
     );
   }
 }

@@ -14,8 +14,11 @@ class CircularImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipOval(
-      child: Image.asset(image, height: height?.toDouble(), width: width?.toDouble(),),
+      child: Image.asset(
+        image,
+        height: height?.toDouble(),
+        width: width?.toDouble(),
+      ),
     );
   }
 }
- 
