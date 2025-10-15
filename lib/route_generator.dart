@@ -52,7 +52,7 @@ const String payInCash = '/pay_in_cash';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as Map<String, dynamic>?;
 
     switch (settings.name) {
       case splashScreen:
@@ -93,7 +93,8 @@ class RouteGenerator {
       case myBookingDetailsScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: myBookingDetailsScreen),
-          builder: (_) => MyBookingDetailScreen(),
+          builder: (_) =>
+              MyBookingDetailScreen(isCompleted: args?['isCompleted'] ?? false),
         );
       case personalInformationScreen:
         return MaterialPageRoute(
@@ -171,7 +172,7 @@ class RouteGenerator {
           settings: RouteSettings(name: paymentMethod),
           builder: (_) => PaymentMethod(),
         );
-        case payInCash:
+      case payInCash:
         return MaterialPageRoute(
           settings: RouteSettings(name: payInCash),
           builder: (_) => PayInCash(),

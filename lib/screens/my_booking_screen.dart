@@ -1,5 +1,6 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/my_booking_card.dart';
 import 'package:beauty_near/widgets/my_booking_card_past.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +84,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        scrolledUnderElevation: 0,
         title: Text(
           "My Bookings",
           style: TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
@@ -169,6 +171,9 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
             Expanded(
               child: ListView.builder(
                 itemCount: upcomingBookings.length,
+                padding: EdgeInsets.only(
+                  bottom: context.notchAwareBottomPadding,
+                ),
                 itemBuilder: (context, index) {
                   final booking = upcomingBookings[index];
 
@@ -180,7 +185,11 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       dayOfWeek: booking['dayOfWeek']!,
                       dayNumber: booking['dayNumber']!,
                       onViewDetails: () {
-                        Navigator.pushNamed(context, myBookingDetailsScreen);
+                        Navigator.pushNamed(
+                          context,
+                          myBookingDetailsScreen,
+                          arguments: {'isCompleted': false},
+                        );
                       },
                       onCancel: () {
                         // Handle cancel booking
@@ -195,7 +204,11 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       dayOfWeek: booking['dayOfWeek']!,
                       dayNumber: booking['dayNumber']!,
                       onViewDetails: () {
-                        Navigator.pushNamed(context, myBookingDetailsScreen);
+                        Navigator.pushNamed(
+                          context,
+                          myBookingDetailsScreen,
+                          arguments: {'isCompleted': true},
+                        );
                       },
                       onMarkComplete: () {
                         // Handle mark as complete
