@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,7 +32,7 @@ class SignupScreen extends StatelessWidget {
               SizedBox(height: 50.h),
               Center(
                 child: Text(
-                  'Create an Account',
+                  context.localization.createAnAccount,
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
@@ -41,18 +42,7 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 32.h),
               Text(
-                'Full Name',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(decoration: InputDecoration(hintText: 'Your Name')),
-              SizedBox(height: 20.h),
-              Text(
-                'Email Address',
+                context.localization.fullName,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -61,11 +51,28 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
-                decoration: InputDecoration(hintText: 'Your Email'),
+                decoration: InputDecoration(
+                  hintText: context.localization.yourName,
+                ),
               ),
               SizedBox(height: 20.h),
               Text(
-                'Phone Number',
+                context.localization.emailAddress,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
+              SizedBox(height: 8.h),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: context.localization.yourEmail,
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                context.localization.phoneNumber,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -75,22 +82,13 @@ class SignupScreen extends StatelessWidget {
               SizedBox(height: 8.h),
               TextFormField(
                 keyboardType: TextInputType.phone,
-                decoration: InputDecoration(hintText: 'Phone Number'),
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                'Password',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
+                decoration: InputDecoration(
+                  hintText: context.localization.phoneNumber,
                 ),
               ),
-              SizedBox(height: 8.h),
-              TextFormField(decoration: InputDecoration(hintText: 'Password')),
               SizedBox(height: 20.h),
               Text(
-                'Confirm Password',
+                context.localization.password,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -99,7 +97,24 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
-                decoration: InputDecoration(hintText: 'Confirm Password'),
+                decoration: InputDecoration(
+                  hintText: context.localization.password,
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                context.localization.confirmPassword,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
+              SizedBox(height: 8.h),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: context.localization.confirmPassword,
+                ),
               ),
 
               SizedBox(height: 24.h),
@@ -120,7 +135,7 @@ class SignupScreen extends StatelessWidget {
                       (_) => false,
                     );
                   },
-                  child: Text('Next'),
+                  child: Text(context.localization.next),
                 ),
               ),
               SizedBox(height: 24.h),
@@ -131,22 +146,23 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               SocialButton(
-                text: 'Continue with Google',
+                text: context.localization.continueWithGoogle,
                 iconPath: SvgAssets.google,
                 onPressed: () {},
               ),
               SizedBox(height: 16.h),
               SocialButton(
-                text: 'Continue with Facebook',
+                text: context.localization.continueWithFacebook,
                 iconPath: SvgAssets.facebook,
                 onPressed: () {},
               ),
               SizedBox(height: 24.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 2.5.w,
                 children: [
                   Text(
-                    'Already have an account ?',
+                    context.localization.alreadyHaveAccount,
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: AppColors.darkGreyColor,
@@ -157,7 +173,7 @@ class SignupScreen extends StatelessWidget {
                       Navigator.pushNamed(context, loginScreen);
                     },
                     child: Text(
-                      ' Sign In',
+                      context.localization.login,
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,

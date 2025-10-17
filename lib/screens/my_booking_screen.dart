@@ -86,7 +86,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
         centerTitle: true,
         scrolledUnderElevation: 0,
         title: Text(
-          "My Bookings",
+          context.localization.myBookings,
           style: TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
         ),
       ),
@@ -119,7 +119,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       ),
                       child: Center(
                         child: Text(
-                          "Upcoming",
+                          context.localization.upcoming,
                           style: TextStyle(
                             color: isUpcomingSelected
                                 ? Colors.white
@@ -152,7 +152,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       ),
                       child: Center(
                         child: Text(
-                          "Past",
+                          context.localization.past,
                           style: TextStyle(
                             color: !isUpcomingSelected
                                 ? Colors.white

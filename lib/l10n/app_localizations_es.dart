@@ -12,34 +12,34 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appName => 'BeautyNear';
 
   @override
-  String get aboutUs => 'About Us';
+  String get aboutUs => 'Acerca de nosotros';
 
   @override
-  String get accountSettings => 'Account Settings';
+  String get accountSettings => 'Configuración de la cuenta';
 
   @override
   String get general => 'General';
 
   @override
-  String get personalInfo => 'Personal Information';
+  String get personalInfo => 'Información personal';
 
   @override
-  String get support => 'Support';
+  String get support => 'Soporte';
 
   @override
-  String get language => 'Language';
+  String get language => 'Idioma';
 
   @override
-  String get helpAndSupport => 'Help & Support';
+  String get helpAndSupport => 'Ayuda y soporte';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'Política de privacidad';
 
   @override
-  String get termsAndCondition => 'Terms & Conditions';
+  String get termsAndCondition => 'Términos y condiciones';
 
   @override
-  String get logout => 'Logout';
+  String get logout => 'Cerrar sesión';
 
   @override
   String distance(Object distance) {
@@ -48,144 +48,410 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String ratingAndReviews(Object rating, Object reviews) {
-    return '$rating ($reviews Reviews)';
+    return '$rating ($reviews Reseñas)';
   }
 
   @override
-  String get aboutBarber => 'About Barber';
+  String get aboutBarber => 'Acerca del barbero';
 
   @override
-  String get availableToday => 'Available Today';
+  String get availableToday => 'Disponible hoy';
 
   @override
-  String get bookNow => 'Book now for same-day service';
+  String get bookNow => 'Reserva ahora';
 
   @override
-  String get services => 'Services';
+  String get services => 'Servicios';
 
   @override
-  String get reviews => 'Reviews';
+  String get reviews => 'Reseñas';
 
   @override
   String onlyReviews(Object reviews) {
-    return '$reviews reviews';
+    return '$reviews reseñas';
   }
 
   @override
   String get total => 'Total';
 
   @override
-  String get noServicesSelected => 'No services selected';
+  String get noServicesSelected => 'No hay servicios seleccionados';
 
   @override
-  String get createBooking => 'Create Booking';
+  String get createBooking => 'Crear reserva';
 
   @override
-  String get barbersNearYou => 'Barbers Near You';
+  String get barbersNearYou => 'Barberos cerca de ti';
 
   @override
   String get chat => 'Chat';
 
   @override
-  String get today => 'Today';
+  String get today => 'Hoy';
 
   @override
-  String get typeMessage => 'Type a message';
+  String get typeMessage => 'Escribe un mensaje';
 
   @override
-  String get congratulations => 'Congratulations!';
+  String get congratulations => '¡Felicidades!';
 
   @override
-  String get accountCreatedSuccessfully => 'Your Account created Successfully';
+  String get accountCreatedSuccessfully =>
+      'Tu cuenta se ha creado exitosamente';
 
   @override
-  String get proceedToApp => 'Proceed to the App';
+  String get proceedToApp => 'Continuar a la aplicación';
 
   @override
-  String get fillThisForm => 'Fill This Form';
+  String get fillThisForm => 'Completa este formulario';
 
   @override
-  String get pleaseFillThisForm => 'Please fill this form to proceed further';
+  String get pleaseFillThisForm =>
+      'Por favor completa este formulario para continuar';
 
   @override
-  String get noOfAdults => 'Number of Adults';
+  String get noOfAdults => 'Número de adultos';
 
   @override
-  String get noOfKids => 'Number of Kids';
+  String get noOfKids => 'Número de niños';
 
   @override
-  String get selectDate => 'Select Date';
+  String get selectDate => 'Seleccionar fecha';
 
   @override
-  String get selectTime => 'Select Time';
+  String get selectTime => 'Seleccionar hora';
 
   @override
-  String get apply => 'Apply';
+  String get apply => 'Aplicar';
 
   @override
-  String get booking => 'Booking';
+  String get booking => 'Reserva';
 
   @override
-  String get selectServiceType => 'Select Your Service Type!';
+  String get selectServiceType => '¡Selecciona tu tipo de servicio!';
 
   @override
-  String get mensService => 'Men\'s Services';
+  String get mensService => 'Servicios para hombres';
 
   @override
-  String get womensService => 'Women\'s Services';
+  String get womensService => 'Servicios para mujeres';
 
   @override
-  String get commaHello => 'Hello,';
+  String get commaHello => 'Hola,';
 
   @override
-  String get topRatedBarbers => 'Top Rated Barbers';
+  String get topRatedBarbers => 'Barberos mejor valorados';
 
   @override
-  String get seeAll => 'See All';
+  String get seeAll => 'Ver todo';
 
   @override
-  String get barberYouNeed => 'Barber you need';
+  String get barberYouNeed => 'El barbero que necesitas';
 
   @override
-  String get selectLanguage => 'Select Language';
+  String get selectLanguage => 'Seleccionar idioma';
 
   @override
-  String get allLanguages => 'All Languages';
+  String get allLanguages => 'Todos los idiomas';
 
   @override
-  String get selectLocation => 'Select Location';
+  String get selectLocation => 'Seleccionar ubicación';
 
   @override
   String get selectYourLocationToFindBarber =>
-      'Select your Location to find nearby Barbers';
+      'Selecciona tu ubicación para encontrar barberos cercanos';
 
   @override
-  String get enterLocation => 'Enter Location';
+  String get enterLocation => 'Ingresar ubicación';
 
   @override
-  String get yourLocation => 'Your Location';
+  String get yourLocation => 'Tu ubicación';
 
   @override
-  String get loginToYourAccount => 'Login to Your Account';
+  String get loginToYourAccount => 'Inicia sesión en tu cuenta';
 
   @override
-  String get emailAddress => 'Email Address';
+  String get emailAddress => 'Dirección de correo electrónico';
 
   @override
-  String get yourEmail => 'Your Email';
+  String get yourEmail => 'Tu correo electrónico';
 
   @override
-  String get password => 'Password';
+  String get password => 'Contraseña';
 
   @override
-  String get forgotPassword => 'Forgot Password?';
+  String get forgotPassword => '¿Olvidaste tu contraseña?';
 
   @override
-  String get login => 'login';
+  String get login => 'Iniciar sesión';
 
   @override
-  String get dontHavAccount => 'Don\'t have an account ?';
+  String get dontHavAccount => '¿No tienes una cuenta?';
 
   @override
-  String get signUp => 'Sign Up';
+  String get signUp => 'Registrarse';
+
+  @override
+  String get bookingDetails => 'Detalles de la reserva';
+
+  @override
+  String get bookingBooked => 'Tu reserva se ha realizado exitosamente.';
+
+  @override
+  String get bookingId => 'ID de reserva:';
+
+  @override
+  String get bookedOn => 'Reservado el:';
+
+  @override
+  String get service => 'Servicio';
+
+  @override
+  String get haircut => 'Corte de cabello';
+
+  @override
+  String get shaving => 'Afeitado';
+
+  @override
+  String get headMassage => 'Masaje de cabeza';
+
+  @override
+  String get persons => 'Personas';
+
+  @override
+  String get adult => '1 Adulto';
+
+  @override
+  String adults(Object noOfAdults) {
+    return '$noOfAdults Adultos';
+  }
+
+  @override
+  String get kid => '1 Niño';
+
+  @override
+  String kids(Object noOfKids) {
+    return '$noOfKids Niños';
+  }
+
+  @override
+  String get timing => 'Horario';
+
+  @override
+  String get paymentSummary => 'Resumen del pago';
+
+  @override
+  String get totalAmount => 'Monto total:';
+
+  @override
+  String get totalDuration => 'Duración total';
+
+  @override
+  String minutes(Object min) {
+    return '$min Minutos';
+  }
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get accept => 'Aceptar';
+
+  @override
+  String get reject => 'Rechazar';
+
+  @override
+  String get myBookings => 'Mis reservas';
+
+  @override
+  String get upcoming => 'Próximas';
+
+  @override
+  String get past => 'Pasadas';
+
+  @override
+  String get alerts => 'Alertas';
+
+  @override
+  String get markAllAsRead => 'Marcar todo como leído';
+
+  @override
+  String get orderSummary => 'Resumen del pedido';
+
+  @override
+  String get platformFees => 'Tarifas de plataforma';
+
+  @override
+  String get taxes => 'Impuestos';
+
+  @override
+  String get cancelPaymentAcknowledgement =>
+      'Si cancelas la reserva con menos de 1 hora antes del horario del servicio, tu pago no será reembolsado.';
+
+  @override
+  String get bookingPlacedSuccessfully =>
+      '¡Tu reserva se ha realizado exitosamente!';
+
+  @override
+  String get payNow => 'Pagar ahora';
+
+  @override
+  String get payInCash => 'Pagar en efectivo';
+
+  @override
+  String get addCardDetails => 'Agregar detalles de la tarjeta';
+
+  @override
+  String get cardHolderName => 'Nombre del titular de la tarjeta';
+
+  @override
+  String get cardNumber => 'Número de tarjeta';
+
+  @override
+  String get expiryDate => 'Fecha de vencimiento';
+
+  @override
+  String get cvv => 'CVV';
+
+  @override
+  String get zipCode => 'Código postal';
+
+  @override
+  String get countryRegion => 'País / Región';
+
+  @override
+  String get selectCountry => 'Seleccionar país';
+
+  @override
+  String get payOnline => 'Pagar en línea';
+
+  @override
+  String get addCardProceed => 'Agregar tarjeta y continuar';
+
+  @override
+  String get paymentMethod => 'Método de pago';
+
+  @override
+  String get selectPaymentMethod => 'Selecciona tu método de pago';
+
+  @override
+  String get payOnlineStripe => 'Pagar en línea (Stripe)';
+
+  @override
+  String get upfrontDepositDescription =>
+      'Para confirmar la reserva debes pagar el 25% de la tarifa del servicio como depósito inicial.';
+
+  @override
+  String get enterName => 'Ingresar nombre';
+
+  @override
+  String get name => 'Nombre';
+
+  @override
+  String get phoneNumber => 'Número de teléfono';
+
+  @override
+  String get changePassword => 'Cambiar contraseña';
+
+  @override
+  String get editProfile => 'Editar perfil';
+
+  @override
+  String get selectServices => 'Seleccionar servicios';
+
+  @override
+  String get createAnAccount => 'Crear una cuenta';
+
+  @override
+  String get fullName => 'Nombre completo';
+
+  @override
+  String get yourName => 'Tu nombre';
+
+  @override
+  String get confirmPassword => 'Confirmar contraseña';
+
+  @override
+  String get next => 'Siguiente';
+
+  @override
+  String get continueWithGoogle => 'Continuar con Google';
+
+  @override
+  String get continueWithFacebook => 'Continuar con Facebook';
+
+  @override
+  String get alreadyHaveAccount => '¿Ya tienes una cuenta?';
+
+  @override
+  String get search => 'Buscar';
+
+  @override
+  String get pleaseGiveReview => 'Por favor danos una reseña';
+
+  @override
+  String get typeHere => 'Escribe aquí';
+
+  @override
+  String get submit => 'Enviar';
+
+  @override
+  String get selectDuration => 'Seleccionar duración';
+
+  @override
+  String get hours => 'Horas';
+
+  @override
+  String get minutesHeading => 'Minutos';
+
+  @override
+  String get done => 'Hecho';
+
+  @override
+  String get home => 'Inicio';
+
+  @override
+  String get bookings => 'Reservas';
+
+  @override
+  String get settings => 'Configuración';
+
+  @override
+  String get availableNow => 'Disponible ahora';
+
+  @override
+  String get minimumServicePrice => 'Precio mínimo del servicio: ';
+
+  @override
+  String get viewProfile => 'Ver perfil';
+
+  @override
+  String get viewDetails => 'Ver detalles';
+
+  @override
+  String get markAsComplete => 'Marcar como completado';
+
+  @override
+  String get completed => 'Completado';
+
+  @override
+  String smallMinutes(Object min) {
+    return '$min min';
+  }
+
+  @override
+  String minsAgo(Object min) {
+    return 'Hace $min min';
+  }
+
+  @override
+  String minsSession(Object mins) {
+    return 'Sesión de $mins min';
+  }
+
+  @override
+  String get languages => 'Idiomas';
+
+  @override
+  String get allServices => 'Todos los servicios';
 }

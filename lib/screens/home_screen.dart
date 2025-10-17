@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             context.localization.commaHello,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 18.sp,
+              fontSize: 14.sp,
               height: 0,
               color: AppColors.textPrimaryColor,
             ),
@@ -165,6 +165,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildServiceFilter() {
+    final services = List.of(ServiceType.values)..remove(ServiceType.massage);
     return Consumer<HomeViewModel>(
       builder: (context, viewModel, child) {
         final selectedService = viewModel.selectedService;
@@ -173,7 +174,7 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             spacing: 10.w,
-            children: ServiceType.values.map((serviceType) {
+            children: services.map((serviceType) {
               return LogoButton(
                 asset: serviceType.asset,
                 label: serviceType.label,

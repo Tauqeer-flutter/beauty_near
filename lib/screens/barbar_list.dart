@@ -59,7 +59,7 @@ class BarbarList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             spacing: 10.w,
-            children: BarbarServiceType.values.map((serviceType) {
+            children: ServiceType.values.map((serviceType) {
               return LogoButton(
                 asset: serviceType.asset,
                 label: serviceType.label,

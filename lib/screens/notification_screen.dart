@@ -16,7 +16,7 @@ class NotificationScreen extends StatelessWidget {
         forceMaterialTransparency: true,
         centerTitle: true,
         title: Text(
-          "Alerts",
+          context.localization.alerts,
           style: TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
         ),
       ),
@@ -29,7 +29,7 @@ class NotificationScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "Today",
+                  context.localization.today,
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
@@ -46,7 +46,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "Mark all as Read",
+                      context.localization.markAllAsRead,
                       style: TextStyle(
                         fontSize: 10.sp,
                         fontWeight: FontWeight.w400,

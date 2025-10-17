@@ -1,10 +1,9 @@
-
-import 'package:beauty_near/utils/assets.dart';
-import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:flutter_svg/svg.dart';
+import '../utils/assets.dart';
+import '../utils/color_constant.dart';
 
 class MyBookingCardPast extends StatefulWidget {
   final String customerName;
@@ -43,7 +42,7 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -51,21 +50,18 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
       ),
       child: Column(
         children: [
-          // Main content row
           Row(
             children: [
-              // Left section - Customer info
               Expanded(
                 flex: 3,
                 child: Row(
                   children: [
-                    // Customer image
                     Container(
                       width: 50.w,
                       height: 50.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppColors.greyColor.withOpacity(0.3),
+                        color: AppColors.greyColor.withValues(alpha: 0.3),
                       ),
                       child: Image.asset(PngAssets.person),
                     ),
@@ -116,7 +112,6 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
                   ],
                 ),
               ),
-              // Right section - Date info
               Expanded(
                 flex: 2,
                 child: Column(
@@ -154,9 +149,7 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
             ],
           ),
           SizedBox(height: 16.h),
-          // Bottom section - Action buttons
           if (!isCompleted)
-            // Single "Mark as Complete" button
             GestureDetector(
               onTap: () {
                 setState(() {
@@ -173,7 +166,7 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
                 ),
                 child: Center(
                   child: Text(
-                    'Mark as Complete',
+                    context.localization.markAsComplete,
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: Colors.white,
@@ -184,10 +177,8 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
               ),
             )
           else
-            // Two buttons: "View Details" and "Completed"
             Row(
               children: [
-                // View Details button
                 Expanded(
                   child: GestureDetector(
                     onTap: widget.onViewDetails,
@@ -199,7 +190,7 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
                       ),
                       child: Center(
                         child: Text(
-                          'View Details',
+                          context.localization.viewDetails,
                           style: TextStyle(
                             fontSize: 12.sp,
                             color: AppColors.textPrimaryColor,
@@ -221,7 +212,7 @@ class _MyBookingCardPastState extends State<MyBookingCardPast> {
                   ),
                   child: Center(
                     child: Text(
-                      'Completed',
+                      context.localization.completed,
                       style: TextStyle(
                         fontSize: 14.sp,
                         color: Colors.green,

@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -11,7 +12,7 @@ class SupportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Support"),
+      appBar: CustomAppBar(title: context.localization.support),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.0.w),
 
@@ -21,7 +22,7 @@ class SupportScreen extends StatelessWidget {
               SizedBox(height: 30.h),
               TextField(
                 decoration: InputDecoration(
-                  hintText: "Search",
+                  hintText: context.localization.search,
                   hintStyle: TextStyle(fontSize: 16.sp, color: Colors.grey),
                   prefixIcon: Icon(Iconsax.search_normal, color: Colors.grey),
 
@@ -31,49 +32,49 @@ class SupportScreen extends StatelessWidget {
               SizedBox(height: 35.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "How does this feature work?",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),

@@ -1,17 +1,14 @@
-import 'package:beauty_near/route_generator.dart';
-import 'package:beauty_near/screens/bot_nav_bar_page.dart';
-import 'package:beauty_near/utils/assets.dart';
-import 'package:beauty_near/utils/color_constant.dart';
-import 'package:beauty_near/widgets/custom_app_bar.dart';
-import 'package:beauty_near/widgets/dialog%20box/success_dialog_box.dart';
-import 'package:beauty_near/widgets/add_card_view_model.dart';
-
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
+
+import '../route_generator.dart';
+import '../utils/color_constant.dart';
+import '../widgets/add_card_view_model.dart';
+import '../widgets/custom_app_bar.dart';
 
 class PayInCash extends StatelessWidget {
   const PayInCash({super.key});
@@ -19,7 +16,7 @@ class PayInCash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Pay In Cash"),
+      appBar: CustomAppBar(title: context.localization.payInCash),
       backgroundColor: AppColors.kScaffoldColor,
       body: SingleChildScrollView(
         child: Padding(
@@ -31,7 +28,7 @@ class PayInCash extends StatelessWidget {
 
               Center(
                 child: Text(
-                  'Add Card Details',
+                  context.localization.addCardDetails,
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w500,
@@ -45,7 +42,7 @@ class PayInCash extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Card Holder Name',
+                    context.localization.cardHolderName,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -65,7 +62,7 @@ class PayInCash extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Card Number',
+                    context.localization.cardNumber,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -92,7 +89,7 @@ class PayInCash extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Expiry Date',
+                              context.localization.expiryDate,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -129,7 +126,7 @@ class PayInCash extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'CVV',
+                              context.localization.cvv,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -139,7 +136,9 @@ class PayInCash extends StatelessWidget {
                             SizedBox(height: 8.h),
                             TextFormField(
                               keyboardType: TextInputType.number,
-                              decoration: InputDecoration(hintText: 'CVC'),
+                              decoration: InputDecoration(
+                                hintText: context.localization.cvv,
+                              ),
                             ),
                           ],
                         ),
@@ -148,7 +147,7 @@ class PayInCash extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Zip Code',
+                    context.localization.zipCode,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -159,17 +158,12 @@ class PayInCash extends StatelessWidget {
                   TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Zip Code',
-                      // suffixIcon: Icon(
-                      //   Iconsax.arrow_down_1,
-                      //   size: 18.sp,
-                      //   color: AppColors.greyColor,
-                      // ),
+                      hintText: context.localization.zipCode,
                     ),
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Country / Region',
+                    context.localization.countryRegion,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -177,16 +171,6 @@ class PayInCash extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8.h),
-                  // TextFormField(
-                  //   decoration: InputDecoration(
-                  //     hintText: 'Select',
-                  //     suffixIcon: Icon(
-                  //       Iconsax.arrow_down_1,
-                  //       size: 18.sp,
-                  //       color: AppColors.greyColor,
-                  //     ),
-                  //   ),
-                  // ),
                   Consumer<AddCardViewModel>(
                     builder: (context, viewModel, child) {
                       return Container(
@@ -201,7 +185,7 @@ class PayInCash extends StatelessWidget {
                           child: DropdownButton2<String>(
                             isExpanded: true,
                             hint: Text(
-                              'Select Country',
+                              context.localization.selectCountry,
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.greyColor,
@@ -252,7 +236,6 @@ class PayInCash extends StatelessWidget {
                                 ],
                               ),
                               offset: Offset(0, -(200.h + 60.h)),
-                              // ✅ maxHeight + button height + spacing
                               scrollbarTheme: ScrollbarThemeData(
                                 radius: Radius.circular(40),
                                 thickness: WidgetStateProperty.all(6),

@@ -86,7 +86,10 @@ class LocationScreen extends StatelessWidget {
         ),
         child: SizedBox(
           width: double.infinity,
-          child: ElevatedButton(onPressed: onSuccess, child: Text('Next')),
+          child: ElevatedButton(
+            onPressed: onSuccess,
+            child: Text(context.localization.next),
+          ),
         ),
       ),
     );

@@ -1,26 +1,10 @@
 import 'package:beauty_near/utils/color_constant.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Service {
-  final String name;
-  final String duration;
-  final String price;
-  final String icon;
-  final Color iconBackgroundColor;
+import '../models/ui/service.dart';
 
-  Service({
-    required this.name,
-    required this.duration,
-    required this.price,
-    required this.icon,
-    required this.iconBackgroundColor,
-  });
-}
-
-// Service Card Widget
 class ServiceCard extends StatelessWidget {
   final bool isSelected;
   final VoidCallback? onTap;
@@ -51,7 +35,6 @@ class ServiceCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 10.h,
               children: [
-                // Icon Section
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -80,7 +63,6 @@ class ServiceCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Text Section
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

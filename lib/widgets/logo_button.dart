@@ -24,13 +24,13 @@ class LogoButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 40.h,
-        width: 125.w,
+        // width: 125.w,
         decoration: BoxDecoration(
           gradient: enabled ? AppColors.kPrimaryGradient : null,
           color: enabled ? null : Colors.white,
           borderRadius: BorderRadius.circular(70.r),
         ),
-        padding: EdgeInsets.all(5.w),
+        padding: EdgeInsets.only(left: 5.w, right: 10.w, top: 5.w, bottom: 5.w),
         child: Row(
           children: [
             Container(

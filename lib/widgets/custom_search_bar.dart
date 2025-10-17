@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,7 +13,7 @@ class CustomSearchBar extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         prefixIcon: Icon(Iconsax.search_normal),
-        hintText: 'Search',
+        hintText: context.localization.search,
         hintStyle: TextStyle(color: AppColors.iconColor, fontSize: 16.sp),
         suffixIcon: Row(
           mainAxisSize: MainAxisSize.min,

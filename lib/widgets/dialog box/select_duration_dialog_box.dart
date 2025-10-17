@@ -1,9 +1,12 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/color_constant.dart';
 
-Future<String> selectDurationDialogBox({required BuildContext screenContext}) async {
+Future<String> selectDurationDialogBox({
+  required BuildContext screenContext,
+}) async {
   FocusManager.instance.primaryFocus?.unfocus();
   int selectedHours = 0;
   int selectedMinutes = 0;
@@ -15,7 +18,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
         builder: (context, setState) {
           return AlertDialog(
             title: Text(
-              'Select Duration',
+              context.localization.selectDuration,
               style: TextStyle(
                 color: AppColors.textPrimaryColor,
                 fontSize: 18.sp,
@@ -31,7 +34,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                     child: Column(
                       children: [
                         Text(
-                          'Hours',
+                          context.localization.hours,
                           style: TextStyle(
                             color: AppColors.textPrimaryColor,
                             fontSize: 14.sp,
@@ -72,7 +75,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                     child: Column(
                       children: [
                         Text(
-                          'Minutes',
+                          context.localization.minutesHeading,
                           style: TextStyle(
                             color: AppColors.textPrimaryColor,
                             fontSize: 14.sp,
@@ -85,7 +88,8 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                             itemExtent: 40.h,
                             onSelectedItemChanged: (index) {
                               setState(() {
-                                selectedMinutes = index * 5; // 0, 5, 10, 15, etc.
+                                selectedMinutes =
+                                    index * 5; // 0, 5, 10, 15, etc.
                               });
                             },
                             children: List.generate(12, (index) {
@@ -117,7 +121,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  'Cancel',
+                  context.localization.cancel,
                   style: TextStyle(
                     color: AppColors.darkGreyColor,
                     fontSize: 14.sp,
@@ -127,7 +131,8 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    duration = '${selectedHours.toString().padLeft(2, '0')}:${selectedMinutes.toString().padLeft(2, '0')}';
+                    duration =
+                        '${selectedHours.toString().padLeft(2, '0')}:${selectedMinutes.toString().padLeft(2, '0')}';
                   });
                   Navigator.of(context).pop();
                   Future.delayed(Duration(milliseconds: 100), () {
@@ -142,7 +147,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                   ),
                 ),
                 child: Text(
-                  'Done',
+                  context.localization.done,
                   style: TextStyle(fontSize: 14.sp),
                 ),
               ),

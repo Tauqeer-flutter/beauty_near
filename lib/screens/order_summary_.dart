@@ -12,7 +12,7 @@ class OrderSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Order Summary"),
+      appBar: CustomAppBar(title: context.localization.orderSummary),
       body: Padding(
         padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
         child: Column(
@@ -28,22 +28,37 @@ class OrderSummary extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  orderSummaryRow(serviceName: "Haircut", price: "\$20"),
+                  orderSummaryRow(
+                    serviceName: context.localization.haircut,
+                    price: "\$20",
+                  ),
                   SizedBox(height: 20.h),
-                  orderSummaryRow(serviceName: "Shaving", price: "\$20"),
+                  orderSummaryRow(
+                    serviceName: context.localization.shaving,
+                    price: "\$20",
+                  ),
                   SizedBox(height: 20.h),
-                  orderSummaryRow(serviceName: "Massage", price: "\$20"),
+                  orderSummaryRow(
+                    serviceName: context.localization.headMassage,
+                    price: "\$20",
+                  ),
                   SizedBox(height: 20.h),
-                  orderSummaryRow(serviceName: "Platform Fees", price: "\$20"),
+                  orderSummaryRow(
+                    serviceName: context.localization.platformFees,
+                    price: "\$20",
+                  ),
                   SizedBox(height: 20.h),
-                  orderSummaryRow(serviceName: "Taxes", price: "\$20"),
+                  orderSummaryRow(
+                    serviceName: context.localization.taxes,
+                    price: "\$20",
+                  ),
                   SizedBox(height: 20.h),
                   Divider(color: AppColors.greyColor),
                   SizedBox(height: 10.h),
                   Row(
                     children: [
                       Text(
-                        "Total Amount:",
+                        context.localization.totalAmount,
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
@@ -72,7 +87,7 @@ class OrderSummary extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(
-                          "Total Duration",
+                          context.localization.totalDuration,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -82,7 +97,7 @@ class OrderSummary extends StatelessWidget {
 
                         Spacer(),
                         Text(
-                          "60 Minutes",
+                          context.localization.minutes(60),
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -104,7 +119,7 @@ class OrderSummary extends StatelessWidget {
                 border: Border.all(color: AppColors.kPrimaryColor, width: 1),
               ),
               child: Text(
-                "If you cancel the booking less than 1 hour before the service timing, Your payment will not be refunded.",
+                context.localization.cancelPaymentAcknowledgement,
                 style: TextStyle(
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w400,
@@ -119,7 +134,7 @@ class OrderSummary extends StatelessWidget {
                 onPressed: () {
                   showSuccessDialog(
                     screenContext: context,
-                    desc: 'Your booking placed\nsuccessfully!',
+                    desc: context.localization.bookingPlacedSuccessfully,
                     onSuccess: () {
                       Navigator.pushNamedAndRemoveUntil(
                         context,
@@ -129,7 +144,7 @@ class OrderSummary extends StatelessWidget {
                     },
                   );
                 },
-                child: Text("Pay Now"),
+                child: Text(context.localization.payNow),
               ),
             ),
             SizedBox(height: context.notchAwareBottomPadding),

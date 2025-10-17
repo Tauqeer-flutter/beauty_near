@@ -1,4 +1,5 @@
 import 'package:beauty_near/route_generator.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,7 +46,7 @@ class DetailedServiceProviderCard extends StatelessWidget {
                   ),
                   Spacer(),
                   CustomChip(
-                    label: 'Available Now',
+                    label: context.localization.availableNow,
                     backgroundColor: AppColors.greenAccent,
                     foregroundColor: AppColors.green,
                   ),
@@ -61,7 +62,7 @@ class DetailedServiceProviderCard extends StatelessWidget {
                   ),
                   SizedBox(width: 4.w),
                   Text(
-                    '10 km',
+                    context.localization.distance(10),
                     style: TextStyle(
                       color: AppColors.darkGreyColor,
                       fontSize: 12.sp,
@@ -93,7 +94,7 @@ class DetailedServiceProviderCard extends StatelessWidget {
                     color: AppColors.darkGreyColor,
                   ),
                   children: [
-                    TextSpan(text: 'Minimum Service Price: '),
+                    TextSpan(text: context.localization.minimumServicePrice),
                     TextSpan(
                       text: '\$100',
                       style: TextStyle(
@@ -114,13 +115,13 @@ class DetailedServiceProviderCard extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, barbarDetailScreen);
                       },
-                      child: Text('View Profile'),
+                      child: Text(context.localization.viewProfile),
                     ),
                   ),
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {},
-                      child: Text('Book Now'),
+                      child: Text(context.localization.bookNow),
                     ),
                   ),
                 ],

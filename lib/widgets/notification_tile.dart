@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,38 +27,21 @@ class NotificationTile extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Stack(
-                    children: [
-                      Container(
-                        height: 56.h,
-                        width: 56.h,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: AppColors.kPrimaryColor, // Border color
-                            width: .5, // Border width (in logical pixels)
-                          ),
-                        ),
-                        child: Icon(
-                          Icons.person,
-                          size: 20.sp,
-                          color: AppColors.kBlackText,
-                        ),
+                  Container(
+                    height: 56.h,
+                    width: 56.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: AppColors.kPrimaryColor,
+                        width: .5,
                       ),
-                      // Positioned(
-                      //   top: 2.h,
-                      //   right: 2.w,
-                      //   child: Container(
-                      //     width: 12.w,
-                      //     height: 12.w,
-                      //     decoration: BoxDecoration(
-                      //       color: Colors.green,
-                      //       shape: BoxShape.circle,
-                      //       border: Border.all(color: Colors.white, width: 2.w),
-                      //     ),
-                      //   ),
-                      // ),
-                    ],
+                    ),
+                    child: Icon(
+                      Icons.person,
+                      size: 20.sp,
+                      color: AppColors.kBlackText,
+                    ),
                   ),
                   SizedBox(width: 10.w),
                   Expanded(
@@ -65,7 +49,6 @@ class NotificationTile extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: 5.h,
-                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         if (title != null)
                           Text(
@@ -103,10 +86,6 @@ class NotificationTile extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  // SizedBox(
-                  //   width: 8.w,
-                  // ),
                   Expanded(
                     flex: 1,
                     child: Column(
@@ -122,7 +101,7 @@ class NotificationTile extends StatelessWidget {
                         SizedBox(height: 30.h),
 
                         Text(
-                          "2m",
+                          context.localization.smallMinutes(2),
                           style: TextStyle(fontSize: 11.sp, color: Colors.grey),
                         ),
                       ],

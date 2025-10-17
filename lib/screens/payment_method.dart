@@ -1,6 +1,7 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:beauty_near/widgets/gender_card.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class PaymentMethod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Payment Method"),
+      appBar: CustomAppBar(title: context.localization.paymentMethod),
 
       body: Padding(
         padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
@@ -21,12 +22,12 @@ class PaymentMethod extends StatelessWidget {
           children: [
             SizedBox(height: 30.h),
             Text(
-              "Select Your Payment Method",
+              context.localization.selectPaymentMethod,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 15.h),
             GenderCard(
-              title: "Pay in Cash",
+              title: context.localization.payInCash,
               icon: SvgAssets.men,
               isSelected: false,
               onTap: () {
@@ -35,7 +36,7 @@ class PaymentMethod extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             GenderCard(
-              title: "Pay Online (Stripe)",
+              title: context.localization.payOnlineStripe,
               icon: SvgAssets.women,
               isSelected: false,
               onTap: () {
@@ -51,7 +52,7 @@ class PaymentMethod extends StatelessWidget {
                 border: Border.all(color: AppColors.kPrimaryColor, width: 1),
               ),
               child: Text(
-                "To confirm booking you have to pays 25% of the service fee as upfront deposit.",
+                context.localization.upfrontDepositDescription,
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,

@@ -19,7 +19,7 @@ class BarbarDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<CreateBookingViewModel>(
-      builder: (context, viewModel, child) {
+      builder: (context, createBookingViewModel, child) {
         return Scaffold(
           backgroundColor: AppColors.kScaffoldColor,
           body: SafeArea(
@@ -49,7 +49,7 @@ class BarbarDetailScreen extends StatelessWidget {
                             end: Alignment.bottomCenter,
                             colors: [
                               Colors.transparent,
-                              Colors.black.withOpacity(0.7),
+                              Colors.black.withValues(alpha: 0.7),
                             ],
                           ),
                         ),
@@ -222,18 +222,24 @@ class BarbarDetailScreen extends StatelessWidget {
                                     Expanded(
                                       child: GestureDetector(
                                         onTap: () {
-                                          viewModel.setSelectedTab(0);
+                                          createBookingViewModel.setSelectedTab(
+                                            0,
+                                          );
                                         },
                                         child: Container(
                                           height: 31.h,
                                           decoration: BoxDecoration(
                                             gradient:
-                                                viewModel.selectedTabIndex == 0
+                                                createBookingViewModel
+                                                        .selectedTabIndex ==
+                                                    0
                                                 ? AppColors.kPrimaryGradient
                                                 : null,
 
                                             color:
-                                                viewModel.selectedTabIndex == 0
+                                                createBookingViewModel
+                                                        .selectedTabIndex ==
+                                                    0
                                                 ? null
                                                 : Colors.white,
                                             borderRadius: BorderRadius.circular(
@@ -247,7 +253,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.w400,
                                                 color:
-                                                    viewModel
+                                                    createBookingViewModel
                                                             .selectedTabIndex ==
                                                         0
                                                     ? Colors.white
@@ -263,18 +269,24 @@ class BarbarDetailScreen extends StatelessWidget {
                                     Expanded(
                                       child: GestureDetector(
                                         onTap: () {
-                                          viewModel.setSelectedTab(1);
+                                          createBookingViewModel.setSelectedTab(
+                                            1,
+                                          );
                                         },
                                         child: Container(
                                           height: 31.h,
                                           decoration: BoxDecoration(
                                             gradient:
-                                                viewModel.selectedTabIndex == 1
+                                                createBookingViewModel
+                                                        .selectedTabIndex ==
+                                                    1
                                                 ? AppColors.kPrimaryGradient
                                                 : null,
 
                                             color:
-                                                viewModel.selectedTabIndex == 1
+                                                createBookingViewModel
+                                                        .selectedTabIndex ==
+                                                    1
                                                 ? null
                                                 : Colors.white,
                                             borderRadius: BorderRadius.circular(
@@ -286,7 +298,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                               context.localization.reviews,
                                               style: TextStyle(
                                                 color:
-                                                    viewModel
+                                                    createBookingViewModel
                                                             .selectedTabIndex ==
                                                         1
                                                     ? Colors.white
@@ -304,19 +316,20 @@ class BarbarDetailScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: 20.h),
                                 // Conditional content based on selected tab
-                                if (viewModel.selectedTabIndex == 0) ...[
+                                if (createBookingViewModel.selectedTabIndex ==
+                                    0) ...[
                                   SingleChildScrollView(
                                     child: Wrap(
                                       spacing: 10.0, // Horizontal spacing
                                       runSpacing: 10.0, // Vertical spacing
                                       children: List.generate(8, (index) {
-                                        final service =
-                                            viewModel.services[index];
+                                        final service = createBookingViewModel
+                                            .services[index];
                                         return ServiceCard(
                                           service: service,
-                                          isSelected: viewModel
+                                          isSelected: createBookingViewModel
                                               .isServiceSelected(service),
-                                          onTap: () => viewModel
+                                          onTap: () => createBookingViewModel
                                               .toggleServiceSelection(service),
                                         );
                                       }),
@@ -417,7 +430,7 @@ class BarbarDetailScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          viewModel.selectedTabIndex == 0
+                          createBookingViewModel.selectedTabIndex == 0
                               ? Container(
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 20.w,
@@ -448,10 +461,11 @@ class BarbarDetailScreen extends StatelessWidget {
                                       ),
                                       SizedBox(height: 20.h),
                                       // Dynamic selected services
-                                      if (viewModel
+                                      if (createBookingViewModel
                                           .selectedServices
                                           .isNotEmpty) ...[
-                                        ...viewModel.selectedServices
+                                        ...createBookingViewModel
+                                            .selectedServices
                                             .map(
                                               (service) => Padding(
                                                 padding: EdgeInsets.only(
@@ -497,7 +511,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "\$${viewModel.getTotalPrice().toStringAsFixed(0)}",
+                                                  "\$${createBookingViewModel.getTotalPrice().toStringAsFixed(0)}",
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 18.sp,
