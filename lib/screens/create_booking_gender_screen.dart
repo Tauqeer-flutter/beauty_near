@@ -1,6 +1,7 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +13,7 @@ class CreateBookingGenderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Create Booking"),
+      appBar: CustomAppBar(title: context.localization.createBooking),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0.w),
         child: Column(
@@ -20,7 +21,7 @@ class CreateBookingGenderScreen extends StatelessWidget {
           children: [
             SizedBox(height: 30.h),
             Text(
-              "Booking",
+              context.localization.booking,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
@@ -29,7 +30,7 @@ class CreateBookingGenderScreen extends StatelessWidget {
             ),
             SizedBox(height: 12.h),
             Text(
-              "Select Your Service Type!",
+              context.localization.selectServiceType,
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
@@ -39,7 +40,7 @@ class CreateBookingGenderScreen extends StatelessWidget {
             SizedBox(height: 30.h),
 
             _buildGenderCard(
-              title: "Men's Services",
+              title: context.localization.mensService,
               icon: SvgAssets.men,
               isSelected: false,
               onTap: () {
@@ -48,7 +49,7 @@ class CreateBookingGenderScreen extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             _buildGenderCard(
-              title: "Women's Services",
+              title: context.localization.womensService,
               icon: SvgAssets.women,
               isSelected: false,
               onTap: () {

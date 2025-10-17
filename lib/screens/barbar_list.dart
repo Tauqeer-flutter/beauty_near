@@ -1,4 +1,5 @@
 import 'package:beauty_near/utils/enums.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:beauty_near/widgets/detailed_service_provider_card.dart';
@@ -15,7 +16,7 @@ class BarbarList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Create Booking"),
+      appBar: CustomAppBar(title: context.localization.createBooking),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
@@ -27,7 +28,7 @@ class BarbarList extends StatelessWidget {
             _buildServiceFilter(),
             SizedBox(height: 30.h),
             Text(
-              "Barbers Near You",
+              context.localization.barbersNearYou,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 20.h),

@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Hello,',
+            context.localization.commaHello,
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 18.sp,
@@ -102,8 +102,8 @@ class HomeScreen extends StatelessWidget {
           HomeCarouselWidget(),
           SizedBox(height: 30.h),
           _buildSectionHeading(
-            title: 'Top Rated Barbers',
-            link: 'See All',
+            title: context.localization.topRatedBarbers,
+            link: context.localization.seeAll,
             onLinkTap: () {
               Navigator.pushNamed(context, barbarList);
             },
@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 25.h),
-          _buildSectionHeading(title: 'Barber you need'),
+          _buildSectionHeading(title: context.localization.barberYouNeed),
           SizedBox(height: 15.h),
           _buildServiceFilter(),
           SizedBox(height: 20.h),

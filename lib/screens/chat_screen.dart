@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,7 +13,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Chat"),
+      appBar: CustomAppBar(title: context.localization.chat),
       body: Column(
         children: [
           Expanded(
@@ -47,7 +48,7 @@ class ChatScreen extends StatelessWidget {
                   Divider(thickness: 0.h, color: AppColors.greyColor),
                   SizedBox(height: 15.h),
                   Text(
-                    "Today",
+                    context.localization.today,
                     style: TextStyle(
                       fontSize: 10.h,
                       fontWeight: FontWeight.w600,
@@ -74,7 +75,7 @@ class ChatScreen extends StatelessWidget {
                 Expanded(
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Type a message",
+                      hintText: context.localization.typeMessage,
                       suffixIcon: Padding(
                         padding: EdgeInsets.only(right: 8.w),
                         child: SvgPicture.asset(

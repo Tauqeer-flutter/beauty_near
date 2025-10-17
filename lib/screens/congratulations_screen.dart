@@ -1,6 +1,7 @@
 import 'package:beauty_near/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +20,7 @@ class CongratulationsScreen extends StatelessWidget {
 
             SizedBox(height: 50.h),
             Text(
-              "Congratulations!",
+              context.localization.congratulations,
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
@@ -29,7 +30,7 @@ class CongratulationsScreen extends StatelessWidget {
             SizedBox(height: 5.h),
 
             Text(
-              "Your Account created Successfully",
+              context.localization.accountCreatedSuccessfully,
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
@@ -47,7 +48,7 @@ class CongratulationsScreen extends StatelessWidget {
                     (_) => false,
                   );
                 },
-                child: Text("Proceed to the App"),
+                child: Text(context.localization.proceedToApp),
               ),
             ),
           ],

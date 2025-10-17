@@ -1,24 +1,23 @@
-import 'package:beauty_near/route_generator.dart';
-import 'package:beauty_near/utils/assets.dart';
-import 'package:beauty_near/utils/screen_size.dart';
-import 'package:beauty_near/view_models/create_booking_view_model.dart';
-import 'package:beauty_near/widgets/reviews_card.dart';
-import 'package:beauty_near/widgets/service_card.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
+import '../route_generator.dart';
+import '../utils/assets.dart';
 import '../utils/color_constant.dart';
+import '../view_models/create_booking_view_model.dart';
 import '../widgets/bottom sheet/review_bottom_sheet.dart';
+import '../widgets/reviews_card.dart';
+import '../widgets/service_card.dart';
 
 class BarbarDetailScreen extends StatelessWidget {
   BarbarDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = screenNotifier.value;
     return Consumer<CreateBookingViewModel>(
       builder: (context, viewModel, child) {
         return Scaffold(
@@ -122,7 +121,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                     ),
                                     SizedBox(width: 5.h),
                                     Text(
-                                      "10 km",
+                                      context.localization.distance('10'),
                                       style: TextStyle(
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.w400,
@@ -148,7 +147,10 @@ class BarbarDetailScreen extends StatelessWidget {
                                         showReviewBottomSheet(context);
                                       },
                                       child: Text(
-                                        "4.8 (145 Reviews)",
+                                        context.localization.ratingAndReviews(
+                                          '4.8',
+                                          145,
+                                        ),
                                         style: TextStyle(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.w400,
@@ -159,7 +161,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: 20.h),
                                 Text(
-                                  "About Barber",
+                                  context.localization.aboutBarber,
                                   style: TextStyle(
                                     fontSize: 13.sp,
                                     fontWeight: FontWeight.w500,
@@ -196,14 +198,14 @@ class BarbarDetailScreen extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Available Today",
+                                            context.localization.availableToday,
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
                                           Text(
-                                            "Book now for same-day service",
+                                            context.localization.bookNow,
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
@@ -240,7 +242,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                           ),
                                           child: Center(
                                             child: Text(
-                                              "Services",
+                                              context.localization.services,
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.w400,
@@ -281,7 +283,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                           ),
                                           child: Center(
                                             child: Text(
-                                              "Reviews",
+                                              context.localization.reviews,
                                               style: TextStyle(
                                                 color:
                                                     viewModel
@@ -388,7 +390,9 @@ class BarbarDetailScreen extends StatelessWidget {
                                             fiveStarRow(),
                                             SizedBox(height: 8.h),
                                             Text(
-                                              "52 Reviews",
+                                              context.localization.onlyReviews(
+                                                148,
+                                              ),
                                               style: TextStyle(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -485,7 +489,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  "Total",
+                                                  context.localization.total,
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 16.sp,
@@ -506,7 +510,9 @@ class BarbarDetailScreen extends StatelessWidget {
                                         ),
                                       ] else ...[
                                         Text(
-                                          "No services selected",
+                                          context
+                                              .localization
+                                              .noServicesSelected,
                                           style: TextStyle(
                                             fontSize: 16.sp,
                                             fontWeight: FontWeight.w400,

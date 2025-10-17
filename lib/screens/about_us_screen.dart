@@ -1,3 +1,4 @@
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +10,7 @@ class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "About Us"),
+      appBar: CustomAppBar(title: context.localization.aboutUs),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
@@ -30,7 +31,10 @@ class AboutUsScreen extends StatelessWidget {
               Flexible(
                 child: Text(
                   ". Lorem ipsum dolor sit amet consectetur. Porttitor in ornare convallis mauris proin in sapien non. Massa arcu mi faucibus id nunc urna in. Vestibulum augue enim tristique aliquet nec tellus gravida vitae. Vitae fusce eget adipiscing ullamcorper condimentum a mollis hendrerit. Ultrices pellentesque tristique pretium metus ultricies in semper amet. Quis vitae fermentum magna enim sed tempus. Tempor platea at nec vitae donec gravida aenean arcu. Senectus nulla a facilisis nunc cras lorem eget. Neque sollicitudin.",
-                  style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w400),
+                  style: TextStyle(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
               SizedBox(height: 10.h),
@@ -42,7 +46,10 @@ class AboutUsScreen extends StatelessWidget {
               Flexible(
                 child: Text(
                   ". Lorem ipsum dolor sit amet consectetur. Porttitor in ornare convallis mauris proin in sapien non. Massa arcu mi faucibus id nunc urna in. Vestibulum augue enim tristique aliquet nec tellus gravida vitae. Vitae fusce eget adipiscing ullamcorper condimentum a mollis hendrerit. Ultrices pellentesque tristique pretium metus ultricies in semper amet. Quis vitae fermentum magna enim sed tempus. Tempor platea at nec vitae donec gravida aenean arcu. Senectus nulla a facilisis nunc cras lorem eget. Neque sollicitudin.",
-                  style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w400),
+                  style: TextStyle(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
               SizedBox(height: 10.h),
@@ -54,7 +61,10 @@ class AboutUsScreen extends StatelessWidget {
               Flexible(
                 child: Text(
                   ". Lorem ipsum dolor sit amet consectetur. Porttitor in ornare convallis mauris proin in sapien non. Massa arcu mi faucibus id nunc urna in. Vestibulum augue enim tristique aliquet nec tellus gravida vitae. Vitae fusce eget adipiscing ullamcorper condimentum a mollis hendrerit. Ultrices pellentesque tristique pretium metus ultricies in semper amet. Quis vitae fermentum magna enim sed tempus. Tempor platea at nec vitae donec gravida aenean arcu. Senectus nulla a facilisis nunc cras lorem eget. Neque sollicitudin.",
-                  style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w400),
+                  style: TextStyle(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ],

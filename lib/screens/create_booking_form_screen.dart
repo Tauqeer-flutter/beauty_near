@@ -1,5 +1,6 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,7 +49,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Create Booking"),
+      appBar: CustomAppBar(title: context.localization.createBooking),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0.w),
         child: Column(
@@ -57,7 +58,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             SizedBox(height: 30.h),
             Center(
               child: Text(
-                "Fill This Form",
+                context.localization.fillThisForm,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
@@ -68,7 +69,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             SizedBox(height: 6.h),
             Center(
               child: Text(
-                "Please fill this form to proceed further",
+                context.localization.pleaseFillThisForm,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
@@ -78,7 +79,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             ),
             SizedBox(height: 32.h),
             Text(
-              "Number of Adults",
+              context.localization.noOfAdults,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
@@ -128,7 +129,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             ),
             SizedBox(height: 20.h),
             Text(
-              "Number of Kids",
+              context.localization.noOfKids,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
@@ -179,7 +180,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             SizedBox(height: 20.h),
 
             Text(
-              "Select Date",
+              context.localization.selectDate,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
@@ -205,7 +206,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             ),
             SizedBox(height: 20.h),
             Text(
-              "Select Time",
+              context.localization.selectTime,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
@@ -236,7 +237,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, barbarList);
                 },
-                child: Text("Apply"),
+                child: Text(context.localization.apply),
               ),
             ),
           ],

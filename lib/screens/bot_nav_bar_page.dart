@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
+import '../route_generator.dart';
 import '../utils/color_constant.dart';
 import '../view_models/bot_nav_view_model.dart';
 import '../widgets/bottom_nav_bar.dart';

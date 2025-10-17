@@ -20,7 +20,7 @@ class LocationScreen extends StatelessWidget {
               SizedBox(height: 77.h),
 
               Text(
-                'Select Location',
+                context.localization.selectLocation,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 20.sp,
@@ -30,7 +30,7 @@ class LocationScreen extends StatelessWidget {
               ),
               SizedBox(height: 6.h),
               Text(
-                'Select your Location to find nearby Barbers',
+                context.localization.selectYourLocationToFindBarber,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 14.sp,
@@ -58,7 +58,7 @@ class LocationScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Enter Location',
+                  context.localization.enterLocation,
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
