@@ -1,3 +1,4 @@
+import 'package:beauty_near/services/locator.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/view_models/home_view_model.dart';
 import 'package:beauty_near/view_models/language_view_model.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
   await GoogleFonts.pendingFonts([GoogleFonts.montserratTextTheme()]);
   await ScreenUtil.ensureScreenSize();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await initializeServices();
   runApp(
     MultiProvider(
       providers: [

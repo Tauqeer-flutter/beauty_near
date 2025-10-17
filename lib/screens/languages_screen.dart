@@ -118,9 +118,10 @@ class LanguagesScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               child: GestureDetector(
-                onTap: () => Provider.of<LanguageViewModel>(
-                  context,
-                ).changeLocale(Locale('fr')),
+                onTap: () => context.read<LanguageViewModel>().changeLocale(
+                  Locale('fr'),
+                ),
+
                 child: Row(
                   children: [
                     Container(

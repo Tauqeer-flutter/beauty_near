@@ -39,5 +39,14 @@ class StorageService {
       return null;
     }
     return Locale(langString);
+
+  }
+    Future<Locale?> getLocale() async {
+    final langString = _prefs!.getString(_languageKey);
+    if (langString == null) {
+      return null;
+    }
+    return Locale(langString);
   }
 }
+
