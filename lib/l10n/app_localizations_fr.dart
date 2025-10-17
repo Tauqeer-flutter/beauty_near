@@ -161,4 +161,31 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get enterLocation => 'Enter Location';
+
+  @override
+  String get yourLocation => 'Your Location';
+
+  @override
+  String get loginToYourAccount => 'Login to Your Account';
+
+  @override
+  String get emailAddress => 'Email Address';
+
+  @override
+  String get yourEmail => 'Your Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get login => 'login';
+
+  @override
+  String get dontHavAccount => 'Don\'t have an account ?';
+
+  @override
+  String get signUp => 'Sign Up';
 }

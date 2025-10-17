@@ -68,7 +68,11 @@ class LocationScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.h),
-              TextField(decoration: InputDecoration(hintText: 'Your Location')),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: context.localization.yourLocation,
+                ),
+              ),
               SizedBox(height: 20.h),
             ],
           ),

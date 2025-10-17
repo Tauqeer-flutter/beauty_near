@@ -5,16 +5,13 @@ class StorageService {
   SharedPreferences? _prefs;
 
   static const String _themeModeKey = 'theme-mode';
-  static const String _accessTokenKey = 'access-token';
+  static const String _languageKey = 'language';
 
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }
 
   Future<ThemeMode> getThemeMode() async {
-    if (_prefs == null) {
-      await init();
-    }
     final int? index = _prefs!.getInt(_themeModeKey);
     if (index == null) {
       return ThemeMode.system;
@@ -26,25 +23,21 @@ class StorageService {
     if (mode == null) {
       return;
     }
-    if (_prefs == null) {
-      await init();
-    }
     await _prefs!.setInt(_themeModeKey, mode.index);
   }
 
-  Future<void> saveAccessToken(String? token) async {
-    if (token != null) {
-      if (_prefs == null) {
-        await init();
-      }
-      await _prefs!.setString(_accessTokenKey, token);
+  Future<void> saveLocale(Locale? locale) async {
+    if (locale == null) {
+      return;
     }
+    await _prefs!.setString(_languageKey, locale.languageCode);
   }
 
-  Future<String?> getAccessToken() async {
-    if (_prefs == null) {
-      await init();
+  Locale? get locale {
+    final langString = _prefs!.getString(_languageKey);
+    if (langString == null) {
+      return null;
     }
-    return _prefs!.getString(_accessTokenKey);
+    return Locale(langString);
   }
 }

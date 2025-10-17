@@ -47,5 +47,14 @@
   "allLanguages": "All Languages",
   "selectLocation": "Select Location",
   "selectYourLocationToFindBarber": "Select your Location to find nearby Barbers",
-  "enterLocation": "Enter Location"
+  "enterLocation": "Enter Location",
+  "yourLocation": "Your Location",
+  "loginToYourAccount": "Login to Your Account",
+  "emailAddress": "Email Address",
+  "yourEmail": "Your Email",
+  "password": "Password",
+  "forgotPassword": "Forgot Password?",
+  "login": "login",
+  "dontHavAccount": "Don't have an account ?",
+  "signUp": "Sign Up"
 }

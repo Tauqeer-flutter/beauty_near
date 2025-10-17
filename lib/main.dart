@@ -1,6 +1,6 @@
-import 'package:beauty_near/screens/personal_information_screen.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/view_models/home_view_model.dart';
+import 'package:beauty_near/view_models/language_view_model.dart';
 import 'package:beauty_near/widgets/add_card_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,6 +24,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => HomeViewModel()),
         ChangeNotifierProvider(create: (context) => CreateBookingViewModel()),
         ChangeNotifierProvider(create: (context) => AddCardViewModel()),
+        ChangeNotifierProvider(create: (_) => LanguageViewModel(), lazy: false),
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),

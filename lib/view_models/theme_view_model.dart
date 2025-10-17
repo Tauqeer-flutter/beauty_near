@@ -1,3 +1,4 @@
+import 'package:beauty_near/services/locator.dart';
 import 'package:flutter/material.dart';
 
 import '../../services/storage_service.dart';
@@ -6,7 +7,7 @@ class ThemeViewModel extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;
 
   ThemeMode get themeMode => _themeMode;
-  final StorageService _storageService = StorageService();
+  final StorageService _storageService = locator<StorageService>();
   ThemeViewModel() {
     _loadTheme();
   }
