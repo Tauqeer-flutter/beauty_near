@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
+import '../widgets/language_app_bar.dart';
 import '../widgets/social_button.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -14,6 +15,8 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: LanguageAppBar(),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -139,10 +142,12 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24.h),
-              SvgPicture.asset(
-                SvgAssets.or,
-                // width: double.infinity,
-                // height: 24.h,
+              Center(
+                child: SvgPicture.asset(
+                  SvgAssets.or,
+                  // width: double.infinity,
+                  // height: 24.h,
+                ),
               ),
               SizedBox(height: 24.h),
               SocialButton(

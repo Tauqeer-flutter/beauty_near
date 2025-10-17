@@ -39,7 +39,7 @@ extension LocaleUtils on Locale {
   String get name {
     switch (languageCode) {
       case 'en':
-        return 'English (US)';
+        return 'English';
       case 'fr':
         return 'Français';
       case 'es':

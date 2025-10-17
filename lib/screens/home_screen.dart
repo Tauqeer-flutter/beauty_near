@@ -1,6 +1,7 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/extensions.dart';
+import 'package:beauty_near/widgets/language_drop_down.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -84,6 +85,7 @@ class HomeScreen extends StatelessWidget {
           iconSize: 30.sp,
           icon: Icon(Iconsax.location5, color: AppColors.kPrimaryColor),
         ),
+        LanguageDropDown(),
       ],
     );
   }

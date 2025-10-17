@@ -6,7 +6,7 @@ import '../services/locator.dart';
 import '../services/storage_service.dart';
 
 class LanguageViewModel extends ChangeNotifier {
-  Locale currentLocale = Locale('en');
+  Locale currentLocale = const Locale('en');
 
   Future<void> fetchInitialLocale() async {
     final savedLocale = locator<StorageService>().locale;
