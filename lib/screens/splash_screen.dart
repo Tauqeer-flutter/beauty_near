@@ -3,6 +3,7 @@ import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/view_models/language_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await context.read<LanguageViewModel>().fetchInitialLocale();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 20));
       Navigator.pushReplacementNamed(context, loginScreen);
     });
   }
@@ -28,7 +29,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: AppColors.kPrimaryColor,
       body: Center(
-        child: Image.asset(PngAssets.beautyNear, color: Colors.white),
+        child: SvgPicture.asset(
+          SvgAssets.logo,
+          colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        ),
       ),
     );
   }
