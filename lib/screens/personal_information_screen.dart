@@ -1,7 +1,9 @@
 import 'package:beauty_near/utils/extensions.dart';
+import 'package:beauty_near/view_models/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
@@ -53,32 +55,43 @@ class PersonalInformationScreen extends StatelessWidget {
             children: [
               SizedBox(height: 30.h),
               Center(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 94.w,
-                      height: 94.h,
-                      decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: CircleAvatar(
-                        radius: 38.r,
-                        backgroundImage: AssetImage(PngAssets.person),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 1,
-                      right: 1,
-                      child: CircleAvatar(
-                        radius: 12.r,
-                        backgroundColor: Color(0xffEFC2C8),
+                child: Consumer<AuthViewModel>(
+                  builder: (context, authViewModel, _) {
+                    return GestureDetector(
+                      onTap: () async {
+                        await authViewModel.setProfileImagePath(
+                          context: context,
+                        );
+                      },
+                      child: Stack(
+                        children: [
+                          Container(
+                            width: 94.w,
+                            height: 94.h,
+                            decoration: BoxDecoration(shape: BoxShape.circle),
+                            child: CircleAvatar(
+                              radius: 38.r,
+                              backgroundImage: AssetImage(PngAssets.person),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 1,
+                            right: 1,
+                            child: CircleAvatar(
+                              radius: 12.r,
+                              backgroundColor: Color(0xffEFC2C8),
 
-                        child: Icon(
-                          Iconsax.edit,
-                          color: AppColors.kPrimaryColor,
-                          size: 12.w,
-                        ),
+                              child: Icon(
+                                Iconsax.edit,
+                                color: AppColors.kPrimaryColor,
+                                size: 12.w,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
               ),
               SizedBox(height: 30.h),

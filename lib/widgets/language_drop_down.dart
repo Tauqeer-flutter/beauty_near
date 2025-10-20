@@ -1,6 +1,5 @@
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/view_models/language_view_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

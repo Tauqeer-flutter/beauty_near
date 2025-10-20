@@ -1,4 +1,5 @@
 import 'package:beauty_near/services/locator.dart';
+import 'package:beauty_near/view_models/auth_view_model.dart';
 import 'package:beauty_near/view_models/create_booking_view_model.dart';
 import 'package:beauty_near/view_models/home_view_model.dart';
 import 'package:beauty_near/view_models/language_view_model.dart';
@@ -26,6 +27,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => HomeViewModel()),
         ChangeNotifierProvider(create: (context) => CreateBookingViewModel()),
         ChangeNotifierProvider(create: (context) => AddCardViewModel()),
+        ChangeNotifierProvider(create: (context) => AuthViewModel()),
         ChangeNotifierProvider(create: (_) => LanguageViewModel(), lazy: false),
       ],
       child: ScreenUtilInit(
