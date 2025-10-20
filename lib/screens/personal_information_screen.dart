@@ -18,7 +18,7 @@ class PersonalInformationScreen extends StatelessWidget {
         backgroundColor: AppColors.kScaffoldColor,
         centerTitle: true,
         title: Text(
-          "Personal Information",
+          context.localization.personalInfo,
           style: TextStyle(
             color: AppColors.textPrimaryColor,
             fontSize: 19.sp,
@@ -96,23 +96,27 @@ class PersonalInformationScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.h),
               Text(
-                "Enter Name",
-                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(decoration: InputDecoration(hintText: "John Doe")),
-              SizedBox(height: 15.h),
-              Text(
-                "Email Address",
+                context.localization.enterName,
                 style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
               ),
               SizedBox(height: 8.h),
               TextFormField(
-                decoration: InputDecoration(hintText: "John1Dow@example.com"),
+                decoration: InputDecoration(
+                  hintText: context.localization.name,
+                ),
               ),
               SizedBox(height: 15.h),
               Text(
-                "Phone Number",
+                context.localization.emailAddress,
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
+              ),
+              SizedBox(height: 8.h),
+              TextFormField(
+                decoration: InputDecoration(hintText: "email@example.com"),
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                context.localization.phoneNumber,
                 style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
               ),
               SizedBox(height: 8.h),
@@ -132,7 +136,7 @@ class PersonalInformationScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "Change Password",
+                      context.localization.changePassword,
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
@@ -161,7 +165,7 @@ class PersonalInformationScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Edit Profile"),
+              child: Text(context.localization.editProfile),
             ),
           ),
         ),

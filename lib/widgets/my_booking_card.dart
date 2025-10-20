@@ -1,5 +1,6 @@
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +34,7 @@ class MyBookingCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -41,10 +42,8 @@ class MyBookingCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Main content row
           Row(
             children: [
-              // Left section - Customer info
               Expanded(
                 flex: 3,
                 child: Row(
@@ -55,7 +54,7 @@ class MyBookingCard extends StatelessWidget {
                       height: 50.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppColors.greyColor.withOpacity(0.3),
+                        color: AppColors.greyColor.withValues(alpha: 0.3),
                       ),
                       child: Image.asset(PngAssets.person),
                     ),
@@ -159,7 +158,7 @@ class MyBookingCard extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        'View Details',
+                        context.localization.viewDetails,
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: AppColors.textPrimaryColor,
@@ -178,7 +177,7 @@ class MyBookingCard extends StatelessWidget {
                   width: 36.w,
                   height: 36.w,
                   decoration: BoxDecoration(
-                    color: AppColors.kPrimaryColor.withOpacity(0.1),
+                    color: AppColors.kPrimaryColor.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(

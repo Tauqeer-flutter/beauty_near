@@ -20,7 +20,7 @@ class AppInit extends StatelessWidget {
       title: 'BeautyNear',
       locale: locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      initialRoute: loginScreen,
+      initialRoute: splashScreen,
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,

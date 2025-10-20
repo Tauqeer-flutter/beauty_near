@@ -447,6 +447,504 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign Up'**
   String get signUp;
+
+  /// No description provided for @bookingDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookings Details'**
+  String get bookingDetails;
+
+  /// No description provided for @bookingBooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Booking was successfully Booked.'**
+  String get bookingBooked;
+
+  /// No description provided for @bookingId.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking ID:'**
+  String get bookingId;
+
+  /// No description provided for @bookedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Booked On:'**
+  String get bookedOn;
+
+  /// No description provided for @service.
+  ///
+  /// In en, this message translates to:
+  /// **'Service'**
+  String get service;
+
+  /// No description provided for @haircut.
+  ///
+  /// In en, this message translates to:
+  /// **'Haircut'**
+  String get haircut;
+
+  /// No description provided for @shaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Shaving'**
+  String get shaving;
+
+  /// No description provided for @headMassage.
+  ///
+  /// In en, this message translates to:
+  /// **'Head Massage'**
+  String get headMassage;
+
+  /// No description provided for @persons.
+  ///
+  /// In en, this message translates to:
+  /// **'Persons'**
+  String get persons;
+
+  /// No description provided for @adult.
+  ///
+  /// In en, this message translates to:
+  /// **'1 Adult'**
+  String get adult;
+
+  /// No description provided for @adults.
+  ///
+  /// In en, this message translates to:
+  /// **'{noOfAdults} Adults'**
+  String adults(Object noOfAdults);
+
+  /// No description provided for @kid.
+  ///
+  /// In en, this message translates to:
+  /// **'1 Kid'**
+  String get kid;
+
+  /// No description provided for @kids.
+  ///
+  /// In en, this message translates to:
+  /// **'{noOfKids} Kids'**
+  String kids(Object noOfKids);
+
+  /// No description provided for @timing.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing'**
+  String get timing;
+
+  /// No description provided for @paymentSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Summary'**
+  String get paymentSummary;
+
+  /// No description provided for @totalAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Amount:'**
+  String get totalAmount;
+
+  /// No description provided for @totalDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Duration'**
+  String get totalDuration;
+
+  /// No description provided for @minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{min} Minutes'**
+  String minutes(Object min);
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @accept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get accept;
+
+  /// No description provided for @reject.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get reject;
+
+  /// No description provided for @myBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'My Bookings'**
+  String get myBookings;
+
+  /// No description provided for @upcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get upcoming;
+
+  /// No description provided for @past.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get past;
+
+  /// No description provided for @alerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts'**
+  String get alerts;
+
+  /// No description provided for @markAllAsRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark all as Read'**
+  String get markAllAsRead;
+
+  /// No description provided for @orderSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Summary'**
+  String get orderSummary;
+
+  /// No description provided for @platformFees.
+  ///
+  /// In en, this message translates to:
+  /// **'Platform Fees'**
+  String get platformFees;
+
+  /// No description provided for @taxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Taxes'**
+  String get taxes;
+
+  /// No description provided for @cancelPaymentAcknowledgement.
+  ///
+  /// In en, this message translates to:
+  /// **'If you cancel the booking less than 1 hour before the service timing, Your payment will not be refunded.'**
+  String get cancelPaymentAcknowledgement;
+
+  /// No description provided for @bookingPlacedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Your booking placed successfully!'**
+  String get bookingPlacedSuccessfully;
+
+  /// No description provided for @payNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay Now'**
+  String get payNow;
+
+  /// No description provided for @payInCash.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay In Cash'**
+  String get payInCash;
+
+  /// No description provided for @addCardDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Card Details'**
+  String get addCardDetails;
+
+  /// No description provided for @cardHolderName.
+  ///
+  /// In en, this message translates to:
+  /// **'Card Holder Name'**
+  String get cardHolderName;
+
+  /// No description provided for @cardNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Card Number'**
+  String get cardNumber;
+
+  /// No description provided for @expiryDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry Date'**
+  String get expiryDate;
+
+  /// No description provided for @cvv.
+  ///
+  /// In en, this message translates to:
+  /// **'CVV'**
+  String get cvv;
+
+  /// No description provided for @zipCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Zip Code'**
+  String get zipCode;
+
+  /// No description provided for @countryRegion.
+  ///
+  /// In en, this message translates to:
+  /// **'Country / Region'**
+  String get countryRegion;
+
+  /// No description provided for @selectCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Country'**
+  String get selectCountry;
+
+  /// No description provided for @payOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay Online'**
+  String get payOnline;
+
+  /// No description provided for @addCardProceed.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Card & Proceed'**
+  String get addCardProceed;
+
+  /// No description provided for @paymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Method'**
+  String get paymentMethod;
+
+  /// No description provided for @selectPaymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Your Payment Method'**
+  String get selectPaymentMethod;
+
+  /// No description provided for @payOnlineStripe.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay Online (Stripe)'**
+  String get payOnlineStripe;
+
+  /// No description provided for @upfrontDepositDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'To confirm booking you have to pays 25% of the service fee as upfront deposit.'**
+  String get upfrontDepositDescription;
+
+  /// No description provided for @enterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Name'**
+  String get enterName;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get changePassword;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// No description provided for @selectServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Services'**
+  String get selectServices;
+
+  /// No description provided for @createAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an Account'**
+  String get createAnAccount;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @yourName.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Name'**
+  String get yourName;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @continueWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get continueWithGoogle;
+
+  /// No description provided for @continueWithFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Facebook'**
+  String get continueWithFacebook;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @pleaseGiveReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Please give us a Review'**
+  String get pleaseGiveReview;
+
+  /// No description provided for @typeHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Type here'**
+  String get typeHere;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @selectDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Duration'**
+  String get selectDuration;
+
+  /// No description provided for @hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Hours'**
+  String get hours;
+
+  /// No description provided for @minutesHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Minutes'**
+  String get minutesHeading;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @bookings.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookings'**
+  String get bookings;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @availableNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Now'**
+  String get availableNow;
+
+  /// No description provided for @minimumServicePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum Service Price: '**
+  String get minimumServicePrice;
+
+  /// No description provided for @viewProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'View Profile'**
+  String get viewProfile;
+
+  /// No description provided for @viewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get viewDetails;
+
+  /// No description provided for @markAsComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as Complete'**
+  String get markAsComplete;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @smallMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{min} mins'**
+  String smallMinutes(Object min);
+
+  /// No description provided for @minsAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{min} mins ago'**
+  String minsAgo(Object min);
+
+  /// No description provided for @minsSession.
+  ///
+  /// In en, this message translates to:
+  /// **'{mins} min session'**
+  String minsSession(Object mins);
+
+  /// No description provided for @languages.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages'**
+  String get languages;
+
+  /// No description provided for @allServices.
+  ///
+  /// In en, this message translates to:
+  /// **'All Services'**
+  String get allServices;
 }
 
 class _AppLocalizationsDelegate

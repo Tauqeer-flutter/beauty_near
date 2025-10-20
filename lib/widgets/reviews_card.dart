@@ -1,5 +1,6 @@
 import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/circular_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,7 +40,7 @@ class ReviewsCard extends StatelessWidget {
                         fiveStarRow(),
                         SizedBox(width: 4.w),
                         Text(
-                          "2 mins ago",
+                          context.localization.minsAgo(2),
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -64,6 +65,7 @@ class ReviewsCard extends StatelessWidget {
       ),
     );
   }
+
   fiveStarRow() {
     return Row(
       children: [

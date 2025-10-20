@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -36,7 +38,7 @@ class BottomNavBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 _buildNavItem(
-                  label: 'Home',
+                  label: context.localization.home,
                   index: 0,
                   icon: Iconsax.home,
                   activeIcon: Iconsax.home_15,
@@ -44,18 +46,18 @@ class BottomNavBar extends StatelessWidget {
                 _buildNavItem(
                   icon: Iconsax.calendar_tick,
                   activeIcon: Iconsax.calendar_tick5,
-                  label: 'Bookings',
+                  label: context.localization.bookings,
                   index: 1,
                 ),
                 SizedBox(width: 50.h),
                 _buildNavItem(
                   icon: Iconsax.notification_bing,
                   activeIcon: Iconsax.notification_bing5,
-                  label: 'Alerts',
+                  label: context.localization.alerts,
                   index: 2,
                 ),
                 _buildNavItem(
-                  label: 'Settings',
+                  label: context.localization.settings,
                   index: 3,
                   icon: Iconsax.setting,
                   activeIcon: Iconsax.setting5,
@@ -91,7 +93,6 @@ class BottomNavBar extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                  // left: index == 2 && isSelected ? 25.w : 0,
                   right: index == 3 && isSelected ? 20.w : 0,
                 ),
                 child: Icon(
@@ -104,9 +105,10 @@ class BottomNavBar extends StatelessWidget {
               ),
               if (isSelected) ...{
                 SizedBox(height: 2.h),
-                Text(
+                AutoSizeText(
                   label,
                   overflow: TextOverflow.clip,
+                  maxLines: 1,
                   style: TextStyle(
                     // height: 1.6.h,
                     fontSize: 12.sp,

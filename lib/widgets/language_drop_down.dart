@@ -1,8 +1,12 @@
-import 'package:beauty_near/utils/color_constant.dart';
-import 'package:beauty_near/view_models/language_view_model.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
+import '../l10n/app_localizations.dart';
+import '../utils/color_constant.dart';
+import '../view_models/language_view_model.dart';
 
 class LanguageDropDown extends StatelessWidget {
   const LanguageDropDown({super.key});
@@ -12,58 +16,52 @@ class LanguageDropDown extends StatelessWidget {
     return Consumer<LanguageViewModel>(
       builder: (context, languageViewModel, _) {
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(70.r),
-              border: Border.all(color: Colors.grey.shade400, width: 1.0),
-            ),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          child: SizedBox(
+            height: 40.h,
             child: PopupMenuButton<String>(
+              clipBehavior: Clip.antiAlias,
+              borderRadius: BorderRadius.circular(70.r),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               color: AppColors.kScaffoldColor,
-              offset: Offset(8.w, 30.h),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    LanguageViewModel.availableLanguages.firstWhere(
-                      (lang) =>
-                          lang['code'] ==
-                          languageViewModel.currentLocale.languageCode,
-                    )['flag']!,
-                    style: TextStyle(fontSize: 16.sp),
-                  ),
-                  SizedBox(width: 8.w),
-                  Text(
-                    LanguageViewModel.availableLanguages.firstWhere(
-                      (lang) =>
-                          lang['code'] ==
-                          languageViewModel.currentLocale.languageCode,
-                    )['name']!,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      color: AppColors.textPrimaryColor,
+              offset: Offset(8.w, 40.h),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(70.r),
+                  border: Border.all(color: Colors.grey.shade400, width: 1.0),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SvgPicture.asset(
+                      languageViewModel.currentLocale.svg,
+                      width: 24.w,
                     ),
-                  ),
-                ],
+                    SizedBox(width: 8.w),
+                    Text(
+                      languageViewModel.currentLocale.languageCode
+                          .toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               itemBuilder: (BuildContext context) {
-                return LanguageViewModel.availableLanguages.map((language) {
+                return AppLocalizations.supportedLocales.map((language) {
                   return PopupMenuItem<String>(
-                    value: language['code']!,
+                    value: language.languageCode,
                     child: SizedBox(
                       child: Row(
                         children: [
-                          Text(
-                            language['flag']!,
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              color: AppColors.textPrimaryColor,
-                            ),
-                          ),
+                          SvgPicture.asset(language.svg, width: 24.w),
                           SizedBox(width: 8.w),
                           Text(
-                            language['fullName']!,
+                            language.name,
                             style: TextStyle(
                               fontSize: 14.sp,
                               color: AppColors.textPrimaryColor,

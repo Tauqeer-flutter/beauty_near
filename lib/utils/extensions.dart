@@ -1,8 +1,10 @@
 import 'package:beauty_near/l10n/app_localizations_en.dart';
+import 'package:beauty_near/utils/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../l10n/app_localizations.dart';
+import 'assets.dart';
 
 extension ContextUtils on BuildContext {
   bool get hasBottomNotch {
@@ -30,5 +32,44 @@ extension ContextUtils on BuildContext {
       return AppLocalizationsEn();
     }
     return currentLocalization;
+  }
+}
+
+extension LocaleUtils on Locale {
+  String get name {
+    switch (languageCode) {
+      case 'en':
+        return 'English';
+      case 'fr':
+        return 'Français';
+      case 'es':
+        return 'Español';
+      default:
+        throw Exception('Invalid language code: $languageCode');
+    }
+  }
+
+  String get svg {
+    switch (languageCode) {
+      case 'en':
+        return SvgAssets.us;
+      case 'fr':
+        return SvgAssets.french;
+      case 'es':
+        return SvgAssets.spanish;
+      default:
+        throw Exception('Invalid language code: $languageCode');
+    }
+  }
+}
+
+extension ServiceTypeUtils on ServiceType {
+  String get label {
+    return switch (this) {
+      ServiceType.all => 'All Services',
+      ServiceType.haircut => 'Haircut',
+      ServiceType.shaving => 'Shaving',
+      ServiceType.massage => 'Massage',
+    };
   }
 }

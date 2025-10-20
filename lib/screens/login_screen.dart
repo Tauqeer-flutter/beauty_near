@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
+import '../widgets/language_app_bar.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -14,6 +15,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: LanguageAppBar(),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),

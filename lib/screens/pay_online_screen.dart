@@ -1,17 +1,11 @@
 import 'package:beauty_near/route_generator.dart';
-import 'package:flutter/material.dart';
-
-import 'package:beauty_near/screens/bot_nav_bar_page.dart';
-import 'package:beauty_near/utils/assets.dart';
 import 'package:beauty_near/utils/color_constant.dart';
-import 'package:beauty_near/widgets/custom_app_bar.dart';
-import 'package:beauty_near/widgets/dialog%20box/success_dialog_box.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/add_card_view_model.dart';
-
+import 'package:beauty_near/widgets/custom_app_bar.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +15,7 @@ class PayOnline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Pay Online"),
+      appBar: CustomAppBar(title: context.localization.payOnline),
       backgroundColor: AppColors.kScaffoldColor,
       body: SingleChildScrollView(
         child: Padding(
@@ -33,7 +27,7 @@ class PayOnline extends StatelessWidget {
 
               Center(
                 child: Text(
-                  'Add Card Details',
+                  context.localization.addCardDetails,
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w500,
@@ -47,7 +41,7 @@ class PayOnline extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Card Holder Name',
+                    context.localization.cardHolderName,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -67,7 +61,7 @@ class PayOnline extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Card Number',
+                    context.localization.cardNumber,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -94,7 +88,7 @@ class PayOnline extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Expiry Date',
+                              context.localization.expiryDate,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -131,7 +125,7 @@ class PayOnline extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'CVV',
+                              context.localization.cvv,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -141,7 +135,9 @@ class PayOnline extends StatelessWidget {
                             SizedBox(height: 8.h),
                             TextFormField(
                               keyboardType: TextInputType.number,
-                              decoration: InputDecoration(hintText: 'CVC'),
+                              decoration: InputDecoration(
+                                hintText: context.localization.cvv,
+                              ),
                             ),
                           ],
                         ),
@@ -150,7 +146,7 @@ class PayOnline extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Zip Code',
+                    context.localization.zipCode,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -161,7 +157,7 @@ class PayOnline extends StatelessWidget {
                   TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Zip Code',
+                      hintText: context.localization.zipCode,
                       // suffixIcon: Icon(
                       //   Iconsax.arrow_down_1,
                       //   size: 18.sp,
@@ -171,7 +167,7 @@ class PayOnline extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Country / Region',
+                    context.localization.zipCode,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -179,16 +175,6 @@ class PayOnline extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8.h),
-                  // TextFormField(
-                  //   decoration: InputDecoration(
-                  //     hintText: 'Select',
-                  //     suffixIcon: Icon(
-                  //       Iconsax.arrow_down_1,
-                  //       size: 18.sp,
-                  //       color: AppColors.greyColor,
-                  //     ),
-                  //   ),
-                  // ),
                   Consumer<AddCardViewModel>(
                     builder: (context, viewModel, child) {
                       return Container(
@@ -203,7 +189,7 @@ class PayOnline extends StatelessWidget {
                           child: DropdownButton2<String>(
                             isExpanded: true,
                             hint: Text(
-                              'Select Country',
+                              context.localization.selectCountry,
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.greyColor,
@@ -254,7 +240,6 @@ class PayOnline extends StatelessWidget {
                                 ],
                               ),
                               offset: Offset(0, -(200.h + 60.h)),
-                              // ✅ maxHeight + button height + spacing
                               scrollbarTheme: ScrollbarThemeData(
                                 radius: Radius.circular(40),
                                 thickness: WidgetStateProperty.all(6),
@@ -285,7 +270,7 @@ class PayOnline extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, orderSummary);
             },
-            child: Text('Add Card & Proceed'),
+            child: Text(context.localization.addCardProceed),
           ),
         ),
       ),
