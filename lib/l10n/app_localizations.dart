@@ -184,17 +184,17 @@ abstract class AppLocalizations {
   /// **'About Barber'**
   String get aboutBarber;
 
-  /// No description provided for @availableToday.
-  ///
-  /// In en, this message translates to:
-  /// **'Available Today'**
-  String get availableToday;
-
   /// No description provided for @bookNow.
   ///
   /// In en, this message translates to:
-  /// **'Book now for same-day service'**
+  /// **'Book Now'**
   String get bookNow;
+
+  /// No description provided for @bookNowSameDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Book now for same-day service'**
+  String get bookNowSameDay;
 
   /// No description provided for @services.
   ///
@@ -945,6 +945,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All Services'**
   String get allServices;
+
+  /// No description provided for @availableToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Today'**
+  String get availableToday;
 }
 
 class _AppLocalizationsDelegate

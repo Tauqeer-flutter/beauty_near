@@ -55,10 +55,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get aboutBarber => 'Acerca del barbero';
 
   @override
-  String get availableToday => 'Disponible hoy';
+  String get bookNow => 'Reserva ahora';
 
   @override
-  String get bookNow => 'Reserva ahora';
+  String get bookNowSameDay => 'Reserve ahora para el servicio el mismo día';
 
   @override
   String get services => 'Servicios';
@@ -454,4 +454,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get allServices => 'Todos los servicios';
+
+  @override
+  String get availableToday => 'Available Today';
 }

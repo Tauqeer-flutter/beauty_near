@@ -14,7 +14,8 @@
   "ratingAndReviews": "{rating} ({reviews} Avis)",
   "aboutBarber": "À propos du coiffeur",
   "availableToday": "Disponible aujourd'hui",
-  "bookNow": "Réserver maintenant pour un service le jour même",
+  "bookNow": "Réservez maintenant",
+  "bookNowSameDay": "Réserver maintenant pour un service le jour même",
   "services": "Services",
   "reviews": "Avis",
   "onlyReviews": "{reviews} avis",
@@ -139,5 +140,6 @@
   "minsAgo": "Il y a {min} min",
   "minsSession": "Session de {mins} min",
   "languages": "Langages",
-  "allServices": "Tous les services"
+  "allServices": "Tous les services",
+  "availableToday": "Available Today"
 }

@@ -13,8 +13,8 @@
   "distance": "{distance} km",
   "ratingAndReviews": "{rating} ({reviews} Reviews)",
   "aboutBarber": "About Barber",
-  "availableToday": "Available Today",
-  "bookNow": "Book now for same-day service",
+  "bookNow": "Book Now",
+  "bookNowSameDay": "Book now for same-day service",
   "services": "Services",
   "reviews": "Reviews",
   "onlyReviews": "{reviews} reviews",
@@ -139,5 +139,6 @@
   "minsAgo": "{min} mins ago",
   "minsSession": "{mins} min session",
   "languages": "Languages",
-  "allServices": "All Services"
+  "allServices": "All Services",
+  "availableToday": "Available Today"
 }

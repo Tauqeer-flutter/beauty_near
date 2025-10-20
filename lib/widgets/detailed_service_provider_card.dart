@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
@@ -121,7 +122,11 @@ class DetailedServiceProviderCard extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {},
-                      child: Text(context.localization.bookNow),
+                      child: AutoSizeText(
+                        context.localization.bookNow,
+                        // maxLines: 1,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ],

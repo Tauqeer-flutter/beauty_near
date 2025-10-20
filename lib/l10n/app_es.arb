@@ -15,6 +15,7 @@
   "aboutBarber": "Acerca del barbero",
   "availableToday": "Disponible hoy",
   "bookNow": "Reserva ahora",
+  "bookNowSameDay": "Reserve ahora para el servicio el mismo día",
   "services": "Servicios",
   "reviews": "Reseñas",
   "onlyReviews": "{reviews} reseñas",
@@ -139,5 +140,6 @@
   "minsAgo": "Hace {min} min",
   "minsSession": "Sesión de {mins} min",
   "languages": "Idiomas",
-  "allServices": "Todos los servicios"
+  "allServices": "Todos los servicios",
+  "availableToday": "Available Today"
 }

@@ -205,7 +205,7 @@ class BarbarDetailScreen extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            context.localization.bookNow,
+                                            context.localization.bookNowSameDay,
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
