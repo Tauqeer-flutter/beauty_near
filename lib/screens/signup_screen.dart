@@ -24,7 +24,6 @@ class _SignupScreenState extends State<SignupScreen> {
     'White',
     'Black/African/Caribbean',
     'Asian',
-    'Others',
   ];
 
   @override
