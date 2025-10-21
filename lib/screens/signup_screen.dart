@@ -1,4 +1,5 @@
 import 'package:beauty_near/utils/extensions.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,8 +10,22 @@ import '../utils/color_constant.dart';
 import '../widgets/language_app_bar.dart';
 import '../widgets/social_button.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  String? _selectedEthnicity;
+
+  final List<String> _ethnicities = [
+    'White',
+    'Black/African/Caribbean',
+    'Asian',
+    'Others',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +87,38 @@ class SignupScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: context.localization.yourEmail,
                 ),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                'Select Ethnicity',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
+              SizedBox(height: 8.h),
+              DropdownButtonFormField2<String>(
+                decoration: InputDecoration(
+                  // labelText: 'Select Ethnicity',
+                  border: OutlineInputBorder(),
+                ),
+                value: _selectedEthnicity,
+                isExpanded: true,
+                hint: Text('Select Ethnicity'),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedEthnicity = newValue;
+                  });
+                },
+                items: _ethnicities.map<DropdownMenuItem<String>>((
+                  String value,
+                ) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
               ),
               SizedBox(height: 20.h),
               Text(

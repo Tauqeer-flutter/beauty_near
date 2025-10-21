@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await context.read<LanguageViewModel>().fetchInitialLocale();
-      await Future.delayed(Duration(seconds: 20));
+      await Future.delayed(Duration(seconds: 2));
       Navigator.pushReplacementNamed(context, loginScreen);
     });
   }
