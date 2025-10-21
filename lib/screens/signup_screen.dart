@@ -102,6 +102,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.only(
+                    top: 13.h,
+                    bottom: 13.h,
                     right: 10.w,
                   ), // Offset from upper side
                 ),
