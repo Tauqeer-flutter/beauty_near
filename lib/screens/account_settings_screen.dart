@@ -13,6 +13,8 @@ class AccountSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent),
+      extendBodyBehindAppBar: true,
       body: SizedBox.fromSize(
         size: MediaQuery.sizeOf(context),
         child: Stack(

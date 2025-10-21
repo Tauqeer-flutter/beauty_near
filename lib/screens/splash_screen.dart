@@ -27,6 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent),
+      extendBodyBehindAppBar: true,
       backgroundColor: AppColors.kPrimaryColor,
       body: Center(
         child: SvgPicture.asset(
