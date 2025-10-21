@@ -101,9 +101,9 @@ class _SignupScreenState extends State<SignupScreen> {
               DropdownButtonFormField2<String>(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  // contentPadding: EdgeInsets.only(
-                  //   top: 2,
-                  // ), // Offset from upper side
+                  contentPadding: EdgeInsets.only(
+                    right: 10.w,
+                  ), // Offset from upper side
                 ),
                 value: _selectedEthnicity,
                 isExpanded: true,
