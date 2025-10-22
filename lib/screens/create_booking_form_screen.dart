@@ -187,7 +187,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
             ),
             SizedBox(height: 20.h),
             Text(
-              'Select Ethnicity',
+              context.localization.selectEthnicity,
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 14.sp,
@@ -206,7 +206,7 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
               ),
               value: _selectedEthnicity,
               isExpanded: true,
-              hint: Text('Select Ethnicity'),
+              hint: Text(context.localization.selectEthnicity),
               onChanged: (String? newValue) {
                 setState(() {
                   _selectedEthnicity = newValue;

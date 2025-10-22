@@ -15,6 +15,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get aboutUs => 'À propos de nous';
 
   @override
+  String get selectEthnicity => 'Sélectionnez l\'origine ethnique';
+
+  @override
   String get accountSettings => 'Paramètres du compte';
 
   @override
