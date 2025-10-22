@@ -112,6 +112,12 @@ abstract class AppLocalizations {
   /// **'About Us'**
   String get aboutUs;
 
+  /// No description provided for @selectEthnicity.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Ethnicity'**
+  String get selectEthnicity;
+
   /// No description provided for @accountSettings.
   ///
   /// In en, this message translates to:
