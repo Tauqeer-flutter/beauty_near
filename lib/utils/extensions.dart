@@ -73,3 +73,15 @@ extension ServiceTypeUtils on ServiceType {
     };
   }
 }
+
+extension StringUtils on String {
+  bool didExceedMaxLines({required double maxWidth, TextStyle? textStyle}) {
+    final TextPainter textPainter = TextPainter(
+      text: TextSpan(text: this, style: textStyle),
+      maxLines: 1,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout(maxWidth: maxWidth);
+    return textPainter.didExceedMaxLines;
+  }
+}

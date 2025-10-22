@@ -116,18 +116,13 @@ class DetailedServiceProviderCard extends StatelessWidget {
   }
 
   Widget _buildActions(BuildContext context) {
-    final TextPainter textPainter = TextPainter(
-      text: TextSpan(
-        text: context.localization.bookNow,
-        style: ElevatedButtonTheme.of(
-          context,
-        ).style?.textStyle?.resolve({WidgetState.pressed}),
-      ),
-      maxLines: 1,
-      textDirection: TextDirection.ltr,
+    final didExceedMaxLines = context.localization.bookNow.didExceedMaxLines(
+      maxWidth: (MediaQuery.widthOf(context) * 0.5) - 56.w,
+      textStyle: ElevatedButtonTheme.of(
+        context,
+      ).style?.textStyle?.resolve({WidgetState.pressed}),
     );
-    textPainter.layout(maxWidth: (MediaQuery.widthOf(context) * 0.5) - 56.w);
-    if (textPainter.didExceedMaxLines) {
+    if (didExceedMaxLines) {
       return Column(
         spacing: 10.h,
         crossAxisAlignment: CrossAxisAlignment.stretch,
