@@ -49,7 +49,6 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent),
       extendBodyBehindAppBar: true,
-      backgroundColor: AppColors.kPrimaryColor,
       body: Center(
         child: AnimatedBuilder(
           animation: _controller,
