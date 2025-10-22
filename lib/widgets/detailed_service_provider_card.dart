@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
@@ -108,33 +107,90 @@ class DetailedServiceProviderCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
-              Row(
-                spacing: 12.w,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, barbarDetailScreen);
-                      },
-                      child: Text(context.localization.viewProfile),
-                    ),
-                  ),
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      child: AutoSizeText(
-                        context.localization.bookNow,
-                        // maxLines: 1,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              _buildActions(context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildActions(BuildContext context) {
+    final TextPainter textPainter = TextPainter(
+      text: TextSpan(
+        text: context.localization.bookNow,
+        style: ElevatedButtonTheme.of(
+          context,
+        ).style?.textStyle?.resolve({WidgetState.pressed}),
+      ),
+      maxLines: 1,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout(maxWidth: (MediaQuery.widthOf(context) * 0.5) - 56.w);
+    if (textPainter.didExceedMaxLines) {
+      return Column(
+        spacing: 10.h,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, barbarDetailScreen);
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Text(context.localization.viewProfile),
+            ),
+          ),
+          OutlinedButton(
+            onPressed: () => Navigator.pushNamed(
+              context,
+              barbarDetailScreen,
+              arguments: {'selectedTab': 1},
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Text(
+                context.localization.bookNow,
+
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+    return Row(
+      spacing: 12.w,
+      children: [
+        Expanded(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, barbarDetailScreen);
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Text(context.localization.viewProfile),
+            ),
+          ),
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () => Navigator.pushNamed(
+              context,
+              barbarDetailScreen,
+              arguments: {'selectedTab': 1},
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Text(
+                context.localization.bookNow,
+
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

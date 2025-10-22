@@ -167,7 +167,8 @@ class RouteGenerator {
       case barbarDetailScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: barbarDetailScreen),
-          builder: (_) => BarbarDetailScreen(),
+          builder: (_) =>
+              BarberDetailScreen(selectedTab: args?['selectedTab'] ?? 0),
         );
       case barbarList:
         return MaterialPageRoute(

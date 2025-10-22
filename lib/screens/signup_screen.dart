@@ -24,7 +24,6 @@ class _SignupScreenState extends State<SignupScreen> {
     'White',
     'Black/African/Caribbean',
     'Asian',
-    'Others',
   ];
 
   @override
@@ -100,8 +99,12 @@ class _SignupScreenState extends State<SignupScreen> {
               SizedBox(height: 8.h),
               DropdownButtonFormField2<String>(
                 decoration: InputDecoration(
-                  // labelText: 'Select Ethnicity',
                   border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.only(
+                    top: 13.h,
+                    bottom: 13.h,
+                    right: 10.w,
+                  ), // Offset from upper side
                 ),
                 value: _selectedEthnicity,
                 isExpanded: true,
@@ -119,6 +122,23 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: Text(value),
                   );
                 }).toList(),
+                dropdownStyleData: DropdownStyleData(
+                  offset: Offset(0, -4),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      12.r,
+                    ), // Border radius for dropdown
+                    color: Colors.white, // White background
+                  ),
+                ),
+                buttonStyleData: ButtonStyleData(
+                  decoration: BoxDecoration(
+                    color: Colors.white, // White background for button
+                  ),
+                ),
+                menuItemStyleData: MenuItemStyleData(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                ),
               ),
               SizedBox(height: 20.h),
               Text(
