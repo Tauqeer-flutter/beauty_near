@@ -2,6 +2,7 @@ import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:beauty_near/widgets/custom_app_bar.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -19,6 +20,13 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
   int kidsCount = 0;
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
+  String? _selectedEthnicity;
+
+  final List<String> _ethnicities = [
+    'White',
+    'Black/African/Caribbean',
+    'Asian',
+  ];
 
   Future<void> _selectDate() async {
     final DateTime? picked = await showDatePicker(
@@ -175,6 +183,57 @@ class _CreateBookingFormScreenState extends State<CreateBookingFormScreen> {
                     child: Text("-", style: TextStyle(fontSize: 25.sp)),
                   ),
                 ],
+              ),
+            ),
+            SizedBox(height: 20.h),
+            Text(
+              'Select Ethnicity',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: AppColors.textPrimaryColor,
+              ),
+            ),
+            SizedBox(height: 8.h),
+            DropdownButtonFormField2<String>(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.only(
+                  top: 13.h,
+                  bottom: 13.h,
+                  right: 10.w,
+                ), // Offset from upper side
+              ),
+              value: _selectedEthnicity,
+              isExpanded: true,
+              hint: Text('Select Ethnicity'),
+              onChanged: (String? newValue) {
+                setState(() {
+                  _selectedEthnicity = newValue;
+                });
+              },
+              items: _ethnicities.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              dropdownStyleData: DropdownStyleData(
+                offset: Offset(0, -4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    12.r,
+                  ), // Border radius for dropdown
+                  color: Colors.white, // White background
+                ),
+              ),
+              buttonStyleData: ButtonStyleData(
+                decoration: BoxDecoration(
+                  color: Colors.white, // White background for button
+                ),
+              ),
+              menuItemStyleData: MenuItemStyleData(
+                padding: EdgeInsets.symmetric(horizontal: 16),
               ),
             ),
             SizedBox(height: 20.h),

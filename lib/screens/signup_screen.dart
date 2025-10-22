@@ -1,5 +1,4 @@
 import 'package:beauty_near/utils/extensions.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,14 +17,6 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  String? _selectedEthnicity;
-
-  final List<String> _ethnicities = [
-    'White',
-    'Black/African/Caribbean',
-    'Asian',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,59 +76,6 @@ class _SignupScreenState extends State<SignupScreen> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: context.localization.yourEmail,
-                ),
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                'Select Ethnicity',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              DropdownButtonFormField2<String>(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.only(
-                    top: 13.h,
-                    bottom: 13.h,
-                    right: 10.w,
-                  ), // Offset from upper side
-                ),
-                value: _selectedEthnicity,
-                isExpanded: true,
-                hint: Text('Select Ethnicity'),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    _selectedEthnicity = newValue;
-                  });
-                },
-                items: _ethnicities.map<DropdownMenuItem<String>>((
-                  String value,
-                ) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                dropdownStyleData: DropdownStyleData(
-                  offset: Offset(0, -4),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      12.r,
-                    ), // Border radius for dropdown
-                    color: Colors.white, // White background
-                  ),
-                ),
-                buttonStyleData: ButtonStyleData(
-                  decoration: BoxDecoration(
-                    color: Colors.white, // White background for button
-                  ),
-                ),
-                menuItemStyleData: MenuItemStyleData(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
                 ),
               ),
               SizedBox(height: 20.h),
