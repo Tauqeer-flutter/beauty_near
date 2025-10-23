@@ -44,18 +44,19 @@ class ServiceCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5.r),
                         shape: BoxShape.rectangle,
-                        color: Colors.transparent,
+                        color: isSelected
+                            ? AppColors.kPrimaryColor
+                            : Colors.transparent,
                         border: Border.all(
-                          color: isSelected
-                              ? AppColors.greenColor
-                              : AppColors.textGreyColor,
+                          color: AppColors.kPrimaryColor,
+
                           width: 1.w,
                         ),
                       ),
                       child: isSelected
                           ? Icon(
                               Icons.check,
-                              color: AppColors.greenColor,
+                              color: AppColors.kScaffoldColor,
                               size: 12.sp,
                             )
                           : null,
