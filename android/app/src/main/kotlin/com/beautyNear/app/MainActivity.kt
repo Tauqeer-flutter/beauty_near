@@ -1,4 +1,4 @@
-package com.beauty_near.app.beauty_near
+package com.beautyNear.app
 
 import io.flutter.embedding.android.FlutterActivity
 
