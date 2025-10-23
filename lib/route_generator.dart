@@ -1,5 +1,6 @@
 import 'package:beauty_near/screens/barbar_detail_screen.dart';
 import 'package:beauty_near/screens/barbar_list.dart';
+import 'package:beauty_near/screens/change_password_screen.dart';
 import 'package:beauty_near/screens/congratulations_screen.dart';
 import 'package:beauty_near/screens/create_booking_form_screen.dart';
 import 'package:beauty_near/screens/create_booking_gender_screen.dart';
@@ -56,6 +57,7 @@ const String payInCash = '/pay_in_cash';
 const String payOnline = '/pay_online';
 const String orderSummary = '/order_summary';
 const String congratulationsScreen = '/congratulations_screen';
+const String changePassword = 'change_password';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -204,6 +206,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: congratulationsScreen),
           builder: (_) => CongratulationsScreen(),
+        );
+      case changePassword:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: changePassword),
+          builder: (_) => ChangePasswordScreen(),
         );
       default:
         return _errorRoute();

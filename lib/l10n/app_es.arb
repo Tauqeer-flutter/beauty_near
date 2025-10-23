@@ -142,5 +142,7 @@
   "minsSession": "Sesión de {mins} min",
   "languages": "Idiomas",
   "allServices": "Todos los servicios",
-  "availableToday": "Available Today"
+  "currentPassword": "Contraseña Actual",
+  "newPassword": "Nueva Contraseña",
+  "confirmNewPassword": "Confirmar Nueva Contraseña"
 }

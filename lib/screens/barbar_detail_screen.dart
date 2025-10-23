@@ -55,23 +55,25 @@ class BarberDetailScreen extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: 251.h,
       pinned: true,
-      titleSpacing: 0,
       leading: Center(
         child: GestureDetector(
           onTap: () {
             Navigator.pop(context);
           },
-          child: Container(
-            width: 36.w,
-            height: 36.h,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            child: Icon(
-              Icons.chevron_left,
-              color: Color(0xff292D32),
-              size: 18.sp,
+          child: Padding(
+            padding: EdgeInsets.only(left: 20.w),
+            child: Container(
+              width: 36.h,
+              height: 36.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
+              child: Icon(
+                Icons.chevron_left,
+                color: Color(0xff292D32),
+                size: 18.sp,
+              ),
             ),
           ),
         ),
@@ -401,7 +403,7 @@ class BarberDetailScreen extends StatelessWidget {
               createBookingViewModel.setSelectedTab(0);
             },
             child: Container(
-              height: 31.h,
+              padding: EdgeInsets.symmetric(vertical: 9.h),
               decoration: BoxDecoration(
                 gradient: createBookingViewModel.selectedTabIndex == 0
                     ? AppColors.kPrimaryGradient
@@ -427,14 +429,14 @@ class BarberDetailScreen extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 10.w),
+        SizedBox(width: 12.w),
         Expanded(
           child: GestureDetector(
             onTap: () {
               createBookingViewModel.setSelectedTab(1);
             },
             child: Container(
-              height: 31.h,
+              padding: EdgeInsets.symmetric(vertical: 9.h),
               decoration: BoxDecoration(
                 gradient: createBookingViewModel.selectedTabIndex == 1
                     ? AppColors.kPrimaryGradient

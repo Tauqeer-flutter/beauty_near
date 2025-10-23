@@ -460,5 +460,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get allServices => 'Tous les services';
 
   @override
-  String get availableToday => 'Available Today';
+  String get availableToday => 'Disponible aujourd\'hui';
+
+  @override
+  String get currentPassword => 'Mot de Passe Actuel';
+
+  @override
+  String get newPassword => 'Nouveau Mot de Passe';
+
+  @override
+  String get confirmNewPassword => 'Confirmer le Nouveau Mot de Passe';
 }

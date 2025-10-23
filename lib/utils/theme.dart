@@ -75,11 +75,11 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 13.h),
+          padding: EdgeInsets.symmetric(vertical: 9.h),
           textStyle: GoogleFonts.montserrat(
             textStyle: TextStyle(
               color: Colors.white,
-              fontSize: 16.sp,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -93,11 +93,11 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 13.h),
+          padding: EdgeInsets.symmetric(vertical: 9.h),
           textStyle: GoogleFonts.montserrat(
             textStyle: TextStyle(
               color: AppColors.kPrimaryColor,
-              fontSize: 16.sp,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w500,
             ),
           ),

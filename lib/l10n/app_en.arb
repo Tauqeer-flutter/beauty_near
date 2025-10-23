@@ -141,5 +141,8 @@
   "minsSession": "{mins} min session",
   "languages": "Languages",
   "allServices": "All Services",
-  "availableToday": "Available Today"
+  "availableToday": "Available Today",
+  "currentPassword":"Current Password",
+  "newPassword":"New Password",
+  "confirmNewPassword":"Confirm New Password"
 }

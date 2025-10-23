@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
+import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 
@@ -125,7 +126,7 @@ class PersonalInformationScreen extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               GestureDetector(
-                // onTap: () => Navigator.pushNamed(context, changePassword),
+                onTap: () => Navigator.pushNamed(context, changePassword),
                 child: Container(
                   padding: EdgeInsets.symmetric(
                     horizontal: 20.w,

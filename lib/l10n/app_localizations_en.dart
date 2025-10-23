@@ -457,4 +457,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get availableToday => 'Available Today';
+
+  @override
+  String get currentPassword => 'Current Password';
+
+  @override
+  String get newPassword => 'New Password';
+
+  @override
+  String get confirmNewPassword => 'Confirm New Password';
 }
