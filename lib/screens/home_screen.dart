@@ -73,17 +73,25 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      actionsPadding: EdgeInsets.zero,
       actions: [
-        IconButton(
-          onPressed: () {
+        InkWell(
+          onTap: () {
             Navigator.pushNamed(
               context,
               locationScreen,
               arguments: {'onSuccess': () => Navigator.pop(context)},
             );
           },
-          iconSize: 30.sp,
-          icon: Icon(Iconsax.location5, color: AppColors.kPrimaryColor),
+          customBorder: CircleBorder(),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Icon(
+              Iconsax.location5,
+              color: AppColors.kPrimaryColor,
+              size: 24.sp,
+            ),
+          ),
         ),
         LanguageDropDown(),
       ],
