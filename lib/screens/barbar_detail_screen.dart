@@ -258,7 +258,11 @@ class BarberDetailScreen extends StatelessWidget {
         if (createBookingViewModel.selectedTabIndex == 0)
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            color: Colors.white,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.r),
+              color: Colors.white,
+              boxShadow: kElevationToShadow[2],
+            ),
             child: Column(
               children: [
                 SizedBox(height: 10.h),
@@ -462,16 +466,10 @@ class BarberDetailScreen extends StatelessWidget {
       height: 65.h,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
+        color: Colors.white,
         borderRadius: BorderRadius.circular(8.r),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 5,
-            color: Colors.grey.shade200,
-            spreadRadius: 5,
-          ),
-        ],
+        boxShadow: kElevationToShadow[2],
       ),
-
       child: Row(
         children: [
           SvgPicture.asset(icon, height: 45.h, width: 45.h),
