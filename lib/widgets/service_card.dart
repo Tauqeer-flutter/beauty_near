@@ -23,7 +23,6 @@ class ServiceCard extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: 168.w,
-        // height: 144.h,
         child: Card(
           margin: EdgeInsets.zero,
           clipBehavior: Clip.antiAlias,

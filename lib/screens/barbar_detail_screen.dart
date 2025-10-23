@@ -71,28 +71,30 @@ class BarberDetailScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.only(left: 46.w, top: 20.h),
-        title: Align(
-          alignment: Alignment.centerLeft,
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final double top = constraints.biggest.height;
-              final double collapseRatio =
-                  ((300.0 - top) / (300.0 - kToolbarHeight)).clamp(0.0, 1.0);
-              print('RATIO: $collapseRatio');
-              return AnimatedOpacity(
-                duration: Duration(milliseconds: 150),
-                opacity: collapseRatio >= 0.97 ? 1 : 0,
-                child: Text(
-                  'Barber Name Here',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.kBlackText,
+        titlePadding: EdgeInsets.only(left: 56.w),
+        title: SafeArea(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final double top = constraints.biggest.height;
+                final double collapseRatio =
+                    ((300.0 - top) / (300.0 - kToolbarHeight)).clamp(0.0, 1.0);
+                print('RATIO: $collapseRatio');
+                return AnimatedOpacity(
+                  duration: Duration(milliseconds: 150),
+                  opacity: collapseRatio >= 0.87 ? 1 : 0,
+                  child: Text(
+                    'Barber Name Here',
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.kBlackText,
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
         background: Image.asset(PngAssets.bookingImage, fit: BoxFit.fill),
@@ -340,11 +342,12 @@ class BarberDetailScreen extends StatelessWidget {
                     ),
                   ),
                 ],
-                SizedBox(height: 25.h),
+                SizedBox(height: context.bottomNotch + 25.h),
               ],
             ),
-          ),
-        SizedBox(height: context.bottomNotch),
+          )
+        else
+          SizedBox(height: context.bottomNotch),
       ]),
     );
   }
