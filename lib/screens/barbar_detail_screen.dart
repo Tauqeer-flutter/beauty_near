@@ -14,6 +14,8 @@ import '../widgets/bottom sheet/review_bottom_sheet.dart';
 import '../widgets/reviews_card.dart';
 import '../widgets/service_card.dart';
 
+final collapseNotifier = ValueNotifier(0.0);
+
 class BarberDetailScreen extends StatelessWidget {
   final int selectedTab;
   BarberDetailScreen({super.key, this.selectedTab = 0}) {
@@ -30,9 +32,14 @@ class BarberDetailScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           _buildAppBar(context),
-          SliverPersistentHeader(
-            delegate: BarberTitleDelegate(),
-            pinned: false,
+          ValueListenableBuilder(
+            builder: (context, value, child) {
+              return SliverPersistentHeader(
+                delegate: BarberTitleDelegate(opacity: value),
+                pinned: false,
+              );
+            },
+            valueListenable: collapseNotifier,
           ),
           Consumer<CreateBookingViewModel>(
             builder: (context, bookingViewModel, child) {
@@ -50,17 +57,17 @@ class BarberDetailScreen extends StatelessWidget {
       pinned: true,
       titleSpacing: 0,
       leading: Center(
-        child: Container(
-          width: 36.w,
-          height: 36.h,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white,
-          ),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            width: 36.w,
+            height: 36.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
             child: Icon(
               Icons.chevron_left,
               color: Color(0xff292D32),
@@ -80,6 +87,9 @@ class BarberDetailScreen extends StatelessWidget {
                 final double top = constraints.biggest.height;
                 final double collapseRatio =
                     ((300.0 - top) / (300.0 - kToolbarHeight)).clamp(0.0, 1.0);
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  collapseNotifier.value = collapseRatio;
+                });
                 return AnimatedOpacity(
                   duration: Duration(milliseconds: 150),
                   opacity: collapseRatio >= 0.87 ? 1 : 0,
@@ -96,7 +106,7 @@ class BarberDetailScreen extends StatelessWidget {
             ),
           ),
         ),
-        background: Image.asset(PngAssets.bookingImage, fit: BoxFit.fill),
+        background: Image.asset(PngAssets.bookingImage, fit: BoxFit.cover),
       ),
     );
   }

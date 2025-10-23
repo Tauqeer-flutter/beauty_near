@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:beauty_near/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,6 +24,7 @@ class ServiceCard extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: 168.w,
+        height: 144.h,
         child: Card(
           margin: EdgeInsets.zero,
           clipBehavior: Clip.antiAlias,
@@ -66,8 +68,9 @@ class ServiceCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    AutoSizeText(
                       service.name,
+                      maxLines: 1,
                       style: TextStyle(
                         height: 0,
                         fontWeight: FontWeight.w500,
