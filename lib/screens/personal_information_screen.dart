@@ -124,32 +124,39 @@ class PersonalInformationScreen extends StatelessWidget {
                 decoration: InputDecoration(hintText: "+123 4569 9630 0258"),
               ),
               SizedBox(height: 15.h),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(70.r),
-                  border: Border.all(
-                    color: AppColors.kPrimaryColor, // Set the border color here
-                    width: 1.sp, // Optional: Set the border width
+              GestureDetector(
+                // onTap: () => Navigator.pushNamed(context, changePassword),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 12.h,
                   ),
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      context.localization.changePassword,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.kPrimaryColor,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(70.r),
+                    border: Border.all(
+                      color:
+                          AppColors.kPrimaryColor, // Set the border color here
+                      width: 1.sp, // Optional: Set the border width
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        context.localization.changePassword,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.kPrimaryColor,
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    Icon(
-                      Icons.arrow_forward,
-                      color: AppColors.kPrimaryColor,
-                      size: 20.sp,
-                    ),
-                  ],
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: AppColors.kPrimaryColor,
+                        size: 20.sp,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
