@@ -118,22 +118,22 @@ class HomeScreen extends StatelessWidget {
               Navigator.pushNamed(context, barbarList);
             },
           ),
-          SizedBox(height: 15.h),
+         // SizedBox(height: 15.h),
           SizedBox(
-            height: 217.h,
+            height: 242.h,
             child: ListView.builder(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               itemBuilder: (context, index) => Center(
                 child: Padding(
-                  padding: EdgeInsets.only(right: 12.w),
+                  padding: EdgeInsets.only(right: 12.w,top: 15.h,bottom: 12.h),
                   child: SizedBox(width: 168.w, child: ServiceProviderCard()),
                 ),
               ),
             ),
           ),
-          SizedBox(height: 25.h),
+          SizedBox(height: 30.h),
           _buildSectionHeading(title: context.localization.barberYouNeed),
           SizedBox(height: 15.h),
           _buildServiceFilter(),

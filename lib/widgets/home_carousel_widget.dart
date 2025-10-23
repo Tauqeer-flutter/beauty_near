@@ -18,40 +18,35 @@ class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {
   final CarouselSliderController _controller = CarouselSliderController();
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 190.h,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: CarouselSlider(
-              items: List.generate(
-                _carouselItems,
-                (_) => _buildCarouselItem(context),
-              ),
-              carouselController: _controller,
-              disableGesture: true,
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                viewportFraction: 1,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        CarouselSlider(
+          items: List.generate(
+            _carouselItems,
+            (_) => _buildCarouselItem(context),
+          ),
+          carouselController: _controller,
+          disableGesture: true,
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+            viewportFraction: 1,
 
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                },
-              ),
-            ),
+            onPageChanged: (index, reason) {
+              setState(() {
+                _current = index;
+              });
+            },
           ),
-          SizedBox(height: 5.h),
-          PageDotIndicator(
-            length: _carouselItems,
-            current: _current,
-            onDotTap: (index) => _controller.animateToPage(index),
-          ),
-        ],
-      ),
+        ),
+        SizedBox(height: 5.h),
+        PageDotIndicator(
+          length: _carouselItems,
+          current: _current,
+          onDotTap: (index) => _controller.animateToPage(index),
+        ),
+      ],
     );
   }
 

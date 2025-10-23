@@ -34,8 +34,8 @@ class ServiceProviderCard extends StatelessWidget {
                 spacing: 12.h,
                 children: [
                   SizedBox(
-                    width: 90.w,
-                    child: ClipOval(child: Image.asset(PngAssets.person)),
+                    width: 90.h,
+                    child: ClipOval(child: Image.asset(PngAssets.person,)),
                   ),
                   Text(
                     'John Smith',
