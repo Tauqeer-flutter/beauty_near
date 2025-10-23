@@ -9,6 +9,7 @@ import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 import '../view_models/create_booking_view_model.dart';
+import '../widgets/barber_title_delegate.dart';
 import '../widgets/bottom sheet/review_bottom_sheet.dart';
 import '../widgets/reviews_card.dart';
 import '../widgets/service_card.dart';
@@ -24,379 +25,323 @@ class BarberDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CreateBookingViewModel>(
-      builder: (context, createBookingViewModel, child) {
-        return Scaffold(
-          backgroundColor: AppColors.kScaffoldColor,
-          body: SafeArea(
-            top: false,
-            child: Column(
-              children: [
-                // Hero Image Section
-                SizedBox(
-                  height: 251.h,
-                  child: Stack(
-                    fit: StackFit.expand,
+    return Scaffold(
+      backgroundColor: AppColors.kScaffoldColor,
+      body: CustomScrollView(
+        slivers: [
+          _buildAppBar(context),
+          SliverPersistentHeader(
+            delegate: BarberTitleDelegate(),
+            pinned: false,
+          ),
+          Consumer<CreateBookingViewModel>(
+            builder: (context, bookingViewModel, child) {
+              return _buildBody(context, bookingViewModel);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  SliverAppBar _buildAppBar(BuildContext context) {
+    return SliverAppBar(
+      expandedHeight: 251.h,
+      pinned: true,
+      titleSpacing: 0,
+      leading: Center(
+        child: Container(
+          width: 36.w,
+          height: 36.h,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+          ),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.chevron_left,
+              color: Color(0xff292D32),
+              size: 18.sp,
+            ),
+          ),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      flexibleSpace: FlexibleSpaceBar(
+        titlePadding: EdgeInsets.only(left: 46.w, top: 20.h),
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final double top = constraints.biggest.height;
+              final double collapseRatio =
+                  ((300.0 - top) / (300.0 - kToolbarHeight)).clamp(0.0, 1.0);
+              print('RATIO: $collapseRatio');
+              return AnimatedOpacity(
+                duration: Duration(milliseconds: 150),
+                opacity: collapseRatio >= 0.97 ? 1 : 0,
+                child: Text(
+                  'Barber Name Here',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.kBlackText,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        background: Image.asset(PngAssets.bookingImage, fit: BoxFit.fill),
+      ),
+    );
+  }
+
+  SliverList _buildBody(
+    BuildContext context,
+    CreateBookingViewModel createBookingViewModel,
+  ) {
+    return SliverList(
+      delegate: SliverChildListDelegate([
+        Padding(
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Iconsax.location5,
+                    color: AppColors.kPrimaryColor,
+                    size: 18.sp,
+                  ),
+                  SizedBox(width: 5.h),
+                  Text(
+                    context.localization.distance('10'),
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  SizedBox(width: 5.h),
+                  Text(
+                    '•',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  SizedBox(width: 5.h),
+                  Icon(Iconsax.star1, size: 16.sp, color: Color(0XffDBA300)),
+                  SizedBox(width: 5.h),
+                  GestureDetector(
+                    onTap: () {
+                      showReviewBottomSheet(context);
+                    },
+                    child: Text(
+                      context.localization.ratingAndReviews('4.8', 145),
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                context.localization.aboutBarber,
+                style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(height: 6.h),
+              Text(
+                "With 12 years perfecting the art of precision cutting, Marcus brings unmatched expertise to every appointment. Passionate about creating looks that reflect each client's unique style. M...Readmore",
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+              ),
+              SizedBox(height: 20.h),
+              _buildAvailabilityInfo(context),
+              SizedBox(height: 30.h),
+              _buildTabs(context, createBookingViewModel),
+              SizedBox(height: 20.h),
+              // Conditional content based on selected tab
+              if (createBookingViewModel.selectedTabIndex == 0) ...[
+                Wrap(
+                  spacing: 10.0, // Horizontal spacing
+                  runSpacing: 10.0, // Vertical spacing
+                  children: List.generate(8, (index) {
+                    final service = createBookingViewModel.services[index];
+                    return ServiceCard(
+                      service: service,
+                      isSelected: createBookingViewModel.isServiceSelected(
+                        service,
+                      ),
+                      onTap: () => createBookingViewModel
+                          .toggleServiceSelection(service),
+                    );
+                  }),
+                ),
+                SizedBox(height: 30.h),
+              ] else ...[
+                // Reviews Tab - Rating Summary and List View
+                Container(
+                  padding: EdgeInsets.all(10),
+                  // height: 146.h,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  child: Row(
                     children: [
-                      // Barber Image
-                      Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(PngAssets.bookingImage),
-                            fit: BoxFit.cover,
-                          ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            customRatingRow(ratingNumber: "5", barLenght: 100),
+                            SizedBox(height: 8.h),
+                            customRatingRow(ratingNumber: "4", barLenght: 75),
+                            SizedBox(height: 8.h),
+
+                            customRatingRow(ratingNumber: "3", barLenght: 50),
+                            SizedBox(height: 8.h),
+
+                            customRatingRow(ratingNumber: "2", barLenght: 25),
+                            SizedBox(height: 8.h),
+
+                            customRatingRow(ratingNumber: "1", barLenght: 10),
+                          ],
                         ),
                       ),
-                      // Gradient Overlay
-                      Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Colors.transparent,
-                              Colors.black.withValues(alpha: 0.7),
-                            ],
-                          ),
-                        ),
-                      ),
-                      // Back Button
-                      Positioned(
-                        top: 50.h,
-                        left: 20.w,
-                        child: Container(
-                          width: 36.w,
-                          height: 36.h,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Icon(
-                              Icons.chevron_left,
-                              color: AppColors.textPrimaryColor,
-                              size: 18.sp,
+                      SizedBox(width: 51.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+
+                        children: [
+                          Text(
+                            "4.0",
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
+                          SizedBox(height: 8.h),
+                          fiveStarRow(),
+                          SizedBox(height: 8.h),
+                          Text(
+                            context.localization.onlyReviews(148),
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-
-                // Content Section
-                Expanded(child: _buildBody(context, createBookingViewModel)),
+                SizedBox(height: 15.h),
+                // Reviews List
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                    return ReviewsCard();
+                  },
+                ),
               ],
-            ),
+            ],
           ),
-
-          // Book Appointment Button
-        );
-      },
-    );
-  }
-
-  Container _buildBody(
-    BuildContext context,
-    CreateBookingViewModel createBookingViewModel,
-  ) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.kScaffoldColor,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20.r),
-          topRight: Radius.circular(20.r),
         ),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-          children: [
-            SizedBox(height: 15.h),
-            Padding(
-              padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Barber Name Here",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(height: 8.h),
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.location5,
-                        color: AppColors.kPrimaryColor,
-                        size: 18.sp,
-                      ),
-                      SizedBox(width: 5.h),
-                      Text(
-                        context.localization.distance('10'),
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(width: 5.h),
-                      Text(
-                        '•',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(width: 5.h),
-                      Icon(
-                        Iconsax.star1,
-                        size: 16.sp,
-                        color: Color(0XffDBA300),
-                      ),
-                      SizedBox(width: 5.h),
-                      GestureDetector(
-                        onTap: () {
-                          showReviewBottomSheet(context);
-                        },
-                        child: Text(
-                          context.localization.ratingAndReviews('4.8', 145),
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20.h),
-                  Text(
-                    context.localization.aboutBarber,
-                    style: TextStyle(
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w500,
+        if (createBookingViewModel.selectedTabIndex == 0)
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            color: Colors.white,
+            child: Column(
+              children: [
+                SizedBox(height: 10.h),
+                Center(
+                  child: Container(
+                    width: 60.w,
+                    height: 5.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      color: Color(0xff4a4a4a),
                     ),
                   ),
-                  SizedBox(height: 6.h),
-                  Text(
-                    "With 12 years perfecting the art of precision cutting, Marcus brings unmatched expertise to every appointment. Passionate about creating looks that reflect each client's unique style. M...Readmore",
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(height: 20.h),
-                  _buildAvailabilityInfo(context),
-                  SizedBox(height: 30.h),
-                  _buildTabs(context, createBookingViewModel),
-                  SizedBox(height: 20.h),
-                  // Conditional content based on selected tab
-                  if (createBookingViewModel.selectedTabIndex == 0) ...[
-                    SingleChildScrollView(
-                      child: Wrap(
-                        spacing: 10.0, // Horizontal spacing
-                        runSpacing: 10.0, // Vertical spacing
-                        children: List.generate(8, (index) {
-                          final service =
-                              createBookingViewModel.services[index];
-                          return ServiceCard(
-                            service: service,
-                            isSelected: createBookingViewModel
-                                .isServiceSelected(service),
-                            onTap: () => createBookingViewModel
-                                .toggleServiceSelection(service),
-                          );
-                        }),
+                ),
+                SizedBox(height: 15.h),
+                Text(
+                  "Selected Services",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                SizedBox(height: 20.h),
+                // Dynamic selected services
+                if (createBookingViewModel.selectedServices.isNotEmpty) ...[
+                  ...createBookingViewModel.selectedServices.map(
+                    (service) => Padding(
+                      padding: EdgeInsets.only(bottom: 10.h),
+                      child: selectedServices(
+                        serviceName: service.name,
+                        duration: service.duration,
+                        price: service.price,
+                        icon: service.icon,
                       ),
                     ),
-
-                    // Services Tab - Grid View
-                    SizedBox(height: 30.h),
-
-                    // Selected Services Section - Only visible on Services tab
-                  ] else ...[
-                    // Reviews Tab - Rating Summary and List View
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      // height: 146.h,
+                  ),
+                  SizedBox(height: 20.h),
+                  // Total price bar
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, selectServicesOrderSummary);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        gradient: AppColors.kPrimaryGradient,
                         borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                customRatingRow(
-                                  ratingNumber: "5",
-                                  barLenght: 100,
-                                ),
-                                SizedBox(height: 8.h),
-                                customRatingRow(
-                                  ratingNumber: "4",
-                                  barLenght: 75,
-                                ),
-                                SizedBox(height: 8.h),
-
-                                customRatingRow(
-                                  ratingNumber: "3",
-                                  barLenght: 50,
-                                ),
-                                SizedBox(height: 8.h),
-
-                                customRatingRow(
-                                  ratingNumber: "2",
-                                  barLenght: 25,
-                                ),
-                                SizedBox(height: 8.h),
-
-                                customRatingRow(
-                                  ratingNumber: "1",
-                                  barLenght: 10,
-                                ),
-                              ],
+                          Text(
+                            context.localization.total,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(width: 51.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-
-                            children: [
-                              Text(
-                                "4.0",
-                                style: TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 8.h),
-                              fiveStarRow(),
-                              SizedBox(height: 8.h),
-                              Text(
-                                context.localization.onlyReviews(148),
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
+                          Text(
+                            "\$${createBookingViewModel.getTotalPrice().toStringAsFixed(0)}",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 15.h),
-                    // Reviews List
-                    ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 6,
-                      itemBuilder: (context, index) {
-                        return ReviewsCard();
-                      },
+                  ),
+                ] else ...[
+                  Text(
+                    context.localization.noServicesSelected,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.darkGreyColor,
                     ),
-                  ],
+                  ),
                 ],
-              ),
+                SizedBox(height: 25.h),
+              ],
             ),
-            createBookingViewModel.selectedTabIndex == 0
-                ? Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        SizedBox(height: 10.h),
-                        Center(
-                          child: Container(
-                            width: 60.w,
-                            height: 5.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                              color: Color(0xff4a4a4a),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 15.h),
-                        Text(
-                          "Selected Services",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        SizedBox(height: 20.h),
-                        // Dynamic selected services
-                        if (createBookingViewModel
-                            .selectedServices
-                            .isNotEmpty) ...[
-                          ...createBookingViewModel.selectedServices.map(
-                            (service) => Padding(
-                              padding: EdgeInsets.only(bottom: 10.h),
-                              child: selectedServices(
-                                serviceName: service.name,
-                                duration: service.duration,
-                                price: service.price,
-                                icon: service.icon,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 20.h),
-                          // Total price bar
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                selectServicesOrderSummary,
-                              );
-                            },
-                            child: Container(
-                              padding: EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                gradient: AppColors.kPrimaryGradient,
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    context.localization.total,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  Text(
-                                    "\$${createBookingViewModel.getTotalPrice().toStringAsFixed(0)}",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ] else ...[
-                          Text(
-                            context.localization.noServicesSelected,
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.darkGreyColor,
-                            ),
-                          ),
-                        ],
-                        SizedBox(height: 25.h),
-                      ],
-                    ),
-                  )
-                : SizedBox(),
-          ],
-        ),
-      ),
+          ),
+        SizedBox(height: context.bottomNotch),
+      ]),
     );
   }
 
@@ -515,11 +460,9 @@ class BarberDetailScreen extends StatelessWidget {
   }) {
     return Container(
       height: 65.h,
-      padding: EdgeInsets.all(10.w),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
-        color: Colors.white,
-
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
@@ -531,19 +474,27 @@ class BarberDetailScreen extends StatelessWidget {
 
       child: Row(
         children: [
-          SvgPicture.asset(icon, height: 45.h, width: 45.w),
+          SvgPicture.asset(icon, height: 45.h, width: 45.h),
           SizedBox(width: 7.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 serviceName,
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w500,
+                  height: 0,
+                ),
               ),
               SizedBox(height: 3.h),
               Text(
                 duration,
-                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                  height: 0,
+                ),
               ),
             ],
           ),
@@ -554,6 +505,7 @@ class BarberDetailScreen extends StatelessWidget {
               fontSize: 17,
               fontWeight: FontWeight.w500,
               color: AppColors.kPrimaryColor,
+              height: 0,
             ),
           ),
         ],
