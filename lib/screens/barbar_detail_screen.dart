@@ -96,8 +96,8 @@ class BarberDetailScreen extends StatelessWidget {
                   child: Text(
                     'Barber Name Here',
                     style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 19.sp,
+                      fontWeight: FontWeight.w500,
                       color: AppColors.kBlackText,
                     ),
                   ),
@@ -278,13 +278,9 @@ class BarberDetailScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 10.h),
                 Center(
-                  child: Container(
-                    width: 60.w,
-                    height: 5.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      color: Color(0xff4a4a4a),
-                    ),
+                  child: Card(
+                    color: Color(0xff4a4a4a),
+                    child: SizedBox(width: 60.w, height: 5.h),
                   ),
                 ),
                 SizedBox(height: 15.h),
@@ -474,51 +470,50 @@ class BarberDetailScreen extends StatelessWidget {
     required String price,
     required String icon,
   }) {
-    return Container(
-      height: 65.h,
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.r),
-        boxShadow: kElevationToShadow[2],
-      ),
-      child: Row(
-        children: [
-          SvgPicture.asset(icon, height: 45.h, width: 45.h),
-          SizedBox(width: 7.w),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                serviceName,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                  height: 0,
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+      color: Colors.white,
+      elevation: 2, // This matches the box shadow effect
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+        child: Row(
+          children: [
+            SvgPicture.asset(icon, height: 45.h, width: 45.h),
+            SizedBox(width: 7.w),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  serviceName,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    height: 0,
+                  ),
                 ),
-              ),
-              SizedBox(height: 3.h),
-              Text(
-                duration,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
-                  height: 0,
+                SizedBox(height: 3.h),
+                Text(
+                  duration,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    height: 0,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Spacer(),
-          Text(
-            price,
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w500,
-              color: AppColors.kPrimaryColor,
-              height: 0,
+              ],
             ),
-          ),
-        ],
+            Spacer(),
+            Text(
+              price,
+              style: TextStyle(
+                fontSize: 17.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColors.kPrimaryColor,
+                height: 0,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
