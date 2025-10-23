@@ -41,8 +41,8 @@ class ServiceCard extends StatelessWidget {
                   children: [
                     SvgPicture.asset(service.icon, height: 45.h, width: 45.w),
                     Container(
-                      width: 14.w,
-                      height: 14.h,
+                      width: 16.h,
+                      height: 16.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5.r),
                         shape: BoxShape.rectangle,
@@ -55,13 +55,15 @@ class ServiceCard extends StatelessWidget {
                           width: 1.w,
                         ),
                       ),
-                      child: isSelected
-                          ? Icon(
-                              Icons.check,
-                              color: AppColors.kScaffoldColor,
-                              size: 12.sp,
-                            )
-                          : null,
+                      child: Center(
+                        child: isSelected
+                            ? Icon(
+                                Icons.check,
+                                color: AppColors.kScaffoldColor,
+                                size: 12.sp,
+                              )
+                            : null,
+                      ),
                     ),
                   ],
                 ),
