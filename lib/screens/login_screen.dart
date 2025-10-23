@@ -110,6 +110,7 @@ class LoginScreen extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 24.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 5.w,
             children: [
               Text(
                 context.localization.dontHavAccount,

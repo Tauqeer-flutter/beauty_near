@@ -439,13 +439,13 @@ abstract class AppLocalizations {
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
-  /// **'login'**
+  /// **'Login'**
   String get login;
 
   /// No description provided for @dontHavAccount.
   ///
   /// In en, this message translates to:
-  /// **'Don\'t have an account ?'**
+  /// **'Don\'t have an account?'**
   String get dontHavAccount;
 
   /// No description provided for @signUp.

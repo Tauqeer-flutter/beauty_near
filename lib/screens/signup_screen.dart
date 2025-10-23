@@ -169,7 +169,7 @@ class _SignupScreenState extends State<SignupScreen> {
               SizedBox(height: 24.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 2.5.w,
+                spacing: 5.w,
                 children: [
                   Text(
                     context.localization.alreadyHaveAccount,

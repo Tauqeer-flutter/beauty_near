@@ -190,7 +190,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get login => 'Connexion';
 
   @override
-  String get dontHavAccount => 'Vous n\'avez pas de compte ?';
+  String get dontHavAccount => 'Vous n\'avez pas de compte?';
 
   @override
   String get signUp => 'S\'inscrire';
