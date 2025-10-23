@@ -4,7 +4,9 @@ import 'package:beauty_near/screens/change_password_screen.dart';
 import 'package:beauty_near/screens/congratulations_screen.dart';
 import 'package:beauty_near/screens/create_booking_form_screen.dart';
 import 'package:beauty_near/screens/create_booking_gender_screen.dart';
+import 'package:beauty_near/screens/forget_password_screen.dart';
 import 'package:beauty_near/screens/order_summary_.dart';
+import 'package:beauty_near/screens/otp_screen.dart';
 import 'package:beauty_near/screens/pay_in_cash.dart';
 import 'package:beauty_near/screens/pay_online_screen.dart';
 import 'package:beauty_near/screens/payment_method.dart';
@@ -58,6 +60,8 @@ const String payOnline = '/pay_online';
 const String orderSummary = '/order_summary';
 const String congratulationsScreen = '/congratulations_screen';
 const String changePassword = 'change_password';
+const String otpScreen = 'otp_screen';
+const String forgetPasswordScreen = 'forget_password_screen';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -206,6 +210,16 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: congratulationsScreen),
           builder: (_) => CongratulationsScreen(),
+        );
+      case otpScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: otpScreen),
+          builder: (_) => OtpScreen(forget: args?['forget'] ?? 0),
+        );
+      case forgetPasswordScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: forgetPasswordScreen),
+          builder: (_) => ForgetPasswordScreen(),
         );
       case changePassword:
         return MaterialPageRoute(

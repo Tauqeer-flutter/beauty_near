@@ -78,11 +78,16 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 8.h),
               Align(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  context.localization.forgotPassword,
-                  style: TextStyle(
-                    fontSize: 11.sp,
-                    color: AppColors.textPrimaryColor,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, forgetPasswordScreen);
+                  },
+                  child: Text(
+                    context.localization.forgotPassword,
+                    style: TextStyle(
+                      fontSize: 11.sp,
+                      color: AppColors.textPrimaryColor,
+                    ),
                   ),
                 ),
               ),

@@ -130,18 +130,19 @@ class _SignupScreenState extends State<SignupScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      locationScreen,
-                      arguments: {
-                        'onSuccess': () => Navigator.pushNamedAndRemoveUntil(
-                          navigatorKey.currentContext!,
-                          congratulationsScreen,
-                          (_) => false,
-                        ),
-                      },
-                      (_) => false,
-                    );
+                    Navigator.pushNamed(context, otpScreen);
+                    // Navigator.pushNamedAndRemoveUntil(
+                    //   context,
+                    //   locationScreen,
+                    //   arguments: {
+                    //     'onSuccess': () => Navigator.pushNamedAndRemoveUntil(
+                    //       navigatorKey.currentContext!,
+                    //       congratulationsScreen,
+                    //       (_) => false,
+                    //     ),
+                    //   },
+                    //   (_) => false,
+                    // );
                   },
                   child: Text(context.localization.next),
                 ),

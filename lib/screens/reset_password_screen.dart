@@ -1,4 +1,3 @@
-import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,8 +6,8 @@ import 'package:iconsax/iconsax.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_app_bar.dart';
 
-class ChangePasswordScreen extends StatelessWidget {
-  const ChangePasswordScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,13 +72,7 @@ class ChangePasswordScreen extends StatelessWidget {
               ),
               Spacer(),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    loginScreen,
-                    (_) => false,
-                  );
-                },
+                onPressed: () => Navigator.pop(context),
                 child: Text(context.localization.changePassword),
               ),
               SizedBox(height: 20.h),

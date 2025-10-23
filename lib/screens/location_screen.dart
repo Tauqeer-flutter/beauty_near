@@ -18,7 +18,6 @@ class LocationScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 77.h),
-
               Text(
                 context.localization.selectLocation,
                 style: TextStyle(
