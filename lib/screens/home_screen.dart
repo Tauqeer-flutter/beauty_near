@@ -127,7 +127,7 @@ class HomeScreen extends StatelessWidget {
               itemCount: 5,
               itemBuilder: (context, index) => Center(
                 child: Padding(
-                  padding: EdgeInsets.only(right: 12.w,top: 15.h,bottom: 12.h),
+                  padding: EdgeInsets.only(right: 12.w,top: 15.h,bottom: 13.h),
                   child: SizedBox(width: 168.w, child: ServiceProviderCard()),
                 ),
               ),
