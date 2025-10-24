@@ -9,6 +9,7 @@ import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 import '../view_models/create_booking_view_model.dart';
+import '../widgets/app_back_button.dart';
 import '../widgets/barber_title_delegate.dart';
 import '../widgets/bottom sheet/review_bottom_sheet.dart';
 import '../widgets/reviews_card.dart';
@@ -56,31 +57,14 @@ class BarberDetailScreen extends StatelessWidget {
       expandedHeight: 251.h,
       pinned: true,
       leading: Center(
-        child: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Padding(
-            padding: EdgeInsets.only(left: 20.w),
-            child: Container(
-              width: 36.h,
-              height: 36.h,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-              ),
-              child: Icon(
-                Icons.chevron_left,
-                color: Color(0xff292D32),
-                size: 18.sp,
-              ),
-            ),
-          ),
+        child: Padding(
+          padding: EdgeInsets.only(left: 20.w),
+          child: AppBackButton(),
         ),
       ),
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.only(left: 56.w),
+        titlePadding: EdgeInsets.only(left: 60.w),
         title: SafeArea(
           child: Align(
             alignment: Alignment.centerLeft,

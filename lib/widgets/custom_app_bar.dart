@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/color_constant.dart';
+import 'app_back_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -24,24 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: Padding(
         padding: EdgeInsets.only(left: 20.0.w),
-        child: Container(
-          width: 36.w,
-          height: 36.h,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color(0xffFFFFFF),
-          ),
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(
-              Icons.chevron_left,
-              color: Color(0xff292D32),
-              size: 18.sp,
-            ),
-          ),
-        ),
+        child: AppBackButton(),
       ),
     );
   }
