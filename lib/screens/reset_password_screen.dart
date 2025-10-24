@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../route_generator.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_app_bar.dart';
 
@@ -19,23 +20,6 @@ class ResetPasswordScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 20.h),
-              Text(
-                context.localization.currentPassword,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: context.localization.password,
-                  suffixIcon: Icon(Iconsax.eye),
-                ),
-              ),
               SizedBox(height: 20.h),
               Text(
                 context.localization.newPassword,
@@ -72,7 +56,13 @@ class ResetPasswordScreen extends StatelessWidget {
               ),
               Spacer(),
               ElevatedButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    loginScreen,
+                    (_) => false,
+                  );
+                },
                 child: Text(context.localization.changePassword),
               ),
               SizedBox(height: 20.h),
