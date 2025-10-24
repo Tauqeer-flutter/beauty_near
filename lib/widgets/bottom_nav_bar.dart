@@ -26,9 +26,10 @@ class BottomNavBar extends StatelessWidget {
           height: 80.h,
           color: Colors.white,
           padding: EdgeInsets.zero,
-          elevation: 0,
+          elevation: 1,
           surfaceTintColor: Colors.transparent,
-          shadowColor: Colors.transparent,
+          // shadowColor: Colors.transparent,
+          shadowColor: AppColors.darkGreyColor,
           shape: VNotchedShape(),
           clipBehavior: Clip.antiAlias,
           child: Padding(

@@ -20,15 +20,15 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: SizedBox(
-        width: 168.w,
-        height: 144.h,
-        child: Card(
-          margin: EdgeInsets.zero,
-          clipBehavior: Clip.antiAlias,
-          color: Colors.white,
+    return SizedBox(
+      width: 168.w,
+      height: 144.h,
+      child: Card(
+        margin: EdgeInsets.zero,
+        clipBehavior: Clip.antiAlias,
+        color: Colors.white,
+        child: InkWell(
+          onTap: onTap,
           child: Padding(
             padding: EdgeInsets.all(10.0.r),
             child: Column(
