@@ -15,6 +15,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutUs => 'About Us';
 
   @override
+  String get resetPassword => 'Reset Password';
+
+  @override
+  String get enterOtp => 'Enter OTP';
+
+  @override
+  String get didntReceiveOtp => 'Didn’t get OTP?';
+
+  @override
+  String get resendOtp => 'Resend OTP';
+
+  @override
+  String get otpText =>
+      'Enter the OTP code we just sent you on your\nregistered Email/ Phone Number';
+
+  @override
+  String get forgetPasswordSubtitle =>
+      'Please enter your email to reset the password';
+
+  @override
+  String get forgetPasswordTextField => 'Email/ Mobile Number';
+
+  @override
   String get selectEthnicity => 'Select Ethnicity';
 
   @override

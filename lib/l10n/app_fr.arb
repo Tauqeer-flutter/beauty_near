@@ -1,6 +1,13 @@
 {
   "appName": "BeautyNear",
+  "forgetPasswordSubtitle":"Veuillez saisir votre email pour réinitialiser le mot de passe",
   "selectEthnicity":"Sélectionnez l'origine ethnique",
+  "forgetPasswordTextField":"E-mail/Numéro de portable",
+  "resetPassword":"Réinitialiser le mot de passe",
+  "enterOtp":"Entrez OTP",
+  "otpText":"Saisissez le code OTP que nous venons de vous envoyer sur votre adresse e-mail/numéro de téléphone enregistré",
+  "didntReceiveOtp":"Vous n'avez pas reçu d'OTP ?",
+  "resendOtp":"Renvoyer OTP",
   "aboutUs": "À propos de nous",
   "accountSettings": "Paramètres du compte",
   "general": "Général",

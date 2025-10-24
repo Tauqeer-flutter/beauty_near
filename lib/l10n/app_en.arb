@@ -1,6 +1,14 @@
 {
   "appName": "BeautyNear",
   "aboutUs": "About Us",
+  "resetPassword":"Reset Password",
+  "enterOtp":"Enter OTP",
+  "didntReceiveOtp":"Didn’t get OTP?",
+  "resendOtp":"Resend OTP",
+
+  "otpText":"Enter the OTP code we just sent you on your\nregistered Email/ Phone Number",
+  "forgetPasswordSubtitle":"Please enter your email to reset the password",
+  "forgetPasswordTextField":"Email/ Mobile Number",
   "selectEthnicity":"Select Ethnicity",
   "accountSettings": "Account Settings",
   "general": "General",

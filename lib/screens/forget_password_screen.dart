@@ -1,4 +1,5 @@
 import 'package:beauty_near/route_generator.dart';
+import 'package:beauty_near/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,7 +33,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               ),
               SizedBox(height: 50.h),
               Text(
-                'Forget Password?',
+                context.localization.forgotPassword,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24.sp,
@@ -42,7 +43,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               Text(
-                'Please enter your email to reset the password',
+                context.localization.forgetPasswordSubtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -51,7 +52,9 @@ class ForgetPasswordScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               TextFormField(
-                decoration: InputDecoration(hintText: 'Email/ Mobile Number'),
+                decoration: InputDecoration(
+                  hintText: context.localization.forgetPasswordTextField,
+                ),
               ),
               SizedBox(height: 32.h),
 
@@ -63,7 +66,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                     arguments: {'forget': false},
                   );
                 },
-                child: Text('Reset Password'),
+                child: Text(context.localization.resetPassword),
               ),
               SizedBox(height: 20.h),
             ],

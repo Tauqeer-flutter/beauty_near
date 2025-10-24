@@ -1,5 +1,12 @@
 {
   "appName": "BeautyNear",
+  "forgetPasswordSubtitle":"Por favor ingrese su correo electrónico para restablecer la contraseña",
+   "forgetPasswordTextField":"Correo electrónico/Número de móvil",
+  "resetPassword":"Restablecer contraseña",
+  "enterOtp":"Ingrese la OTP",
+  "didntReceiveOtp":"¿No recibiste OTP?",
+  "resendOtp":"Reenviar OTP",
+  "otpText":"Ingrese el código OTP que acabamos de enviarle a su correo electrónico o número de teléfono registrado.",
   "selectEthnicity":"Seleccionar etnia",
   "aboutUs": "Acerca de nosotros",
   "accountSettings": "Configuración de la cuenta",
