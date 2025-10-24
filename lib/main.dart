@@ -24,6 +24,8 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
+        // ChangeNotifierProvider( create: (context) => SplashViewModel(vsync: TickerProviderStateMixin()
+        // )),
         ChangeNotifierProvider(create: (context) => HomeViewModel()),
         ChangeNotifierProvider(create: (context) => CreateBookingViewModel()),
         ChangeNotifierProvider(create: (context) => AddCardViewModel()),
