@@ -138,7 +138,7 @@ class OtpScreen extends StatelessWidget {
                             )
                           : Navigator.pushNamedAndRemoveUntil(
                               context,
-                              changePassword,
+                              resetPasswordScreen,
                               (_) => false,
                             );
                     },

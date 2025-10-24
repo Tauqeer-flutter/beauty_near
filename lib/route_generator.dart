@@ -10,6 +10,7 @@ import 'package:beauty_near/screens/otp_screen.dart';
 import 'package:beauty_near/screens/pay_in_cash.dart';
 import 'package:beauty_near/screens/pay_online_screen.dart';
 import 'package:beauty_near/screens/payment_method.dart';
+import 'package:beauty_near/screens/reset_password_screen.dart';
 import 'package:beauty_near/screens/select_services_order_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -62,6 +63,7 @@ const String congratulationsScreen = '/congratulations_screen';
 const String changePassword = 'change_password';
 const String otpScreen = 'otp_screen';
 const String forgetPasswordScreen = 'forget_password_screen';
+const String resetPasswordScreen = 'reset_password_screen';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -220,6 +222,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: forgetPasswordScreen),
           builder: (_) => ForgetPasswordScreen(),
+        );
+      case resetPasswordScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: resetPasswordScreen),
+          builder: (_) => ResetPasswordScreen(),
         );
       case changePassword:
         return MaterialPageRoute(
