@@ -1,4 +1,5 @@
 // my_booking_viewmodel.dart
+import 'package:beauty_near/route_generator.dart';
 import 'package:flutter/material.dart';
 
 class MyBookingViewModel extends ChangeNotifier {
@@ -115,7 +116,7 @@ class MyBookingViewModel extends ChangeNotifier {
   void navigateToBookingDetails(BuildContext context, bool isCompleted) {
     Navigator.pushNamed(
       context,
-      '/myBookingDetailsScreen', // Replace with your route constant
+      myBookingDetailsScreen, // Replace with your route constant
       arguments: {'isCompleted': isCompleted},
     );
   }
