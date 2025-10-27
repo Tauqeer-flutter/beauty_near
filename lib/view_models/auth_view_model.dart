@@ -1,3 +1,4 @@
+import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/widgets/bottom%20sheet/image_selection_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -102,34 +103,29 @@ class AuthViewModel extends ChangeNotifier {
   // Signup method
   Future<void> signup(BuildContext context) async {
     if (signupFormKey.currentState!.validate()) {
-      _setLoading(true);
-      _errorMessage = null;
-
-      try {
-        // Simulate API call
-        await Future.delayed(const Duration(seconds: 2));
-
-        // Here you would typically call your authentication service
-        // final result = await authService.signup(
-        //   name: fullNameController.text,
-        //   email: emailController.text,
-        //   phone: phoneController.text,
-        //   password: passwordController.text,
-        // );
-
-        // Navigate to OTP screen on success
-        if (context.mounted) {
-          Navigator.pushNamed(
-            context,
-            '/otpScreen',
-          ); // Replace with your route constant
-        }
-      } catch (error) {
-        _errorMessage = error.toString();
-        notifyListeners();
-      } finally {
-        _setLoading(false);
-      }
+      Navigator.pushNamed(context, otpScreen, arguments: {'forget': true});
+      // _setLoading(true);
+      // _errorMessage = null;
+      //
+      // try {
+      //   // Simulate API call
+      //   await Future.delayed(const Duration(seconds: 2));
+      //
+      //
+      //
+      //   // Navigate to OTP screen on success
+      //   if (context.mounted) {
+      //     Navigator.pushNamed(
+      //       context,
+      //       otpScreen, // Replace with your route constant
+      //     ); // Replace with your route constant
+      //   }
+      // } catch (error) {
+      //   _errorMessage = error.toString();
+      //   notifyListeners();
+      // } finally {
+      //   _setLoading(false);
+      // }
     }
   }
 
