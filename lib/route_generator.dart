@@ -60,10 +60,10 @@ const String payInCash = '/pay_in_cash';
 const String payOnline = '/pay_online';
 const String orderSummary = '/order_summary';
 const String congratulationsScreen = '/congratulations_screen';
-const String changePassword = 'change_password';
-const String otpScreen = 'otp_screen';
-const String forgetPasswordScreen = 'forget_password_screen';
-const String resetPasswordScreen = 'reset_password_screen';
+const String changePassword = '/change_password';
+const String otpScreen = '/otp_screen';
+const String forgetPasswordScreen = '/forget_password_screen';
+const String resetPasswordScreen = '/reset_password_screen';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
