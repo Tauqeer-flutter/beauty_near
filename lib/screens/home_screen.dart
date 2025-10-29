@@ -1,7 +1,7 @@
 import 'package:beauty_near/route_generator.dart';
 import 'package:beauty_near/utils/enums.dart';
 import 'package:beauty_near/utils/extensions.dart';
-import 'package:beauty_near/widgets/language_drop_down.dart';
+import 'package:beauty_near/widgets/language_button.dart';
 import 'package:beauty_near/widgets/logo_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        LanguageDropDown(),
+        LanguageButton(),
       ],
     );
   }
@@ -118,7 +118,7 @@ class HomeScreen extends StatelessWidget {
               Navigator.pushNamed(context, barbarList);
             },
           ),
-         // SizedBox(height: 15.h),
+          // SizedBox(height: 15.h),
           SizedBox(
             height: 242.h,
             child: ListView.builder(
@@ -127,7 +127,11 @@ class HomeScreen extends StatelessWidget {
               itemCount: 5,
               itemBuilder: (context, index) => Center(
                 child: Padding(
-                  padding: EdgeInsets.only(right: 12.w,top: 15.h,bottom: 13.h),
+                  padding: EdgeInsets.only(
+                    right: 12.w,
+                    top: 15.h,
+                    bottom: 13.h,
+                  ),
                   child: SizedBox(width: 168.w, child: ServiceProviderCard()),
                 ),
               ),

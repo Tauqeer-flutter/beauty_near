@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'language_drop_down.dart';
+import 'language_button.dart';
 
 class LanguageAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LanguageAppBar({super.key});
@@ -18,7 +18,7 @@ class LanguageAppBar extends StatelessWidget implements PreferredSizeWidget {
       foregroundColor: Colors.black,
       automaticallyImplyLeading: false,
       elevation: 0,
-      actions: [LanguageDropDown()],
+      actions: [LanguageButton()],
     );
   }
 

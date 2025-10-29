@@ -130,6 +130,7 @@ class AppTheme {
           borderSide: BorderSide(color: AppColors.strokeColor),
         ),
       ),
+      cardTheme: CardThemeData(color: Colors.white),
     );
   }
 

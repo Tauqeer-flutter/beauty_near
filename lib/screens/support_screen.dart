@@ -91,19 +91,8 @@ Widget customExpansionCard({
   required String title,
   required String description,
 }) {
-  return Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12.r),
-      boxShadow: [
-        BoxShadow(
-          color: const Color(0x14000000), // #000000 with 8% opacity
-          offset: const Offset(0, 0),
-          blurRadius: 30,
-          spreadRadius: 0,
-        ),
-      ],
-    ),
+  return Card(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
     child: Theme(
       data: Theme.of(context).copyWith(
         splashColor: Colors.transparent,
